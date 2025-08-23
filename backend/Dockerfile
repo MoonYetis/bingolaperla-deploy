@@ -1,6 +1,6 @@
 # Backend Dockerfile - Multi-stage build optimized for production
 # Stage 1: Build dependencies and compile TypeScript
-FROM node:18-alpine AS builder
+FROM node:24-alpine AS builder
 
 # Install system dependencies
 RUN apk add --no-cache \
@@ -32,7 +32,7 @@ RUN npm run build
 RUN npm prune --omit=dev
 
 # Stage 2: Runtime environment
-FROM node:18-alpine AS runtime
+FROM node:24-alpine AS runtime
 
 # Install dumb-init for proper signal handling
 RUN apk add --no-cache dumb-init
