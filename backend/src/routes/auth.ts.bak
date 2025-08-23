@@ -1,0 +1,114 @@
+import { Router } from 'express';
+import { AuthController } from '@/controllers/authController';
+import { validateRequest } from '@/middleware/validation';
+import { 
+  fullAuthentication, 
+  authenticate, 
+  verifyUserExists 
+} from '@/middleware/auth';
+import { 
+  authRateLimit, 
+  registerRateLimit 
+} from '@/middleware/rateLimiting';
+import {
+  registerSchema,
+  loginSchema,
+  updateProfileSchema,
+  changePasswordSchema,
+} from '@/schemas/authSchemas';
+
+const router = Router();
+
+/**
+ * @route   POST /api/auth/register
+ * @desc    Registrar nuevo usuario
+ * @access  Public
+ */
+router.post(
+  '/register',
+  registerRateLimit, // Rate limiting más restrictivo para registro
+  validateRequest({ body: registerSchema }),
+  AuthController.register
+);
+
+/**
+ * @route   POST /api/auth/login
+ * @desc    Iniciar sesión
+ * @access  Public
+ */
+router.post(
+  '/login',
+  authRateLimit, // Rate limiting para intentos de login
+  validateRequest({ body: loginSchema }),
+  AuthController.login
+);
+
+/**
+ * @route   POST /api/auth/refresh
+ * @desc    Renovar access token usando refresh token
+ * @access  Public
+ */
+router.post(
+  '/refresh',
+  authRateLimit,
+  AuthController.refreshToken
+);
+
+/**
+ * @route   POST /api/auth/logout
+ * @desc    Cerrar sesión (invalidar tokens)
+ * @access  Private
+ */
+router.post(
+  '/logout',
+  authenticate,
+  AuthController.logout
+);
+
+/**
+ * @route   POST /api/auth/logout-all
+ * @desc    Cerrar sesión en todos los dispositivos
+ * @access  Private
+ */
+router.post(
+  '/logout-all',
+  fullAuthentication,
+  AuthController.logoutAllDevices
+);
+
+/**
+ * @route   GET /api/auth/me
+ * @desc    Obtener perfil del usuario autenticado
+ * @access  Private
+ */
+router.get(
+  '/me',
+  fullAuthentication,
+  AuthController.getProfile
+);
+
+/**
+ * @route   PUT /api/auth/profile
+ * @desc    Actualizar perfil del usuario
+ * @access  Private
+ */
+router.put(
+  '/profile',
+  fullAuthentication,
+  validateRequest({ body: updateProfileSchema }),
+  AuthController.updateProfile
+);
+
+/**
+ * @route   POST /api/auth/change-password
+ * @desc    Cambiar contraseña del usuario
+ * @access  Private
+ */
+router.post(
+  '/change-password',
+  fullAuthentication,
+  validateRequest({ body: changePasswordSchema }),
+  AuthController.changePassword
+);
+
+export default router;

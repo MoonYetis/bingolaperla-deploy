@@ -1,0 +1,3323 @@
+
+> bingo-backend@1.0.0 dev
+> nodemon src/server.ts
+
+[33m[nodemon] 3.1.10[39m
+[33m[nodemon] to restart at any time, enter `rs`[39m
+[33m[nodemon] watching path(s): src/**/*[39m
+[33m[nodemon] watching extensions: ts,json[39m
+[32m[nodemon] starting `ts-node -r tsconfig-paths/register src/server.ts src/server.ts`[39m
+15:23:23 [[36minfo[39m]: [36mSystem metrics collection started[39m
+{
+  "module": "performance",
+  "interval": 30000
+}
+15:23:24 [[36minfo[39m]: [36mOpenpay configuration validated successfully (MOCK MODE)[39m
+{
+  "merchantId": "mock_merchant_12345",
+  "production": false,
+  "mockMode": true,
+  "mockDelayMs": 1000,
+  "mockSuccessRate": 0.95,
+  "country": "PE"
+}
+15:23:24 [[36minfo[39m]: [36mOpenpay configuration validated successfully (MOCK MODE)[39m
+{
+  "merchantId": "mock_merchant_12345",
+  "production": false,
+  "mockMode": true,
+  "mockDelayMs": 1000,
+  "mockSuccessRate": 0.95,
+  "country": "PE"
+}
+15:23:24 [[36minfo[39m]: [36mConnecting to databases...[39m
+15:23:24 [[36minfo[39m]: ✅ Conexión a PostgreSQL establecida exitosamente
+prisma:query SELECT 1
+15:23:24 [[36minfo[39m]: ✅ Base de datos PostgreSQL funcionando correctamente
+15:23:24 [[31merror[39m]: AggregateError
+    at internalConnectMultiple (node:net:1139:18)
+    at afterConnectMultiple (node:net:1714:7)
+15:23:24 [[31merror[39m]: AggregateError
+    at internalConnectMultiple (node:net:1139:18)
+    at afterConnectMultiple (node:net:1714:7)
+15:23:24 [[33mwarn[39m]: ⚠️ Continuando sin Redis para desarrollo
+15:23:24 [[36minfo[39m]: [36mInitializing report scheduler...[39m
+15:23:24 [[36minfo[39m]: [36mInitializing scheduler service[39m
+{
+  "module": "analytics"
+}
+15:23:24 [[36minfo[39m]: [36mTask scheduled successfully[39m
+{
+  "module": "analytics",
+  "taskId": "kpi-alerts-hourly",
+  "type": "kpi-alerts",
+  "frequency": "daily",
+  "nextRun": "2025-08-12T21:00:00.000Z",
+  "timeUntilRun": 2195639
+}
+15:23:24 [[36minfo[39m]: [36mTask scheduled successfully[39m
+{
+  "module": "analytics",
+  "taskId": "daily-report-auto",
+  "type": "daily",
+  "frequency": "daily",
+  "nextRun": "2025-08-13T13:00:00.000Z",
+  "timeUntilRun": 59795639
+}
+15:23:24 [[36minfo[39m]: [36mTask scheduled successfully[39m
+{
+  "module": "analytics",
+  "taskId": "weekly-report-auto",
+  "type": "weekly",
+  "frequency": "weekly",
+  "nextRun": "2025-08-18T14:00:00.000Z",
+  "timeUntilRun": 495395639
+}
+15:23:24 [[36minfo[39m]: [36mTask scheduled successfully[39m
+{
+  "module": "analytics",
+  "taskId": "monthly-report-auto",
+  "type": "monthly",
+  "frequency": "monthly",
+  "nextRun": "2025-09-01T15:00:00.000Z",
+  "timeUntilRun": 1708595638
+}
+15:23:24 [[36minfo[39m]: [36mScheduler service initialized successfully[39m
+{
+  "module": "analytics",
+  "tasksCount": 4
+}
+15:23:24 [[36minfo[39m]: [36mServer started successfully[39m
+{
+  "port": 3001,
+  "environment": "development",
+  "frontendUrl": "http://localhost:5173",
+  "features": [
+    "HTTP",
+    "Socket.IO",
+    "CORS",
+    "Analytics",
+    "Reports",
+    "Scheduler"
+  ]
+}
+15:23:34 [[36minfo[39m]: [36mHTTP GET /health 200 1ms[39m
+{
+  "userAgent": "curl/8.7.1",
+  "ip": "::1",
+  "httpRequest": {
+    "method": "GET",
+    "url": "/health",
+    "statusCode": 200,
+    "responseTime": 1
+  },
+  "type": "http"
+}
+15:23:53 [[36minfo[39m]: Realtime metrics recorded
+15:24:23 [[36minfo[39m]: Realtime metrics recorded
+15:24:53 [[36minfo[39m]: Realtime metrics recorded
+15:25:23 [[36minfo[39m]: Realtime metrics recorded
+prisma:query SELECT 1
+prisma:query SELECT `main`.`games`.`id`, `main`.`games`.`title`, `main`.`games`.`description`, `main`.`games`.`maxPlayers`, `main`.`games`.`cardPrice`, `main`.`games`.`totalPrize`, `main`.`games`.`status`, `main`.`games`.`scheduledAt`, `main`.`games`.`startedAt`, `main`.`games`.`endedAt`, `main`.`games`.`ballsDrawn`, `main`.`games`.`currentBall`, `main`.`games`.`winningCards`, `main`.`games`.`createdAt`, `main`.`games`.`updatedAt`, COALESCE(`aggr_selection_0_GameParticipant`.`_aggr_count_participants`, 0) AS `_aggr_count_participants` FROM `main`.`games` LEFT JOIN (SELECT `main`.`game_participants`.`gameId`, COUNT(*) AS `_aggr_count_participants` FROM `main`.`game_participants` WHERE 1=1 GROUP BY `main`.`game_participants`.`gameId`) AS `aggr_selection_0_GameParticipant` ON (`main`.`games`.`id` = `aggr_selection_0_GameParticipant`.`gameId`) WHERE 1=1 ORDER BY `main`.`games`.`scheduledAt` ASC LIMIT ? OFFSET ?
+15:25:31 [[36minfo[39m]: [36mHTTP GET / 200 41ms[39m
+{
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36",
+  "ip": "::1",
+  "httpRequest": {
+    "method": "GET",
+    "url": "/",
+    "statusCode": 200,
+    "responseTime": 41
+  },
+  "type": "http"
+}
+prisma:query SELECT `main`.`users`.`id`, `main`.`users`.`email`, `main`.`users`.`username`, `main`.`users`.`password`, `main`.`users`.`role`, `main`.`users`.`balance`, `main`.`users`.`pearlsBalance`, `main`.`users`.`createdAt`, `main`.`users`.`updatedAt`, `main`.`users`.`isActive`, `main`.`users`.`isVerified`, `main`.`users`.`fullName`, `main`.`users`.`phone`, `main`.`users`.`dni`, `main`.`users`.`birthDate` FROM `main`.`users` WHERE (`main`.`users`.`email` = ? OR `main`.`users`.`username` = ?) LIMIT ? OFFSET ?
+prisma:query SELECT `main`.`users`.`id`, `main`.`users`.`email`, `main`.`users`.`username`, `main`.`users`.`password`, `main`.`users`.`role`, `main`.`users`.`balance`, `main`.`users`.`pearlsBalance`, `main`.`users`.`createdAt`, `main`.`users`.`updatedAt`, `main`.`users`.`isActive`, `main`.`users`.`isVerified`, `main`.`users`.`fullName`, `main`.`users`.`phone`, `main`.`users`.`dni`, `main`.`users`.`birthDate` FROM `main`.`users` WHERE (`main`.`users`.`id` = ? AND 1=1) LIMIT ? OFFSET ?
+15:25:42 [[36minfo[39m]: Tokens generados para usuario: jugador@test.com
+15:25:42 [[35maudit[39m]: [35mAUDIT: login_attempt on user_session[39m
+{
+  "module": "auth",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36",
+  "auditEvent": {
+    "action": "login_attempt",
+    "resource": "user_session",
+    "userId": "jugador@test.com",
+    "success": true,
+    "reason": "valid_credentials"
+  }
+}
+15:25:42 [[36minfo[39m]: [36mHTTP POST /login 200 397ms[39m
+{
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36",
+  "ip": "::1",
+  "httpRequest": {
+    "method": "POST",
+    "url": "/login",
+    "statusCode": 200,
+    "responseTime": 397
+  },
+  "type": "http"
+}
+prisma:query SELECT `main`.`bingo_cards`.`id`, `main`.`bingo_cards`.`userId`, `main`.`bingo_cards`.`gameId`, `main`.`bingo_cards`.`cardNumber`, `main`.`bingo_cards`.`isActive`, `main`.`bingo_cards`.`markedNumbers`, `main`.`bingo_cards`.`isWinner`, `main`.`bingo_cards`.`winningPattern`, `main`.`bingo_cards`.`createdAt`, `main`.`bingo_cards`.`updatedAt` FROM `main`.`bingo_cards` WHERE (`main`.`bingo_cards`.`userId` = ? AND `main`.`bingo_cards`.`isActive` = ?) LIMIT ? OFFSET ?
+prisma:query SELECT `main`.`games`.`id`, `main`.`games`.`title`, `main`.`games`.`cardPrice`, `main`.`games`.`status`, `main`.`games`.`scheduledAt`, `main`.`games`.`totalPrize`, `main`.`games`.`maxPlayers`, `main`.`games`.`description`, COALESCE(`aggr_selection_0_GameParticipant`.`_aggr_count_participants`, 0) AS `_aggr_count_participants` FROM `main`.`games` LEFT JOIN (SELECT `main`.`game_participants`.`gameId`, COUNT(*) AS `_aggr_count_participants` FROM `main`.`game_participants` WHERE 1=1 GROUP BY `main`.`game_participants`.`gameId`) AS `aggr_selection_0_GameParticipant` ON (`main`.`games`.`id` = `aggr_selection_0_GameParticipant`.`gameId`) WHERE `main`.`games`.`id` IN (?,?) LIMIT ? OFFSET ?
+prisma:query SELECT `main`.`card_numbers`.`id`, `main`.`card_numbers`.`cardId`, `main`.`card_numbers`.`position`, `main`.`card_numbers`.`column`, `main`.`card_numbers`.`number`, `main`.`card_numbers`.`isMarked`, `main`.`card_numbers`.`isFree` FROM `main`.`card_numbers` WHERE `main`.`card_numbers`.`cardId` IN (?,?,?,?) ORDER BY `main`.`card_numbers`.`position` ASC LIMIT ? OFFSET ?
+15:25:45 [[36minfo[39m]: [36mHTTP GET /my-all 200 12ms[39m
+{
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36",
+  "ip": "::1",
+  "httpRequest": {
+    "method": "GET",
+    "url": "/my-all",
+    "statusCode": 200,
+    "responseTime": 12
+  },
+  "type": "http"
+}
+15:25:45 [[36minfo[39m]: [36mHTTP GET /balance 200 7ms[39m
+{
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36",
+  "ip": "::1",
+  "httpRequest": {
+    "method": "GET",
+    "url": "/balance",
+    "statusCode": 200,
+    "responseTime": 7
+  },
+  "type": "http"
+}
+15:25:45 [[36minfo[39m]: [36mBalance consultado[39m
+{
+  "userId": "cme3boc9d0001131ojj801ouw",
+  "balance": 64
+}
+15:25:45 [[36minfo[39m]: [36mHTTP GET /balance 200 3ms[39m
+{
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36",
+  "ip": "::1",
+  "httpRequest": {
+    "method": "GET",
+    "url": "/balance",
+    "statusCode": 200,
+    "responseTime": 3
+  },
+  "type": "http"
+}
+15:25:45 [[36minfo[39m]: [36mBalance consultado[39m
+{
+  "userId": "cme3boc9d0001131ojj801ouw",
+  "balance": 64
+}
+15:25:52 [[36minfo[39m]: [36mSOCKET: client_connected[39m
+{
+  "socketEvent": "client_connected",
+  "socketData": {
+    "socketId": "nXvW1dnIruejFbBlAAAB"
+  },
+  "type": "socket"
+}
+15:25:52 [[36minfo[39m]: [36mBUSINESS: player_joined[39m
+{
+  "module": "game",
+  "userId": "nXvW1dnIruejFbBlAAAB",
+  "businessEvent": "player_joined",
+  "businessData": {
+    "gameId": "cme3boc9t000e131on2iaxg19",
+    "playerCount": 1
+  },
+  "type": "business"
+}
+15:25:53 [[36minfo[39m]: Realtime metrics recorded
+15:26:01 [[36minfo[39m]: [36mSOCKET: client_disconnected[39m
+{
+  "socketEvent": "client_disconnected",
+  "socketData": {
+    "socketId": "nXvW1dnIruejFbBlAAAB",
+    "reason": "client namespace disconnect"
+  },
+  "type": "socket"
+}
+15:26:01 [[36minfo[39m]: [36mHTTP GET /balance 200 10ms[39m
+{
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36",
+  "ip": "::1",
+  "httpRequest": {
+    "method": "GET",
+    "url": "/balance",
+    "statusCode": 200,
+    "responseTime": 10
+  },
+  "type": "http"
+}
+15:26:01 [[36minfo[39m]: [36mBalance consultado[39m
+{
+  "userId": "cme3boc9d0001131ojj801ouw",
+  "balance": 64
+}
+15:26:01 [[36minfo[39m]: [36mHTTP GET /balance 200 13ms[39m
+{
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36",
+  "ip": "::1",
+  "httpRequest": {
+    "method": "GET",
+    "url": "/balance",
+    "statusCode": 200,
+    "responseTime": 13
+  },
+  "type": "http"
+}
+15:26:01 [[36minfo[39m]: [36mBalance consultado[39m
+{
+  "userId": "cme3boc9d0001131ojj801ouw",
+  "balance": 64
+}
+15:26:06 [[36minfo[39m]: [36mHTTP GET /transactions 200 12ms[39m
+{
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36",
+  "ip": "::1",
+  "httpRequest": {
+    "method": "GET",
+    "url": "/transactions",
+    "statusCode": 200,
+    "responseTime": 12
+  },
+  "type": "http"
+}
+15:26:06 [[36minfo[39m]: [36mHistorial de transacciones consultado[39m
+{
+  "userId": "cme3boc9d0001131ojj801ouw",
+  "limit": 15,
+  "offset": 0,
+  "resultCount": 10
+}
+15:26:06 [[36minfo[39m]: [36mHTTP GET /balance 200 6ms[39m
+{
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36",
+  "ip": "::1",
+  "httpRequest": {
+    "method": "GET",
+    "url": "/balance",
+    "statusCode": 200,
+    "responseTime": 6
+  },
+  "type": "http"
+}
+15:26:06 [[36minfo[39m]: [36mBalance consultado[39m
+{
+  "userId": "cme3boc9d0001131ojj801ouw",
+  "balance": 64
+}
+15:26:06 [[36minfo[39m]: [36mHTTP GET /transactions 200 5ms[39m
+{
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36",
+  "ip": "::1",
+  "httpRequest": {
+    "method": "GET",
+    "url": "/transactions",
+    "statusCode": 200,
+    "responseTime": 5
+  },
+  "type": "http"
+}
+15:26:06 [[36minfo[39m]: [36mHistorial de transacciones consultado[39m
+{
+  "userId": "cme3boc9d0001131ojj801ouw",
+  "limit": 15,
+  "offset": 0,
+  "resultCount": 10
+}
+15:26:06 [[36minfo[39m]: [36mHTTP GET /balance 200 5ms[39m
+{
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36",
+  "ip": "::1",
+  "httpRequest": {
+    "method": "GET",
+    "url": "/balance",
+    "statusCode": 200,
+    "responseTime": 5
+  },
+  "type": "http"
+}
+15:26:06 [[36minfo[39m]: [36mBalance consultado[39m
+{
+  "userId": "cme3boc9d0001131ojj801ouw",
+  "balance": 64
+}
+15:26:06 [[36minfo[39m]: [36mHTTP GET /balance 200 2ms[39m
+{
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36",
+  "ip": "::1",
+  "httpRequest": {
+    "method": "GET",
+    "url": "/balance",
+    "statusCode": 200,
+    "responseTime": 2
+  },
+  "type": "http"
+}
+15:26:06 [[36minfo[39m]: [36mBalance consultado[39m
+{
+  "userId": "cme3boc9d0001131ojj801ouw",
+  "balance": 64
+}
+15:26:06 [[36minfo[39m]: [36mHTTP GET /balance 200 2ms[39m
+{
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36",
+  "ip": "::1",
+  "httpRequest": {
+    "method": "GET",
+    "url": "/balance",
+    "statusCode": 200,
+    "responseTime": 2
+  },
+  "type": "http"
+}
+15:26:06 [[36minfo[39m]: [36mBalance consultado[39m
+{
+  "userId": "cme3boc9d0001131ojj801ouw",
+  "balance": 64
+}
+prisma:query SELECT 1
+prisma:query SELECT `main`.`games`.`id`, `main`.`games`.`title`, `main`.`games`.`description`, `main`.`games`.`maxPlayers`, `main`.`games`.`cardPrice`, `main`.`games`.`totalPrize`, `main`.`games`.`status`, `main`.`games`.`scheduledAt`, `main`.`games`.`startedAt`, `main`.`games`.`endedAt`, `main`.`games`.`ballsDrawn`, `main`.`games`.`currentBall`, `main`.`games`.`winningCards`, `main`.`games`.`createdAt`, `main`.`games`.`updatedAt` FROM `main`.`games` WHERE (`main`.`games`.`id` = ? AND 1=1) LIMIT ? OFFSET ?
+15:26:08 [[36minfo[39m]: [36mHTTP GET /balance 200 9ms[39m
+{
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36",
+  "ip": "::1",
+  "httpRequest": {
+    "method": "GET",
+    "url": "/balance",
+    "statusCode": 200,
+    "responseTime": 9
+  },
+  "type": "http"
+}
+15:26:08 [[36minfo[39m]: [36mBalance consultado[39m
+{
+  "userId": "cme3boc9d0001131ojj801ouw",
+  "balance": 64
+}
+prisma:query SELECT `main`.`wallets`.`id`, `main`.`wallets`.`userId`, `main`.`wallets`.`balance`, `main`.`wallets`.`dailyLimit`, `main`.`wallets`.`monthlyLimit`, `main`.`wallets`.`isActive`, `main`.`wallets`.`isFrozen`, `main`.`wallets`.`createdAt`, `main`.`wallets`.`updatedAt` FROM `main`.`wallets` WHERE (`main`.`wallets`.`userId` = ? AND 1=1) LIMIT ? OFFSET ?
+15:26:08 [[36minfo[39m]: [36mHTTP GET /validate/:gameId/:cardCount? 200 27ms[39m
+{
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36",
+  "ip": "::1",
+  "httpRequest": {
+    "method": "GET",
+    "url": "/validate/:gameId/:cardCount?",
+    "statusCode": 200,
+    "responseTime": 27
+  },
+  "type": "http"
+}
+prisma:query SELECT `main`.`games`.`id`, `main`.`games`.`title`, `main`.`games`.`description`, `main`.`games`.`maxPlayers`, `main`.`games`.`cardPrice`, `main`.`games`.`totalPrize`, `main`.`games`.`status`, `main`.`games`.`scheduledAt`, `main`.`games`.`startedAt`, `main`.`games`.`endedAt`, `main`.`games`.`ballsDrawn`, `main`.`games`.`currentBall`, `main`.`games`.`winningCards`, `main`.`games`.`createdAt`, `main`.`games`.`updatedAt` FROM `main`.`games` WHERE (`main`.`games`.`id` = ? AND 1=1) LIMIT ? OFFSET ?
+prisma:query SELECT `main`.`wallets`.`id`, `main`.`wallets`.`userId`, `main`.`wallets`.`balance`, `main`.`wallets`.`dailyLimit`, `main`.`wallets`.`monthlyLimit`, `main`.`wallets`.`isActive`, `main`.`wallets`.`isFrozen`, `main`.`wallets`.`createdAt`, `main`.`wallets`.`updatedAt` FROM `main`.`wallets` WHERE (`main`.`wallets`.`userId` = ? AND 1=1) LIMIT ? OFFSET ?
+15:26:10 [[36minfo[39m]: [36mHTTP GET /validate/:gameId/:cardCount? 200 5ms[39m
+{
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36",
+  "ip": "::1",
+  "httpRequest": {
+    "method": "GET",
+    "url": "/validate/:gameId/:cardCount?",
+    "statusCode": 200,
+    "responseTime": 5
+  },
+  "type": "http"
+}
+prisma:query BEGIN IMMEDIATE
+prisma:query SELECT `main`.`games`.`id`, `main`.`games`.`title`, `main`.`games`.`description`, `main`.`games`.`maxPlayers`, `main`.`games`.`cardPrice`, `main`.`games`.`totalPrize`, `main`.`games`.`status`, `main`.`games`.`scheduledAt`, `main`.`games`.`startedAt`, `main`.`games`.`endedAt`, `main`.`games`.`ballsDrawn`, `main`.`games`.`currentBall`, `main`.`games`.`winningCards`, `main`.`games`.`createdAt`, `main`.`games`.`updatedAt`, COALESCE(`aggr_selection_0_GameParticipant`.`_aggr_count_participants`, 0) AS `_aggr_count_participants` FROM `main`.`games` LEFT JOIN (SELECT `main`.`game_participants`.`gameId`, COUNT(*) AS `_aggr_count_participants` FROM `main`.`game_participants` WHERE 1=1 GROUP BY `main`.`game_participants`.`gameId`) AS `aggr_selection_0_GameParticipant` ON (`main`.`games`.`id` = `aggr_selection_0_GameParticipant`.`gameId`) WHERE (`main`.`games`.`id` = ? AND 1=1) LIMIT ? OFFSET ?
+prisma:query SELECT `main`.`wallets`.`id`, `main`.`wallets`.`userId`, `main`.`wallets`.`balance`, `main`.`wallets`.`dailyLimit`, `main`.`wallets`.`monthlyLimit`, `main`.`wallets`.`isActive`, `main`.`wallets`.`isFrozen`, `main`.`wallets`.`createdAt`, `main`.`wallets`.`updatedAt` FROM `main`.`wallets` WHERE (`main`.`wallets`.`userId` = ? AND 1=1) LIMIT ? OFFSET ?
+prisma:query SELECT `main`.`game_participants`.`id`, `main`.`game_participants`.`userId`, `main`.`game_participants`.`gameId`, `main`.`game_participants`.`joinedAt`, `main`.`game_participants`.`cardsCount`, `main`.`game_participants`.`totalSpent`, `main`.`game_participants`.`hasWon`, `main`.`game_participants`.`prizeWon` FROM `main`.`game_participants` WHERE ((`main`.`game_participants`.`userId` = ? AND `main`.`game_participants`.`gameId` = ?) AND 1=1) LIMIT ? OFFSET ?
+prisma:query SELECT COUNT(*) FROM (SELECT `main`.`bingo_cards`.`id` FROM `main`.`bingo_cards` WHERE (`main`.`bingo_cards`.`userId` = ? AND `main`.`bingo_cards`.`gameId` = ?) LIMIT ? OFFSET ?) AS `sub`
+prisma:query UPDATE `main`.`wallets` SET `balance` = ?, `updatedAt` = ? WHERE (`main`.`wallets`.`userId` = ? AND 1=1) RETURNING `id` AS `id`, `userId` AS `userId`, `balance` AS `balance`, `dailyLimit` AS `dailyLimit`, `monthlyLimit` AS `monthlyLimit`, `isActive` AS `isActive`, `isFrozen` AS `isFrozen`, `createdAt` AS `createdAt`, `updatedAt` AS `updatedAt`
+prisma:query INSERT INTO `main`.`transactions` (`id`, `userId`, `type`, `amount`, `description`, `status`, `paymentMethod`, `pearlsAmount`, `commissionAmount`, `referenceId`, `createdAt`, `updatedAt`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?) RETURNING `id` AS `id`, `userId` AS `userId`, `gameId` AS `gameId`, `type` AS `type`, `amount` AS `amount`, `description` AS `description`, `status` AS `status`, `paymentMethod` AS `paymentMethod`, `paymentId` AS `paymentId`, `pearlsAmount` AS `pearlsAmount`, `fromUserId` AS `fromUserId`, `toUserId` AS `toUserId`, `commissionAmount` AS `commissionAmount`, `referenceId` AS `referenceId`, `createdAt` AS `createdAt`, `updatedAt` AS `updatedAt`
+prisma:query UPDATE `main`.`game_participants` SET `cardsCount` = ?, `totalSpent` = ? WHERE (`main`.`game_participants`.`id` = ? AND 1=1) RETURNING `id` AS `id`, `userId` AS `userId`, `gameId` AS `gameId`, `joinedAt` AS `joinedAt`, `cardsCount` AS `cardsCount`, `totalSpent` AS `totalSpent`, `hasWon` AS `hasWon`, `prizeWon` AS `prizeWon`
+prisma:query SELECT MAX(`cardNumber`) FROM (SELECT `main`.`bingo_cards`.`cardNumber` FROM `main`.`bingo_cards` WHERE `main`.`bingo_cards`.`gameId` = ? LIMIT ? OFFSET ?) AS `sub`
+prisma:query INSERT INTO `main`.`bingo_cards` (`id`, `userId`, `gameId`, `cardNumber`, `isActive`, `markedNumbers`, `isWinner`, `createdAt`, `updatedAt`) VALUES (?,?,?,?,?,?,?,?,?) RETURNING `id` AS `id`, `userId` AS `userId`, `gameId` AS `gameId`, `cardNumber` AS `cardNumber`, `isActive` AS `isActive`, `markedNumbers` AS `markedNumbers`, `isWinner` AS `isWinner`, `winningPattern` AS `winningPattern`, `createdAt` AS `createdAt`, `updatedAt` AS `updatedAt`
+prisma:query INSERT INTO `main`.`card_numbers` (`id`, `cardId`, `position`, `column`, `number`, `isMarked`, `isFree`) VALUES (?,?,?,?,?,?,?) RETURNING `id` AS `id`, `cardId` AS `cardId`, `position` AS `position`, `column` AS `column`, `number` AS `number`, `isMarked` AS `isMarked`, `isFree` AS `isFree`
+prisma:query INSERT INTO `main`.`card_numbers` (`id`, `cardId`, `position`, `column`, `number`, `isMarked`, `isFree`) VALUES (?,?,?,?,?,?,?) RETURNING `id` AS `id`, `cardId` AS `cardId`, `position` AS `position`, `column` AS `column`, `number` AS `number`, `isMarked` AS `isMarked`, `isFree` AS `isFree`
+prisma:query INSERT INTO `main`.`card_numbers` (`id`, `cardId`, `position`, `column`, `number`, `isMarked`, `isFree`) VALUES (?,?,?,?,?,?,?) RETURNING `id` AS `id`, `cardId` AS `cardId`, `position` AS `position`, `column` AS `column`, `number` AS `number`, `isMarked` AS `isMarked`, `isFree` AS `isFree`
+prisma:query INSERT INTO `main`.`card_numbers` (`id`, `cardId`, `position`, `column`, `number`, `isMarked`, `isFree`) VALUES (?,?,?,?,?,?,?) RETURNING `id` AS `id`, `cardId` AS `cardId`, `position` AS `position`, `column` AS `column`, `number` AS `number`, `isMarked` AS `isMarked`, `isFree` AS `isFree`
+prisma:query INSERT INTO `main`.`card_numbers` (`id`, `cardId`, `position`, `column`, `number`, `isMarked`, `isFree`) VALUES (?,?,?,?,?,?,?) RETURNING `id` AS `id`, `cardId` AS `cardId`, `position` AS `position`, `column` AS `column`, `number` AS `number`, `isMarked` AS `isMarked`, `isFree` AS `isFree`
+prisma:query INSERT INTO `main`.`card_numbers` (`id`, `cardId`, `position`, `column`, `number`, `isMarked`, `isFree`) VALUES (?,?,?,?,?,?,?) RETURNING `id` AS `id`, `cardId` AS `cardId`, `position` AS `position`, `column` AS `column`, `number` AS `number`, `isMarked` AS `isMarked`, `isFree` AS `isFree`
+prisma:query INSERT INTO `main`.`card_numbers` (`id`, `cardId`, `position`, `column`, `number`, `isMarked`, `isFree`) VALUES (?,?,?,?,?,?,?) RETURNING `id` AS `id`, `cardId` AS `cardId`, `position` AS `position`, `column` AS `column`, `number` AS `number`, `isMarked` AS `isMarked`, `isFree` AS `isFree`
+prisma:query INSERT INTO `main`.`card_numbers` (`id`, `cardId`, `position`, `column`, `number`, `isMarked`, `isFree`) VALUES (?,?,?,?,?,?,?) RETURNING `id` AS `id`, `cardId` AS `cardId`, `position` AS `position`, `column` AS `column`, `number` AS `number`, `isMarked` AS `isMarked`, `isFree` AS `isFree`
+prisma:query INSERT INTO `main`.`card_numbers` (`id`, `cardId`, `position`, `column`, `number`, `isMarked`, `isFree`) VALUES (?,?,?,?,?,?,?) RETURNING `id` AS `id`, `cardId` AS `cardId`, `position` AS `position`, `column` AS `column`, `number` AS `number`, `isMarked` AS `isMarked`, `isFree` AS `isFree`
+prisma:query INSERT INTO `main`.`card_numbers` (`id`, `cardId`, `position`, `column`, `number`, `isMarked`, `isFree`) VALUES (?,?,?,?,?,?,?) RETURNING `id` AS `id`, `cardId` AS `cardId`, `position` AS `position`, `column` AS `column`, `number` AS `number`, `isMarked` AS `isMarked`, `isFree` AS `isFree`
+prisma:query INSERT INTO `main`.`card_numbers` (`id`, `cardId`, `position`, `column`, `number`, `isMarked`, `isFree`) VALUES (?,?,?,?,?,?,?) RETURNING `id` AS `id`, `cardId` AS `cardId`, `position` AS `position`, `column` AS `column`, `number` AS `number`, `isMarked` AS `isMarked`, `isFree` AS `isFree`
+prisma:query INSERT INTO `main`.`card_numbers` (`id`, `cardId`, `position`, `column`, `number`, `isMarked`, `isFree`) VALUES (?,?,?,?,?,?,?) RETURNING `id` AS `id`, `cardId` AS `cardId`, `position` AS `position`, `column` AS `column`, `number` AS `number`, `isMarked` AS `isMarked`, `isFree` AS `isFree`
+prisma:query INSERT INTO `main`.`card_numbers` (`id`, `cardId`, `position`, `column`, `number`, `isMarked`, `isFree`) VALUES (?,?,?,?,?,?,?) RETURNING `id` AS `id`, `cardId` AS `cardId`, `position` AS `position`, `column` AS `column`, `number` AS `number`, `isMarked` AS `isMarked`, `isFree` AS `isFree`
+prisma:query INSERT INTO `main`.`card_numbers` (`id`, `cardId`, `position`, `column`, `number`, `isMarked`, `isFree`) VALUES (?,?,?,?,?,?,?) RETURNING `id` AS `id`, `cardId` AS `cardId`, `position` AS `position`, `column` AS `column`, `number` AS `number`, `isMarked` AS `isMarked`, `isFree` AS `isFree`
+prisma:query INSERT INTO `main`.`card_numbers` (`id`, `cardId`, `position`, `column`, `number`, `isMarked`, `isFree`) VALUES (?,?,?,?,?,?,?) RETURNING `id` AS `id`, `cardId` AS `cardId`, `position` AS `position`, `column` AS `column`, `number` AS `number`, `isMarked` AS `isMarked`, `isFree` AS `isFree`
+prisma:query INSERT INTO `main`.`card_numbers` (`id`, `cardId`, `position`, `column`, `number`, `isMarked`, `isFree`) VALUES (?,?,?,?,?,?,?) RETURNING `id` AS `id`, `cardId` AS `cardId`, `position` AS `position`, `column` AS `column`, `number` AS `number`, `isMarked` AS `isMarked`, `isFree` AS `isFree`
+prisma:query INSERT INTO `main`.`card_numbers` (`id`, `cardId`, `position`, `column`, `number`, `isMarked`, `isFree`) VALUES (?,?,?,?,?,?,?) RETURNING `id` AS `id`, `cardId` AS `cardId`, `position` AS `position`, `column` AS `column`, `number` AS `number`, `isMarked` AS `isMarked`, `isFree` AS `isFree`
+prisma:query INSERT INTO `main`.`card_numbers` (`id`, `cardId`, `position`, `column`, `number`, `isMarked`, `isFree`) VALUES (?,?,?,?,?,?,?) RETURNING `id` AS `id`, `cardId` AS `cardId`, `position` AS `position`, `column` AS `column`, `number` AS `number`, `isMarked` AS `isMarked`, `isFree` AS `isFree`
+prisma:query INSERT INTO `main`.`card_numbers` (`id`, `cardId`, `position`, `column`, `number`, `isMarked`, `isFree`) VALUES (?,?,?,?,?,?,?) RETURNING `id` AS `id`, `cardId` AS `cardId`, `position` AS `position`, `column` AS `column`, `number` AS `number`, `isMarked` AS `isMarked`, `isFree` AS `isFree`
+prisma:query INSERT INTO `main`.`card_numbers` (`id`, `cardId`, `position`, `column`, `number`, `isMarked`, `isFree`) VALUES (?,?,?,?,?,?,?) RETURNING `id` AS `id`, `cardId` AS `cardId`, `position` AS `position`, `column` AS `column`, `number` AS `number`, `isMarked` AS `isMarked`, `isFree` AS `isFree`
+prisma:query INSERT INTO `main`.`card_numbers` (`id`, `cardId`, `position`, `column`, `number`, `isMarked`, `isFree`) VALUES (?,?,?,?,?,?,?) RETURNING `id` AS `id`, `cardId` AS `cardId`, `position` AS `position`, `column` AS `column`, `number` AS `number`, `isMarked` AS `isMarked`, `isFree` AS `isFree`
+prisma:query INSERT INTO `main`.`card_numbers` (`id`, `cardId`, `position`, `column`, `number`, `isMarked`, `isFree`) VALUES (?,?,?,?,?,?,?) RETURNING `id` AS `id`, `cardId` AS `cardId`, `position` AS `position`, `column` AS `column`, `number` AS `number`, `isMarked` AS `isMarked`, `isFree` AS `isFree`
+prisma:query INSERT INTO `main`.`card_numbers` (`id`, `cardId`, `position`, `column`, `number`, `isMarked`, `isFree`) VALUES (?,?,?,?,?,?,?) RETURNING `id` AS `id`, `cardId` AS `cardId`, `position` AS `position`, `column` AS `column`, `number` AS `number`, `isMarked` AS `isMarked`, `isFree` AS `isFree`
+prisma:query INSERT INTO `main`.`card_numbers` (`id`, `cardId`, `position`, `column`, `number`, `isMarked`, `isFree`) VALUES (?,?,?,?,?,?,?) RETURNING `id` AS `id`, `cardId` AS `cardId`, `position` AS `position`, `column` AS `column`, `number` AS `number`, `isMarked` AS `isMarked`, `isFree` AS `isFree`
+prisma:query INSERT INTO `main`.`card_numbers` (`id`, `cardId`, `position`, `column`, `number`, `isMarked`, `isFree`) VALUES (?,?,?,?,?,?,?) RETURNING `id` AS `id`, `cardId` AS `cardId`, `position` AS `position`, `column` AS `column`, `number` AS `number`, `isMarked` AS `isMarked`, `isFree` AS `isFree`
+prisma:query SELECT MAX(`cardNumber`) FROM (SELECT `main`.`bingo_cards`.`cardNumber` FROM `main`.`bingo_cards` WHERE `main`.`bingo_cards`.`gameId` = ? LIMIT ? OFFSET ?) AS `sub`
+prisma:query INSERT INTO `main`.`bingo_cards` (`id`, `userId`, `gameId`, `cardNumber`, `isActive`, `markedNumbers`, `isWinner`, `createdAt`, `updatedAt`) VALUES (?,?,?,?,?,?,?,?,?) RETURNING `id` AS `id`, `userId` AS `userId`, `gameId` AS `gameId`, `cardNumber` AS `cardNumber`, `isActive` AS `isActive`, `markedNumbers` AS `markedNumbers`, `isWinner` AS `isWinner`, `winningPattern` AS `winningPattern`, `createdAt` AS `createdAt`, `updatedAt` AS `updatedAt`
+prisma:query INSERT INTO `main`.`card_numbers` (`id`, `cardId`, `position`, `column`, `number`, `isMarked`, `isFree`) VALUES (?,?,?,?,?,?,?) RETURNING `id` AS `id`, `cardId` AS `cardId`, `position` AS `position`, `column` AS `column`, `number` AS `number`, `isMarked` AS `isMarked`, `isFree` AS `isFree`
+prisma:query INSERT INTO `main`.`card_numbers` (`id`, `cardId`, `position`, `column`, `number`, `isMarked`, `isFree`) VALUES (?,?,?,?,?,?,?) RETURNING `id` AS `id`, `cardId` AS `cardId`, `position` AS `position`, `column` AS `column`, `number` AS `number`, `isMarked` AS `isMarked`, `isFree` AS `isFree`
+prisma:query INSERT INTO `main`.`card_numbers` (`id`, `cardId`, `position`, `column`, `number`, `isMarked`, `isFree`) VALUES (?,?,?,?,?,?,?) RETURNING `id` AS `id`, `cardId` AS `cardId`, `position` AS `position`, `column` AS `column`, `number` AS `number`, `isMarked` AS `isMarked`, `isFree` AS `isFree`
+prisma:query INSERT INTO `main`.`card_numbers` (`id`, `cardId`, `position`, `column`, `number`, `isMarked`, `isFree`) VALUES (?,?,?,?,?,?,?) RETURNING `id` AS `id`, `cardId` AS `cardId`, `position` AS `position`, `column` AS `column`, `number` AS `number`, `isMarked` AS `isMarked`, `isFree` AS `isFree`
+prisma:query INSERT INTO `main`.`card_numbers` (`id`, `cardId`, `position`, `column`, `number`, `isMarked`, `isFree`) VALUES (?,?,?,?,?,?,?) RETURNING `id` AS `id`, `cardId` AS `cardId`, `position` AS `position`, `column` AS `column`, `number` AS `number`, `isMarked` AS `isMarked`, `isFree` AS `isFree`
+prisma:query INSERT INTO `main`.`card_numbers` (`id`, `cardId`, `position`, `column`, `number`, `isMarked`, `isFree`) VALUES (?,?,?,?,?,?,?) RETURNING `id` AS `id`, `cardId` AS `cardId`, `position` AS `position`, `column` AS `column`, `number` AS `number`, `isMarked` AS `isMarked`, `isFree` AS `isFree`
+prisma:query INSERT INTO `main`.`card_numbers` (`id`, `cardId`, `position`, `column`, `number`, `isMarked`, `isFree`) VALUES (?,?,?,?,?,?,?) RETURNING `id` AS `id`, `cardId` AS `cardId`, `position` AS `position`, `column` AS `column`, `number` AS `number`, `isMarked` AS `isMarked`, `isFree` AS `isFree`
+prisma:query INSERT INTO `main`.`card_numbers` (`id`, `cardId`, `position`, `column`, `number`, `isMarked`, `isFree`) VALUES (?,?,?,?,?,?,?) RETURNING `id` AS `id`, `cardId` AS `cardId`, `position` AS `position`, `column` AS `column`, `number` AS `number`, `isMarked` AS `isMarked`, `isFree` AS `isFree`
+prisma:query INSERT INTO `main`.`card_numbers` (`id`, `cardId`, `position`, `column`, `number`, `isMarked`, `isFree`) VALUES (?,?,?,?,?,?,?) RETURNING `id` AS `id`, `cardId` AS `cardId`, `position` AS `position`, `column` AS `column`, `number` AS `number`, `isMarked` AS `isMarked`, `isFree` AS `isFree`
+prisma:query INSERT INTO `main`.`card_numbers` (`id`, `cardId`, `position`, `column`, `number`, `isMarked`, `isFree`) VALUES (?,?,?,?,?,?,?) RETURNING `id` AS `id`, `cardId` AS `cardId`, `position` AS `position`, `column` AS `column`, `number` AS `number`, `isMarked` AS `isMarked`, `isFree` AS `isFree`
+prisma:query INSERT INTO `main`.`card_numbers` (`id`, `cardId`, `position`, `column`, `number`, `isMarked`, `isFree`) VALUES (?,?,?,?,?,?,?) RETURNING `id` AS `id`, `cardId` AS `cardId`, `position` AS `position`, `column` AS `column`, `number` AS `number`, `isMarked` AS `isMarked`, `isFree` AS `isFree`
+prisma:query INSERT INTO `main`.`card_numbers` (`id`, `cardId`, `position`, `column`, `number`, `isMarked`, `isFree`) VALUES (?,?,?,?,?,?,?) RETURNING `id` AS `id`, `cardId` AS `cardId`, `position` AS `position`, `column` AS `column`, `number` AS `number`, `isMarked` AS `isMarked`, `isFree` AS `isFree`
+prisma:query INSERT INTO `main`.`card_numbers` (`id`, `cardId`, `position`, `column`, `number`, `isMarked`, `isFree`) VALUES (?,?,?,?,?,?,?) RETURNING `id` AS `id`, `cardId` AS `cardId`, `position` AS `position`, `column` AS `column`, `number` AS `number`, `isMarked` AS `isMarked`, `isFree` AS `isFree`
+prisma:query INSERT INTO `main`.`card_numbers` (`id`, `cardId`, `position`, `column`, `number`, `isMarked`, `isFree`) VALUES (?,?,?,?,?,?,?) RETURNING `id` AS `id`, `cardId` AS `cardId`, `position` AS `position`, `column` AS `column`, `number` AS `number`, `isMarked` AS `isMarked`, `isFree` AS `isFree`
+prisma:query INSERT INTO `main`.`card_numbers` (`id`, `cardId`, `position`, `column`, `number`, `isMarked`, `isFree`) VALUES (?,?,?,?,?,?,?) RETURNING `id` AS `id`, `cardId` AS `cardId`, `position` AS `position`, `column` AS `column`, `number` AS `number`, `isMarked` AS `isMarked`, `isFree` AS `isFree`
+prisma:query INSERT INTO `main`.`card_numbers` (`id`, `cardId`, `position`, `column`, `number`, `isMarked`, `isFree`) VALUES (?,?,?,?,?,?,?) RETURNING `id` AS `id`, `cardId` AS `cardId`, `position` AS `position`, `column` AS `column`, `number` AS `number`, `isMarked` AS `isMarked`, `isFree` AS `isFree`
+prisma:query INSERT INTO `main`.`card_numbers` (`id`, `cardId`, `position`, `column`, `number`, `isMarked`, `isFree`) VALUES (?,?,?,?,?,?,?) RETURNING `id` AS `id`, `cardId` AS `cardId`, `position` AS `position`, `column` AS `column`, `number` AS `number`, `isMarked` AS `isMarked`, `isFree` AS `isFree`
+prisma:query INSERT INTO `main`.`card_numbers` (`id`, `cardId`, `position`, `column`, `number`, `isMarked`, `isFree`) VALUES (?,?,?,?,?,?,?) RETURNING `id` AS `id`, `cardId` AS `cardId`, `position` AS `position`, `column` AS `column`, `number` AS `number`, `isMarked` AS `isMarked`, `isFree` AS `isFree`
+prisma:query INSERT INTO `main`.`card_numbers` (`id`, `cardId`, `position`, `column`, `number`, `isMarked`, `isFree`) VALUES (?,?,?,?,?,?,?) RETURNING `id` AS `id`, `cardId` AS `cardId`, `position` AS `position`, `column` AS `column`, `number` AS `number`, `isMarked` AS `isMarked`, `isFree` AS `isFree`
+prisma:query INSERT INTO `main`.`card_numbers` (`id`, `cardId`, `position`, `column`, `number`, `isMarked`, `isFree`) VALUES (?,?,?,?,?,?,?) RETURNING `id` AS `id`, `cardId` AS `cardId`, `position` AS `position`, `column` AS `column`, `number` AS `number`, `isMarked` AS `isMarked`, `isFree` AS `isFree`
+prisma:query INSERT INTO `main`.`card_numbers` (`id`, `cardId`, `position`, `column`, `number`, `isMarked`, `isFree`) VALUES (?,?,?,?,?,?,?) RETURNING `id` AS `id`, `cardId` AS `cardId`, `position` AS `position`, `column` AS `column`, `number` AS `number`, `isMarked` AS `isMarked`, `isFree` AS `isFree`
+prisma:query INSERT INTO `main`.`card_numbers` (`id`, `cardId`, `position`, `column`, `number`, `isMarked`, `isFree`) VALUES (?,?,?,?,?,?,?) RETURNING `id` AS `id`, `cardId` AS `cardId`, `position` AS `position`, `column` AS `column`, `number` AS `number`, `isMarked` AS `isMarked`, `isFree` AS `isFree`
+prisma:query INSERT INTO `main`.`card_numbers` (`id`, `cardId`, `position`, `column`, `number`, `isMarked`, `isFree`) VALUES (?,?,?,?,?,?,?) RETURNING `id` AS `id`, `cardId` AS `cardId`, `position` AS `position`, `column` AS `column`, `number` AS `number`, `isMarked` AS `isMarked`, `isFree` AS `isFree`
+prisma:query INSERT INTO `main`.`card_numbers` (`id`, `cardId`, `position`, `column`, `number`, `isMarked`, `isFree`) VALUES (?,?,?,?,?,?,?) RETURNING `id` AS `id`, `cardId` AS `cardId`, `position` AS `position`, `column` AS `column`, `number` AS `number`, `isMarked` AS `isMarked`, `isFree` AS `isFree`
+prisma:query INSERT INTO `main`.`card_numbers` (`id`, `cardId`, `position`, `column`, `number`, `isMarked`, `isFree`) VALUES (?,?,?,?,?,?,?) RETURNING `id` AS `id`, `cardId` AS `cardId`, `position` AS `position`, `column` AS `column`, `number` AS `number`, `isMarked` AS `isMarked`, `isFree` AS `isFree`
+prisma:query SELECT MAX(`cardNumber`) FROM (SELECT `main`.`bingo_cards`.`cardNumber` FROM `main`.`bingo_cards` WHERE `main`.`bingo_cards`.`gameId` = ? LIMIT ? OFFSET ?) AS `sub`
+prisma:query INSERT INTO `main`.`bingo_cards` (`id`, `userId`, `gameId`, `cardNumber`, `isActive`, `markedNumbers`, `isWinner`, `createdAt`, `updatedAt`) VALUES (?,?,?,?,?,?,?,?,?) RETURNING `id` AS `id`, `userId` AS `userId`, `gameId` AS `gameId`, `cardNumber` AS `cardNumber`, `isActive` AS `isActive`, `markedNumbers` AS `markedNumbers`, `isWinner` AS `isWinner`, `winningPattern` AS `winningPattern`, `createdAt` AS `createdAt`, `updatedAt` AS `updatedAt`
+prisma:query INSERT INTO `main`.`card_numbers` (`id`, `cardId`, `position`, `column`, `number`, `isMarked`, `isFree`) VALUES (?,?,?,?,?,?,?) RETURNING `id` AS `id`, `cardId` AS `cardId`, `position` AS `position`, `column` AS `column`, `number` AS `number`, `isMarked` AS `isMarked`, `isFree` AS `isFree`
+prisma:query INSERT INTO `main`.`card_numbers` (`id`, `cardId`, `position`, `column`, `number`, `isMarked`, `isFree`) VALUES (?,?,?,?,?,?,?) RETURNING `id` AS `id`, `cardId` AS `cardId`, `position` AS `position`, `column` AS `column`, `number` AS `number`, `isMarked` AS `isMarked`, `isFree` AS `isFree`
+prisma:query INSERT INTO `main`.`card_numbers` (`id`, `cardId`, `position`, `column`, `number`, `isMarked`, `isFree`) VALUES (?,?,?,?,?,?,?) RETURNING `id` AS `id`, `cardId` AS `cardId`, `position` AS `position`, `column` AS `column`, `number` AS `number`, `isMarked` AS `isMarked`, `isFree` AS `isFree`
+prisma:query INSERT INTO `main`.`card_numbers` (`id`, `cardId`, `position`, `column`, `number`, `isMarked`, `isFree`) VALUES (?,?,?,?,?,?,?) RETURNING `id` AS `id`, `cardId` AS `cardId`, `position` AS `position`, `column` AS `column`, `number` AS `number`, `isMarked` AS `isMarked`, `isFree` AS `isFree`
+prisma:query INSERT INTO `main`.`card_numbers` (`id`, `cardId`, `position`, `column`, `number`, `isMarked`, `isFree`) VALUES (?,?,?,?,?,?,?) RETURNING `id` AS `id`, `cardId` AS `cardId`, `position` AS `position`, `column` AS `column`, `number` AS `number`, `isMarked` AS `isMarked`, `isFree` AS `isFree`
+prisma:query INSERT INTO `main`.`card_numbers` (`id`, `cardId`, `position`, `column`, `number`, `isMarked`, `isFree`) VALUES (?,?,?,?,?,?,?) RETURNING `id` AS `id`, `cardId` AS `cardId`, `position` AS `position`, `column` AS `column`, `number` AS `number`, `isMarked` AS `isMarked`, `isFree` AS `isFree`
+prisma:query INSERT INTO `main`.`card_numbers` (`id`, `cardId`, `position`, `column`, `number`, `isMarked`, `isFree`) VALUES (?,?,?,?,?,?,?) RETURNING `id` AS `id`, `cardId` AS `cardId`, `position` AS `position`, `column` AS `column`, `number` AS `number`, `isMarked` AS `isMarked`, `isFree` AS `isFree`
+prisma:query INSERT INTO `main`.`card_numbers` (`id`, `cardId`, `position`, `column`, `number`, `isMarked`, `isFree`) VALUES (?,?,?,?,?,?,?) RETURNING `id` AS `id`, `cardId` AS `cardId`, `position` AS `position`, `column` AS `column`, `number` AS `number`, `isMarked` AS `isMarked`, `isFree` AS `isFree`
+prisma:query INSERT INTO `main`.`card_numbers` (`id`, `cardId`, `position`, `column`, `number`, `isMarked`, `isFree`) VALUES (?,?,?,?,?,?,?) RETURNING `id` AS `id`, `cardId` AS `cardId`, `position` AS `position`, `column` AS `column`, `number` AS `number`, `isMarked` AS `isMarked`, `isFree` AS `isFree`
+prisma:query INSERT INTO `main`.`card_numbers` (`id`, `cardId`, `position`, `column`, `number`, `isMarked`, `isFree`) VALUES (?,?,?,?,?,?,?) RETURNING `id` AS `id`, `cardId` AS `cardId`, `position` AS `position`, `column` AS `column`, `number` AS `number`, `isMarked` AS `isMarked`, `isFree` AS `isFree`
+prisma:query INSERT INTO `main`.`card_numbers` (`id`, `cardId`, `position`, `column`, `number`, `isMarked`, `isFree`) VALUES (?,?,?,?,?,?,?) RETURNING `id` AS `id`, `cardId` AS `cardId`, `position` AS `position`, `column` AS `column`, `number` AS `number`, `isMarked` AS `isMarked`, `isFree` AS `isFree`
+prisma:query INSERT INTO `main`.`card_numbers` (`id`, `cardId`, `position`, `column`, `number`, `isMarked`, `isFree`) VALUES (?,?,?,?,?,?,?) RETURNING `id` AS `id`, `cardId` AS `cardId`, `position` AS `position`, `column` AS `column`, `number` AS `number`, `isMarked` AS `isMarked`, `isFree` AS `isFree`
+prisma:query INSERT INTO `main`.`card_numbers` (`id`, `cardId`, `position`, `column`, `number`, `isMarked`, `isFree`) VALUES (?,?,?,?,?,?,?) RETURNING `id` AS `id`, `cardId` AS `cardId`, `position` AS `position`, `column` AS `column`, `number` AS `number`, `isMarked` AS `isMarked`, `isFree` AS `isFree`
+prisma:query INSERT INTO `main`.`card_numbers` (`id`, `cardId`, `position`, `column`, `number`, `isMarked`, `isFree`) VALUES (?,?,?,?,?,?,?) RETURNING `id` AS `id`, `cardId` AS `cardId`, `position` AS `position`, `column` AS `column`, `number` AS `number`, `isMarked` AS `isMarked`, `isFree` AS `isFree`
+prisma:query INSERT INTO `main`.`card_numbers` (`id`, `cardId`, `position`, `column`, `number`, `isMarked`, `isFree`) VALUES (?,?,?,?,?,?,?) RETURNING `id` AS `id`, `cardId` AS `cardId`, `position` AS `position`, `column` AS `column`, `number` AS `number`, `isMarked` AS `isMarked`, `isFree` AS `isFree`
+prisma:query INSERT INTO `main`.`card_numbers` (`id`, `cardId`, `position`, `column`, `number`, `isMarked`, `isFree`) VALUES (?,?,?,?,?,?,?) RETURNING `id` AS `id`, `cardId` AS `cardId`, `position` AS `position`, `column` AS `column`, `number` AS `number`, `isMarked` AS `isMarked`, `isFree` AS `isFree`
+prisma:query INSERT INTO `main`.`card_numbers` (`id`, `cardId`, `position`, `column`, `number`, `isMarked`, `isFree`) VALUES (?,?,?,?,?,?,?) RETURNING `id` AS `id`, `cardId` AS `cardId`, `position` AS `position`, `column` AS `column`, `number` AS `number`, `isMarked` AS `isMarked`, `isFree` AS `isFree`
+prisma:query INSERT INTO `main`.`card_numbers` (`id`, `cardId`, `position`, `column`, `number`, `isMarked`, `isFree`) VALUES (?,?,?,?,?,?,?) RETURNING `id` AS `id`, `cardId` AS `cardId`, `position` AS `position`, `column` AS `column`, `number` AS `number`, `isMarked` AS `isMarked`, `isFree` AS `isFree`
+prisma:query INSERT INTO `main`.`card_numbers` (`id`, `cardId`, `position`, `column`, `number`, `isMarked`, `isFree`) VALUES (?,?,?,?,?,?,?) RETURNING `id` AS `id`, `cardId` AS `cardId`, `position` AS `position`, `column` AS `column`, `number` AS `number`, `isMarked` AS `isMarked`, `isFree` AS `isFree`
+prisma:query INSERT INTO `main`.`card_numbers` (`id`, `cardId`, `position`, `column`, `number`, `isMarked`, `isFree`) VALUES (?,?,?,?,?,?,?) RETURNING `id` AS `id`, `cardId` AS `cardId`, `position` AS `position`, `column` AS `column`, `number` AS `number`, `isMarked` AS `isMarked`, `isFree` AS `isFree`
+prisma:query INSERT INTO `main`.`card_numbers` (`id`, `cardId`, `position`, `column`, `number`, `isMarked`, `isFree`) VALUES (?,?,?,?,?,?,?) RETURNING `id` AS `id`, `cardId` AS `cardId`, `position` AS `position`, `column` AS `column`, `number` AS `number`, `isMarked` AS `isMarked`, `isFree` AS `isFree`
+prisma:query INSERT INTO `main`.`card_numbers` (`id`, `cardId`, `position`, `column`, `number`, `isMarked`, `isFree`) VALUES (?,?,?,?,?,?,?) RETURNING `id` AS `id`, `cardId` AS `cardId`, `position` AS `position`, `column` AS `column`, `number` AS `number`, `isMarked` AS `isMarked`, `isFree` AS `isFree`
+prisma:query INSERT INTO `main`.`card_numbers` (`id`, `cardId`, `position`, `column`, `number`, `isMarked`, `isFree`) VALUES (?,?,?,?,?,?,?) RETURNING `id` AS `id`, `cardId` AS `cardId`, `position` AS `position`, `column` AS `column`, `number` AS `number`, `isMarked` AS `isMarked`, `isFree` AS `isFree`
+prisma:query INSERT INTO `main`.`card_numbers` (`id`, `cardId`, `position`, `column`, `number`, `isMarked`, `isFree`) VALUES (?,?,?,?,?,?,?) RETURNING `id` AS `id`, `cardId` AS `cardId`, `position` AS `position`, `column` AS `column`, `number` AS `number`, `isMarked` AS `isMarked`, `isFree` AS `isFree`
+prisma:query INSERT INTO `main`.`card_numbers` (`id`, `cardId`, `position`, `column`, `number`, `isMarked`, `isFree`) VALUES (?,?,?,?,?,?,?) RETURNING `id` AS `id`, `cardId` AS `cardId`, `position` AS `position`, `column` AS `column`, `number` AS `number`, `isMarked` AS `isMarked`, `isFree` AS `isFree`
+prisma:query COMMIT
+15:26:13 [[36minfo[39m]: [36mCartones comprados con Perlas exitosamente[39m
+{
+  "userId": "cme3boc9d0001131ojj801ouw",
+  "gameId": "cme3boc9t000e131on2iaxg19",
+  "cardCount": 3,
+  "totalCost": 15,
+  "newBalance": 49,
+  "transactionId": "cme8zrr430002iibeqornytjq"
+}
+15:26:13 [[36minfo[39m]: [36mCompra de cartones exitosa[39m
+{
+  "userId": "cme3boc9d0001131ojj801ouw",
+  "gameId": "cme3boc9t000e131on2iaxg19",
+  "cardCount": 3,
+  "totalAmount": 15,
+  "newBalance": 49,
+  "transactionId": "cme8zrr430002iibeqornytjq"
+}
+15:26:13 [[36minfo[39m]: [36mHTTP POST /cards 200 67ms[39m
+{
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36",
+  "ip": "::1",
+  "httpRequest": {
+    "method": "POST",
+    "url": "/cards",
+    "statusCode": 200,
+    "responseTime": 67
+  },
+  "type": "http"
+}
+15:26:13 [[36minfo[39m]: [36mHTTP GET /balance 200 7ms[39m
+{
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36",
+  "ip": "::1",
+  "httpRequest": {
+    "method": "GET",
+    "url": "/balance",
+    "statusCode": 200,
+    "responseTime": 7
+  },
+  "type": "http"
+}
+15:26:13 [[36minfo[39m]: [36mBalance consultado[39m
+{
+  "userId": "cme3boc9d0001131ojj801ouw",
+  "balance": 49
+}
+15:26:13 [[36minfo[39m]: [36mHTTP GET /transactions 200 4ms[39m
+{
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36",
+  "ip": "::1",
+  "httpRequest": {
+    "method": "GET",
+    "url": "/transactions",
+    "statusCode": 200,
+    "responseTime": 4
+  },
+  "type": "http"
+}
+15:26:13 [[36minfo[39m]: [36mHistorial de transacciones consultado[39m
+{
+  "userId": "cme3boc9d0001131ojj801ouw",
+  "limit": 15,
+  "offset": 0,
+  "resultCount": 11
+}
+15:26:13 [[36minfo[39m]: [36mHTTP GET /balance 200 5ms[39m
+{
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36",
+  "ip": "::1",
+  "httpRequest": {
+    "method": "GET",
+    "url": "/balance",
+    "statusCode": 200,
+    "responseTime": 5
+  },
+  "type": "http"
+}
+15:26:13 [[36minfo[39m]: [36mBalance consultado[39m
+{
+  "userId": "cme3boc9d0001131ojj801ouw",
+  "balance": 49
+}
+15:26:13 [[36minfo[39m]: [36mHTTP GET /transactions 200 6ms[39m
+{
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36",
+  "ip": "::1",
+  "httpRequest": {
+    "method": "GET",
+    "url": "/transactions",
+    "statusCode": 200,
+    "responseTime": 6
+  },
+  "type": "http"
+}
+15:26:13 [[36minfo[39m]: [36mHistorial de transacciones consultado[39m
+{
+  "userId": "cme3boc9d0001131ojj801ouw",
+  "limit": 15,
+  "offset": 0,
+  "resultCount": 11
+}
+15:26:21 [[36minfo[39m]: [36mHTTP GET /balance 200 5ms[39m
+{
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36",
+  "ip": "::1",
+  "httpRequest": {
+    "method": "GET",
+    "url": "/balance",
+    "statusCode": 200,
+    "responseTime": 5
+  },
+  "type": "http"
+}
+15:26:21 [[36minfo[39m]: [36mBalance consultado[39m
+{
+  "userId": "cme3boc9d0001131ojj801ouw",
+  "balance": 49
+}
+15:26:21 [[36minfo[39m]: [36mHTTP GET /balance 200 5ms[39m
+{
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36",
+  "ip": "::1",
+  "httpRequest": {
+    "method": "GET",
+    "url": "/balance",
+    "statusCode": 200,
+    "responseTime": 5
+  },
+  "type": "http"
+}
+15:26:21 [[36minfo[39m]: [36mBalance consultado[39m
+{
+  "userId": "cme3boc9d0001131ojj801ouw",
+  "balance": 49
+}
+15:26:23 [[36minfo[39m]: Realtime metrics recorded
+15:26:29 [[36minfo[39m]: [36mSOCKET: client_connected[39m
+{
+  "socketEvent": "client_connected",
+  "socketData": {
+    "socketId": "vQfGL5hbu5UckThpAAAD"
+  },
+  "type": "socket"
+}
+15:26:29 [[36minfo[39m]: [36mBUSINESS: player_joined[39m
+{
+  "module": "game",
+  "userId": "vQfGL5hbu5UckThpAAAD",
+  "businessEvent": "player_joined",
+  "businessData": {
+    "gameId": "cme3boc9t000e131on2iaxg19",
+    "playerCount": 1
+  },
+  "type": "business"
+}
+15:26:53 [[36minfo[39m]: Realtime metrics recorded
+15:27:23 [[36minfo[39m]: Realtime metrics recorded
+15:27:53 [[36minfo[39m]: Realtime metrics recorded
+15:28:23 [[36minfo[39m]: Realtime metrics recorded
+15:28:53 [[36minfo[39m]: Realtime metrics recorded
+15:29:23 [[36minfo[39m]: Realtime metrics recorded
+15:29:53 [[36minfo[39m]: Realtime metrics recorded
+15:30:23 [[36minfo[39m]: Realtime metrics recorded
+15:30:26 [[36minfo[39m]: [36mSOCKET: client_disconnected[39m
+{
+  "socketEvent": "client_disconnected",
+  "socketData": {
+    "socketId": "vQfGL5hbu5UckThpAAAD",
+    "reason": "transport close"
+  },
+  "type": "socket"
+}
+prisma:query SELECT 1
+prisma:query SELECT `main`.`games`.`id`, `main`.`games`.`title`, `main`.`games`.`description`, `main`.`games`.`maxPlayers`, `main`.`games`.`cardPrice`, `main`.`games`.`totalPrize`, `main`.`games`.`status`, `main`.`games`.`scheduledAt`, `main`.`games`.`startedAt`, `main`.`games`.`endedAt`, `main`.`games`.`ballsDrawn`, `main`.`games`.`currentBall`, `main`.`games`.`winningCards`, `main`.`games`.`createdAt`, `main`.`games`.`updatedAt`, COALESCE(`aggr_selection_0_GameParticipant`.`_aggr_count_participants`, 0) AS `_aggr_count_participants` FROM `main`.`games` LEFT JOIN (SELECT `main`.`game_participants`.`gameId`, COUNT(*) AS `_aggr_count_participants` FROM `main`.`game_participants` WHERE 1=1 GROUP BY `main`.`game_participants`.`gameId`) AS `aggr_selection_0_GameParticipant` ON (`main`.`games`.`id` = `aggr_selection_0_GameParticipant`.`gameId`) WHERE 1=1 ORDER BY `main`.`games`.`scheduledAt` ASC LIMIT ? OFFSET ?
+15:30:31 [[36minfo[39m]: [36mHTTP GET / 200 41ms[39m
+{
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36",
+  "ip": "::1",
+  "httpRequest": {
+    "method": "GET",
+    "url": "/",
+    "statusCode": 200,
+    "responseTime": 41
+  },
+  "type": "http"
+}
+prisma:query SELECT `main`.`games`.`id`, `main`.`games`.`title`, `main`.`games`.`description`, `main`.`games`.`maxPlayers`, `main`.`games`.`cardPrice`, `main`.`games`.`totalPrize`, `main`.`games`.`status`, `main`.`games`.`scheduledAt`, `main`.`games`.`startedAt`, `main`.`games`.`endedAt`, `main`.`games`.`ballsDrawn`, `main`.`games`.`currentBall`, `main`.`games`.`winningCards`, `main`.`games`.`createdAt`, `main`.`games`.`updatedAt`, COALESCE(`aggr_selection_0_GameParticipant`.`_aggr_count_participants`, 0) AS `_aggr_count_participants` FROM `main`.`games` LEFT JOIN (SELECT `main`.`game_participants`.`gameId`, COUNT(*) AS `_aggr_count_participants` FROM `main`.`game_participants` WHERE 1=1 GROUP BY `main`.`game_participants`.`gameId`) AS `aggr_selection_0_GameParticipant` ON (`main`.`games`.`id` = `aggr_selection_0_GameParticipant`.`gameId`) WHERE 1=1 ORDER BY `main`.`games`.`scheduledAt` ASC LIMIT ? OFFSET ?
+15:30:31 [[36minfo[39m]: [36mHTTP GET / 200 9ms[39m
+{
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36",
+  "ip": "::1",
+  "httpRequest": {
+    "method": "GET",
+    "url": "/",
+    "statusCode": 200,
+    "responseTime": 9
+  },
+  "type": "http"
+}
+prisma:query SELECT `main`.`users`.`id`, `main`.`users`.`email`, `main`.`users`.`username`, `main`.`users`.`password`, `main`.`users`.`role`, `main`.`users`.`balance`, `main`.`users`.`pearlsBalance`, `main`.`users`.`createdAt`, `main`.`users`.`updatedAt`, `main`.`users`.`isActive`, `main`.`users`.`isVerified`, `main`.`users`.`fullName`, `main`.`users`.`phone`, `main`.`users`.`dni`, `main`.`users`.`birthDate` FROM `main`.`users` WHERE (`main`.`users`.`id` = ? AND 1=1) LIMIT ? OFFSET ?
+prisma:query SELECT `main`.`users`.`id`, `main`.`users`.`email`, `main`.`users`.`username`, `main`.`users`.`password`, `main`.`users`.`role`, `main`.`users`.`balance`, `main`.`users`.`pearlsBalance`, `main`.`users`.`createdAt`, `main`.`users`.`updatedAt`, `main`.`users`.`isActive`, `main`.`users`.`isVerified`, `main`.`users`.`fullName`, `main`.`users`.`phone`, `main`.`users`.`dni`, `main`.`users`.`birthDate` FROM `main`.`users` WHERE (`main`.`users`.`id` = ? AND 1=1) LIMIT ? OFFSET ?
+15:30:31 [[36minfo[39m]: [36mHTTP GET /me 200 11ms[39m
+{
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36",
+  "ip": "::1",
+  "httpRequest": {
+    "method": "GET",
+    "url": "/me",
+    "statusCode": 200,
+    "responseTime": 11
+  },
+  "type": "http"
+}
+prisma:query SELECT `main`.`users`.`id`, `main`.`users`.`email`, `main`.`users`.`username`, `main`.`users`.`password`, `main`.`users`.`role`, `main`.`users`.`balance`, `main`.`users`.`pearlsBalance`, `main`.`users`.`createdAt`, `main`.`users`.`updatedAt`, `main`.`users`.`isActive`, `main`.`users`.`isVerified`, `main`.`users`.`fullName`, `main`.`users`.`phone`, `main`.`users`.`dni`, `main`.`users`.`birthDate` FROM `main`.`users` WHERE (`main`.`users`.`id` = ? AND 1=1) LIMIT ? OFFSET ?
+prisma:query SELECT `main`.`users`.`id`, `main`.`users`.`email`, `main`.`users`.`username`, `main`.`users`.`password`, `main`.`users`.`role`, `main`.`users`.`balance`, `main`.`users`.`pearlsBalance`, `main`.`users`.`createdAt`, `main`.`users`.`updatedAt`, `main`.`users`.`isActive`, `main`.`users`.`isVerified`, `main`.`users`.`fullName`, `main`.`users`.`phone`, `main`.`users`.`dni`, `main`.`users`.`birthDate` FROM `main`.`users` WHERE (`main`.`users`.`id` = ? AND 1=1) LIMIT ? OFFSET ?
+15:30:31 [[36minfo[39m]: [36mHTTP GET /me 200 6ms[39m
+{
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36",
+  "ip": "::1",
+  "httpRequest": {
+    "method": "GET",
+    "url": "/me",
+    "statusCode": 200,
+    "responseTime": 6
+  },
+  "type": "http"
+}
+prisma:query SELECT `main`.`games`.`id`, `main`.`games`.`title`, `main`.`games`.`description`, `main`.`games`.`maxPlayers`, `main`.`games`.`cardPrice`, `main`.`games`.`totalPrize`, `main`.`games`.`status`, `main`.`games`.`scheduledAt`, `main`.`games`.`startedAt`, `main`.`games`.`endedAt`, `main`.`games`.`ballsDrawn`, `main`.`games`.`currentBall`, `main`.`games`.`winningCards`, `main`.`games`.`createdAt`, `main`.`games`.`updatedAt`, COALESCE(`aggr_selection_0_GameParticipant`.`_aggr_count_participants`, 0) AS `_aggr_count_participants` FROM `main`.`games` LEFT JOIN (SELECT `main`.`game_participants`.`gameId`, COUNT(*) AS `_aggr_count_participants` FROM `main`.`game_participants` WHERE 1=1 GROUP BY `main`.`game_participants`.`gameId`) AS `aggr_selection_0_GameParticipant` ON (`main`.`games`.`id` = `aggr_selection_0_GameParticipant`.`gameId`) WHERE 1=1 ORDER BY `main`.`games`.`scheduledAt` ASC LIMIT ? OFFSET ?
+15:30:31 [[36minfo[39m]: [36mHTTP GET / 200 3ms[39m
+{
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36",
+  "ip": "::1",
+  "httpRequest": {
+    "method": "GET",
+    "url": "/",
+    "statusCode": 200,
+    "responseTime": 3
+  },
+  "type": "http"
+}
+prisma:query SELECT `main`.`users`.`id`, `main`.`users`.`email`, `main`.`users`.`username`, `main`.`users`.`password`, `main`.`users`.`role`, `main`.`users`.`balance`, `main`.`users`.`pearlsBalance`, `main`.`users`.`createdAt`, `main`.`users`.`updatedAt`, `main`.`users`.`isActive`, `main`.`users`.`isVerified`, `main`.`users`.`fullName`, `main`.`users`.`phone`, `main`.`users`.`dni`, `main`.`users`.`birthDate` FROM `main`.`users` WHERE (`main`.`users`.`id` = ? AND 1=1) LIMIT ? OFFSET ?
+prisma:query SELECT `main`.`users`.`id`, `main`.`users`.`email`, `main`.`users`.`username`, `main`.`users`.`password`, `main`.`users`.`role`, `main`.`users`.`balance`, `main`.`users`.`pearlsBalance`, `main`.`users`.`createdAt`, `main`.`users`.`updatedAt`, `main`.`users`.`isActive`, `main`.`users`.`isVerified`, `main`.`users`.`fullName`, `main`.`users`.`phone`, `main`.`users`.`dni`, `main`.`users`.`birthDate` FROM `main`.`users` WHERE (`main`.`users`.`id` = ? AND 1=1) LIMIT ? OFFSET ?
+15:30:31 [[36minfo[39m]: [36mHTTP GET /me 200 8ms[39m
+{
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36",
+  "ip": "::1",
+  "httpRequest": {
+    "method": "GET",
+    "url": "/me",
+    "statusCode": 200,
+    "responseTime": 8
+  },
+  "type": "http"
+}
+prisma:query SELECT `main`.`users`.`id`, `main`.`users`.`email`, `main`.`users`.`username`, `main`.`users`.`password`, `main`.`users`.`role`, `main`.`users`.`balance`, `main`.`users`.`pearlsBalance`, `main`.`users`.`createdAt`, `main`.`users`.`updatedAt`, `main`.`users`.`isActive`, `main`.`users`.`isVerified`, `main`.`users`.`fullName`, `main`.`users`.`phone`, `main`.`users`.`dni`, `main`.`users`.`birthDate` FROM `main`.`users` WHERE (`main`.`users`.`id` = ? AND 1=1) LIMIT ? OFFSET ?
+prisma:query SELECT `main`.`users`.`id`, `main`.`users`.`email`, `main`.`users`.`username`, `main`.`users`.`password`, `main`.`users`.`role`, `main`.`users`.`balance`, `main`.`users`.`pearlsBalance`, `main`.`users`.`createdAt`, `main`.`users`.`updatedAt`, `main`.`users`.`isActive`, `main`.`users`.`isVerified`, `main`.`users`.`fullName`, `main`.`users`.`phone`, `main`.`users`.`dni`, `main`.`users`.`birthDate` FROM `main`.`users` WHERE (`main`.`users`.`id` = ? AND 1=1) LIMIT ? OFFSET ?
+15:30:31 [[36minfo[39m]: [36mHTTP GET /me 200 3ms[39m
+{
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36",
+  "ip": "::1",
+  "httpRequest": {
+    "method": "GET",
+    "url": "/me",
+    "statusCode": 200,
+    "responseTime": 3
+  },
+  "type": "http"
+}
+15:30:31 [[36minfo[39m]: [36mSOCKET: client_connected[39m
+{
+  "socketEvent": "client_connected",
+  "socketData": {
+    "socketId": "WxsyflUPqCHblF_RAAAG"
+  },
+  "type": "socket"
+}
+15:30:31 [[36minfo[39m]: [36mSOCKET: client_disconnected[39m
+{
+  "socketEvent": "client_disconnected",
+  "socketData": {
+    "socketId": "WxsyflUPqCHblF_RAAAG",
+    "reason": "transport close"
+  },
+  "type": "socket"
+}
+15:30:56 [[36minfo[39m]: Realtime metrics recorded
+16:18:24 [[36minfo[39m]: Realtime metrics recorded
+16:21:27 [[36minfo[39m]: Realtime metrics recorded
+16:21:57 [[36minfo[39m]: Realtime metrics recorded
+16:22:27 [[36minfo[39m]: Realtime metrics recorded
+16:22:57 [[36minfo[39m]: Realtime metrics recorded
+16:23:27 [[36minfo[39m]: Realtime metrics recorded
+prisma:query SELECT 1
+prisma:query SELECT `main`.`users`.`id`, `main`.`users`.`email`, `main`.`users`.`username`, `main`.`users`.`password`, `main`.`users`.`role`, `main`.`users`.`balance`, `main`.`users`.`pearlsBalance`, `main`.`users`.`createdAt`, `main`.`users`.`updatedAt`, `main`.`users`.`isActive`, `main`.`users`.`isVerified`, `main`.`users`.`fullName`, `main`.`users`.`phone`, `main`.`users`.`dni`, `main`.`users`.`birthDate` FROM `main`.`users` WHERE (`main`.`users`.`email` = ? OR `main`.`users`.`username` = ?) LIMIT ? OFFSET ?
+prisma:query SELECT `main`.`users`.`id`, `main`.`users`.`email`, `main`.`users`.`username`, `main`.`users`.`password`, `main`.`users`.`role`, `main`.`users`.`balance`, `main`.`users`.`pearlsBalance`, `main`.`users`.`createdAt`, `main`.`users`.`updatedAt`, `main`.`users`.`isActive`, `main`.`users`.`isVerified`, `main`.`users`.`fullName`, `main`.`users`.`phone`, `main`.`users`.`dni`, `main`.`users`.`birthDate` FROM `main`.`users` WHERE (`main`.`users`.`id` = ? AND 1=1) LIMIT ? OFFSET ?
+16:23:56 [[36minfo[39m]: Tokens generados para usuario: jugador@test.com
+16:23:56 [[35maudit[39m]: [35mAUDIT: login_attempt on user_session[39m
+{
+  "module": "auth",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36",
+  "auditEvent": {
+    "action": "login_attempt",
+    "resource": "user_session",
+    "userId": "jugador@test.com",
+    "success": true,
+    "reason": "valid_credentials"
+  }
+}
+16:23:56 [[36minfo[39m]: [36mHTTP POST /login 200 572ms[39m
+{
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36",
+  "ip": "::1",
+  "httpRequest": {
+    "method": "POST",
+    "url": "/login",
+    "statusCode": 200,
+    "responseTime": 572
+  },
+  "type": "http"
+}
+16:23:57 [[36minfo[39m]: Realtime metrics recorded
+16:24:27 [[36minfo[39m]: Realtime metrics recorded
+16:24:39 [[36minfo[39m]: [36mHTTP GET /balance 200 297ms[39m
+{
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36",
+  "ip": "::1",
+  "httpRequest": {
+    "method": "GET",
+    "url": "/balance",
+    "statusCode": 200,
+    "responseTime": 297
+  },
+  "type": "http"
+}
+16:24:39 [[36minfo[39m]: [36mBalance consultado[39m
+{
+  "userId": "cme3boc9d0001131ojj801ouw",
+  "balance": 49
+}
+16:24:39 [[36minfo[39m]: [36mHTTP GET /transactions 200 111ms[39m
+{
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36",
+  "ip": "::1",
+  "httpRequest": {
+    "method": "GET",
+    "url": "/transactions",
+    "statusCode": 200,
+    "responseTime": 111
+  },
+  "type": "http"
+}
+16:24:39 [[36minfo[39m]: [36mHistorial de transacciones consultado[39m
+{
+  "userId": "cme3boc9d0001131ojj801ouw",
+  "limit": 15,
+  "offset": 0,
+  "resultCount": 11
+}
+16:24:39 [[36minfo[39m]: [36mHTTP GET /balance 200 14ms[39m
+{
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36",
+  "ip": "::1",
+  "httpRequest": {
+    "method": "GET",
+    "url": "/balance",
+    "statusCode": 200,
+    "responseTime": 14
+  },
+  "type": "http"
+}
+16:24:39 [[36minfo[39m]: [36mBalance consultado[39m
+{
+  "userId": "cme3boc9d0001131ojj801ouw",
+  "balance": 49
+}
+16:24:39 [[36minfo[39m]: [36mHTTP GET /transactions 200 9ms[39m
+{
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36",
+  "ip": "::1",
+  "httpRequest": {
+    "method": "GET",
+    "url": "/transactions",
+    "statusCode": 200,
+    "responseTime": 9
+  },
+  "type": "http"
+}
+16:24:39 [[36minfo[39m]: [36mHistorial de transacciones consultado[39m
+{
+  "userId": "cme3boc9d0001131ojj801ouw",
+  "limit": 15,
+  "offset": 0,
+  "resultCount": 11
+}
+16:24:39 [[36minfo[39m]: [36mHTTP GET /balance 200 3ms[39m
+{
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36",
+  "ip": "::1",
+  "httpRequest": {
+    "method": "GET",
+    "url": "/balance",
+    "statusCode": 200,
+    "responseTime": 3
+  },
+  "type": "http"
+}
+16:24:39 [[36minfo[39m]: [36mBalance consultado[39m
+{
+  "userId": "cme3boc9d0001131ojj801ouw",
+  "balance": 49
+}
+16:24:39 [[36minfo[39m]: [36mHTTP GET /balance 200 8ms[39m
+{
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36",
+  "ip": "::1",
+  "httpRequest": {
+    "method": "GET",
+    "url": "/balance",
+    "statusCode": 200,
+    "responseTime": 8
+  },
+  "type": "http"
+}
+16:24:39 [[36minfo[39m]: [36mBalance consultado[39m
+{
+  "userId": "cme3boc9d0001131ojj801ouw",
+  "balance": 49
+}
+16:24:50 [[36minfo[39m]: [36mHTTP GET /methods 200 123ms[39m
+{
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36",
+  "ip": "::1",
+  "httpRequest": {
+    "method": "GET",
+    "url": "/methods",
+    "statusCode": 200,
+    "responseTime": 123
+  },
+  "type": "http"
+}
+16:24:50 [[36minfo[39m]: [36mMétodos de pago consultados[39m
+{
+  "methodCount": 6
+}
+16:24:57 [[36minfo[39m]: Realtime metrics recorded
+16:25:27 [[36minfo[39m]: Realtime metrics recorded
+16:25:57 [[36minfo[39m]: Realtime metrics recorded
+16:26:27 [[36minfo[39m]: Realtime metrics recorded
+16:26:57 [[36minfo[39m]: Realtime metrics recorded
+16:27:27 [[36minfo[39m]: Realtime metrics recorded
+16:27:57 [[36minfo[39m]: Realtime metrics recorded
+16:28:27 [[36minfo[39m]: Realtime metrics recorded
+16:28:57 [[36minfo[39m]: Realtime metrics recorded
+16:29:27 [[36minfo[39m]: Realtime metrics recorded
+16:29:57 [[36minfo[39m]: Realtime metrics recorded
+16:30:27 [[36minfo[39m]: Realtime metrics recorded
+16:30:57 [[36minfo[39m]: Realtime metrics recorded
+16:31:27 [[36minfo[39m]: Realtime metrics recorded
+16:31:57 [[36minfo[39m]: Realtime metrics recorded
+16:32:27 [[36minfo[39m]: Realtime metrics recorded
+16:32:57 [[36minfo[39m]: Realtime metrics recorded
+16:33:27 [[36minfo[39m]: Realtime metrics recorded
+16:33:57 [[36minfo[39m]: Realtime metrics recorded
+16:34:27 [[36minfo[39m]: Realtime metrics recorded
+16:34:57 [[36minfo[39m]: Realtime metrics recorded
+16:35:27 [[36minfo[39m]: Realtime metrics recorded
+16:35:57 [[36minfo[39m]: Realtime metrics recorded
+16:36:27 [[36minfo[39m]: Realtime metrics recorded
+16:36:57 [[36minfo[39m]: Realtime metrics recorded
+16:37:27 [[36minfo[39m]: Realtime metrics recorded
+16:37:57 [[36minfo[39m]: Realtime metrics recorded
+16:38:27 [[36minfo[39m]: Realtime metrics recorded
+16:38:57 [[36minfo[39m]: Realtime metrics recorded
+16:39:27 [[36minfo[39m]: Realtime metrics recorded
+16:39:57 [[36minfo[39m]: Realtime metrics recorded
+16:40:27 [[36minfo[39m]: Realtime metrics recorded
+16:40:57 [[36minfo[39m]: Realtime metrics recorded
+16:41:27 [[36minfo[39m]: Realtime metrics recorded
+16:41:57 [[36minfo[39m]: Realtime metrics recorded
+16:42:27 [[36minfo[39m]: Realtime metrics recorded
+16:42:57 [[36minfo[39m]: Realtime metrics recorded
+16:43:27 [[36minfo[39m]: Realtime metrics recorded
+16:43:57 [[36minfo[39m]: Realtime metrics recorded
+16:44:27 [[36minfo[39m]: Realtime metrics recorded
+16:44:57 [[36minfo[39m]: Realtime metrics recorded
+16:45:27 [[36minfo[39m]: Realtime metrics recorded
+16:45:57 [[36minfo[39m]: Realtime metrics recorded
+16:46:27 [[36minfo[39m]: Realtime metrics recorded
+16:46:57 [[36minfo[39m]: Realtime metrics recorded
+16:47:27 [[36minfo[39m]: Realtime metrics recorded
+16:47:57 [[36minfo[39m]: Realtime metrics recorded
+16:48:27 [[36minfo[39m]: Realtime metrics recorded
+16:48:57 [[36minfo[39m]: Realtime metrics recorded
+16:49:27 [[36minfo[39m]: Realtime metrics recorded
+16:49:57 [[36minfo[39m]: Realtime metrics recorded
+16:50:27 [[36minfo[39m]: Realtime metrics recorded
+16:50:57 [[36minfo[39m]: Realtime metrics recorded
+prisma:query SELECT 1
+prisma:query SELECT `main`.`games`.`id`, `main`.`games`.`title`, `main`.`games`.`description`, `main`.`games`.`maxPlayers`, `main`.`games`.`cardPrice`, `main`.`games`.`totalPrize`, `main`.`games`.`status`, `main`.`games`.`scheduledAt`, `main`.`games`.`startedAt`, `main`.`games`.`endedAt`, `main`.`games`.`ballsDrawn`, `main`.`games`.`currentBall`, `main`.`games`.`winningCards`, `main`.`games`.`createdAt`, `main`.`games`.`updatedAt` FROM `main`.`games` WHERE (`main`.`games`.`id` = ? AND 1=1) LIMIT ? OFFSET ?
+16:51:01 [[36minfo[39m]: [36mHTTP GET /balance 200 193ms[39m
+{
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36",
+  "ip": "::1",
+  "httpRequest": {
+    "method": "GET",
+    "url": "/balance",
+    "statusCode": 200,
+    "responseTime": 193
+  },
+  "type": "http"
+}
+16:51:01 [[36minfo[39m]: [36mBalance consultado[39m
+{
+  "userId": "cme3boc9d0001131ojj801ouw",
+  "balance": 49
+}
+16:51:01 [[36minfo[39m]: [36mHTTP GET /validate/:gameId/:cardCount? 200 154ms[39m
+{
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36",
+  "ip": "::1",
+  "httpRequest": {
+    "method": "GET",
+    "url": "/validate/:gameId/:cardCount?",
+    "statusCode": 200,
+    "responseTime": 154
+  },
+  "type": "http"
+}
+prisma:query SELECT `main`.`wallets`.`id`, `main`.`wallets`.`userId`, `main`.`wallets`.`balance`, `main`.`wallets`.`dailyLimit`, `main`.`wallets`.`monthlyLimit`, `main`.`wallets`.`isActive`, `main`.`wallets`.`isFrozen`, `main`.`wallets`.`createdAt`, `main`.`wallets`.`updatedAt` FROM `main`.`wallets` WHERE (`main`.`wallets`.`userId` = ? AND 1=1) LIMIT ? OFFSET ?
+prisma:query SELECT `main`.`games`.`id`, `main`.`games`.`title`, `main`.`games`.`description`, `main`.`games`.`maxPlayers`, `main`.`games`.`cardPrice`, `main`.`games`.`totalPrize`, `main`.`games`.`status`, `main`.`games`.`scheduledAt`, `main`.`games`.`startedAt`, `main`.`games`.`endedAt`, `main`.`games`.`ballsDrawn`, `main`.`games`.`currentBall`, `main`.`games`.`winningCards`, `main`.`games`.`createdAt`, `main`.`games`.`updatedAt` FROM `main`.`games` WHERE (`main`.`games`.`id` = ? AND 1=1) LIMIT ? OFFSET ?
+prisma:query SELECT `main`.`wallets`.`id`, `main`.`wallets`.`userId`, `main`.`wallets`.`balance`, `main`.`wallets`.`dailyLimit`, `main`.`wallets`.`monthlyLimit`, `main`.`wallets`.`isActive`, `main`.`wallets`.`isFrozen`, `main`.`wallets`.`createdAt`, `main`.`wallets`.`updatedAt` FROM `main`.`wallets` WHERE (`main`.`wallets`.`userId` = ? AND 1=1) LIMIT ? OFFSET ?
+16:51:08 [[36minfo[39m]: [36mHTTP GET /validate/:gameId/:cardCount? 200 11ms[39m
+{
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36",
+  "ip": "::1",
+  "httpRequest": {
+    "method": "GET",
+    "url": "/validate/:gameId/:cardCount?",
+    "statusCode": 200,
+    "responseTime": 11
+  },
+  "type": "http"
+}
+16:51:27 [[36minfo[39m]: Realtime metrics recorded
+prisma:query SELECT 1
+prisma:query SELECT `main`.`games`.`id`, `main`.`games`.`title`, `main`.`games`.`description`, `main`.`games`.`maxPlayers`, `main`.`games`.`cardPrice`, `main`.`games`.`totalPrize`, `main`.`games`.`status`, `main`.`games`.`scheduledAt`, `main`.`games`.`startedAt`, `main`.`games`.`endedAt`, `main`.`games`.`ballsDrawn`, `main`.`games`.`currentBall`, `main`.`games`.`winningCards`, `main`.`games`.`createdAt`, `main`.`games`.`updatedAt` FROM `main`.`games` WHERE (`main`.`games`.`id` = ? AND 1=1) LIMIT ? OFFSET ?
+prisma:query SELECT `main`.`wallets`.`id`, `main`.`wallets`.`userId`, `main`.`wallets`.`balance`, `main`.`wallets`.`dailyLimit`, `main`.`wallets`.`monthlyLimit`, `main`.`wallets`.`isActive`, `main`.`wallets`.`isFrozen`, `main`.`wallets`.`createdAt`, `main`.`wallets`.`updatedAt` FROM `main`.`wallets` WHERE (`main`.`wallets`.`userId` = ? AND 1=1) LIMIT ? OFFSET ?
+16:51:28 [[36minfo[39m]: [36mHTTP GET /validate/:gameId/:cardCount? 200 10ms[39m
+{
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36",
+  "ip": "::1",
+  "httpRequest": {
+    "method": "GET",
+    "url": "/validate/:gameId/:cardCount?",
+    "statusCode": 200,
+    "responseTime": 10
+  },
+  "type": "http"
+}
+prisma:query SELECT `main`.`games`.`id`, `main`.`games`.`title`, `main`.`games`.`description`, `main`.`games`.`maxPlayers`, `main`.`games`.`cardPrice`, `main`.`games`.`totalPrize`, `main`.`games`.`status`, `main`.`games`.`scheduledAt`, `main`.`games`.`startedAt`, `main`.`games`.`endedAt`, `main`.`games`.`ballsDrawn`, `main`.`games`.`currentBall`, `main`.`games`.`winningCards`, `main`.`games`.`createdAt`, `main`.`games`.`updatedAt` FROM `main`.`games` WHERE (`main`.`games`.`id` = ? AND 1=1) LIMIT ? OFFSET ?
+prisma:query SELECT `main`.`wallets`.`id`, `main`.`wallets`.`userId`, `main`.`wallets`.`balance`, `main`.`wallets`.`dailyLimit`, `main`.`wallets`.`monthlyLimit`, `main`.`wallets`.`isActive`, `main`.`wallets`.`isFrozen`, `main`.`wallets`.`createdAt`, `main`.`wallets`.`updatedAt` FROM `main`.`wallets` WHERE (`main`.`wallets`.`userId` = ? AND 1=1) LIMIT ? OFFSET ?
+16:51:31 [[36minfo[39m]: [36mHTTP GET /validate/:gameId/:cardCount? 200 11ms[39m
+{
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36",
+  "ip": "::1",
+  "httpRequest": {
+    "method": "GET",
+    "url": "/validate/:gameId/:cardCount?",
+    "statusCode": 200,
+    "responseTime": 11
+  },
+  "type": "http"
+}
+prisma:query SELECT `main`.`games`.`id`, `main`.`games`.`title`, `main`.`games`.`description`, `main`.`games`.`maxPlayers`, `main`.`games`.`cardPrice`, `main`.`games`.`totalPrize`, `main`.`games`.`status`, `main`.`games`.`scheduledAt`, `main`.`games`.`startedAt`, `main`.`games`.`endedAt`, `main`.`games`.`ballsDrawn`, `main`.`games`.`currentBall`, `main`.`games`.`winningCards`, `main`.`games`.`createdAt`, `main`.`games`.`updatedAt` FROM `main`.`games` WHERE (`main`.`games`.`id` = ? AND 1=1) LIMIT ? OFFSET ?
+prisma:query SELECT `main`.`wallets`.`id`, `main`.`wallets`.`userId`, `main`.`wallets`.`balance`, `main`.`wallets`.`dailyLimit`, `main`.`wallets`.`monthlyLimit`, `main`.`wallets`.`isActive`, `main`.`wallets`.`isFrozen`, `main`.`wallets`.`createdAt`, `main`.`wallets`.`updatedAt` FROM `main`.`wallets` WHERE (`main`.`wallets`.`userId` = ? AND 1=1) LIMIT ? OFFSET ?
+16:51:32 [[36minfo[39m]: [36mHTTP GET /validate/:gameId/:cardCount? 200 11ms[39m
+{
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36",
+  "ip": "::1",
+  "httpRequest": {
+    "method": "GET",
+    "url": "/validate/:gameId/:cardCount?",
+    "statusCode": 200,
+    "responseTime": 11
+  },
+  "type": "http"
+}
+prisma:query SELECT `main`.`games`.`id`, `main`.`games`.`title`, `main`.`games`.`description`, `main`.`games`.`maxPlayers`, `main`.`games`.`cardPrice`, `main`.`games`.`totalPrize`, `main`.`games`.`status`, `main`.`games`.`scheduledAt`, `main`.`games`.`startedAt`, `main`.`games`.`endedAt`, `main`.`games`.`ballsDrawn`, `main`.`games`.`currentBall`, `main`.`games`.`winningCards`, `main`.`games`.`createdAt`, `main`.`games`.`updatedAt` FROM `main`.`games` WHERE (`main`.`games`.`id` = ? AND 1=1) LIMIT ? OFFSET ?
+prisma:query SELECT `main`.`wallets`.`id`, `main`.`wallets`.`userId`, `main`.`wallets`.`balance`, `main`.`wallets`.`dailyLimit`, `main`.`wallets`.`monthlyLimit`, `main`.`wallets`.`isActive`, `main`.`wallets`.`isFrozen`, `main`.`wallets`.`createdAt`, `main`.`wallets`.`updatedAt` FROM `main`.`wallets` WHERE (`main`.`wallets`.`userId` = ? AND 1=1) LIMIT ? OFFSET ?
+16:51:33 [[36minfo[39m]: [36mHTTP GET /validate/:gameId/:cardCount? 200 12ms[39m
+{
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36",
+  "ip": "::1",
+  "httpRequest": {
+    "method": "GET",
+    "url": "/validate/:gameId/:cardCount?",
+    "statusCode": 200,
+    "responseTime": 12
+  },
+  "type": "http"
+}
+prisma:query SELECT 1
+prisma:query BEGIN IMMEDIATE
+prisma:query SELECT `main`.`games`.`id`, `main`.`games`.`title`, `main`.`games`.`description`, `main`.`games`.`maxPlayers`, `main`.`games`.`cardPrice`, `main`.`games`.`totalPrize`, `main`.`games`.`status`, `main`.`games`.`scheduledAt`, `main`.`games`.`startedAt`, `main`.`games`.`endedAt`, `main`.`games`.`ballsDrawn`, `main`.`games`.`currentBall`, `main`.`games`.`winningCards`, `main`.`games`.`createdAt`, `main`.`games`.`updatedAt`, COALESCE(`aggr_selection_0_GameParticipant`.`_aggr_count_participants`, 0) AS `_aggr_count_participants` FROM `main`.`games` LEFT JOIN (SELECT `main`.`game_participants`.`gameId`, COUNT(*) AS `_aggr_count_participants` FROM `main`.`game_participants` WHERE 1=1 GROUP BY `main`.`game_participants`.`gameId`) AS `aggr_selection_0_GameParticipant` ON (`main`.`games`.`id` = `aggr_selection_0_GameParticipant`.`gameId`) WHERE (`main`.`games`.`id` = ? AND 1=1) LIMIT ? OFFSET ?
+prisma:query SELECT `main`.`wallets`.`id`, `main`.`wallets`.`userId`, `main`.`wallets`.`balance`, `main`.`wallets`.`dailyLimit`, `main`.`wallets`.`monthlyLimit`, `main`.`wallets`.`isActive`, `main`.`wallets`.`isFrozen`, `main`.`wallets`.`createdAt`, `main`.`wallets`.`updatedAt` FROM `main`.`wallets` WHERE (`main`.`wallets`.`userId` = ? AND 1=1) LIMIT ? OFFSET ?
+prisma:query SELECT `main`.`game_participants`.`id`, `main`.`game_participants`.`userId`, `main`.`game_participants`.`gameId`, `main`.`game_participants`.`joinedAt`, `main`.`game_participants`.`cardsCount`, `main`.`game_participants`.`totalSpent`, `main`.`game_participants`.`hasWon`, `main`.`game_participants`.`prizeWon` FROM `main`.`game_participants` WHERE ((`main`.`game_participants`.`userId` = ? AND `main`.`game_participants`.`gameId` = ?) AND 1=1) LIMIT ? OFFSET ?
+prisma:query SELECT COUNT(*) FROM (SELECT `main`.`bingo_cards`.`id` FROM `main`.`bingo_cards` WHERE (`main`.`bingo_cards`.`userId` = ? AND `main`.`bingo_cards`.`gameId` = ?) LIMIT ? OFFSET ?) AS `sub`
+prisma:query UPDATE `main`.`wallets` SET `balance` = ?, `updatedAt` = ? WHERE (`main`.`wallets`.`userId` = ? AND 1=1) RETURNING `id` AS `id`, `userId` AS `userId`, `balance` AS `balance`, `dailyLimit` AS `dailyLimit`, `monthlyLimit` AS `monthlyLimit`, `isActive` AS `isActive`, `isFrozen` AS `isFrozen`, `createdAt` AS `createdAt`, `updatedAt` AS `updatedAt`
+prisma:query INSERT INTO `main`.`transactions` (`id`, `userId`, `type`, `amount`, `description`, `status`, `paymentMethod`, `pearlsAmount`, `commissionAmount`, `referenceId`, `createdAt`, `updatedAt`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?) RETURNING `id` AS `id`, `userId` AS `userId`, `gameId` AS `gameId`, `type` AS `type`, `amount` AS `amount`, `description` AS `description`, `status` AS `status`, `paymentMethod` AS `paymentMethod`, `paymentId` AS `paymentId`, `pearlsAmount` AS `pearlsAmount`, `fromUserId` AS `fromUserId`, `toUserId` AS `toUserId`, `commissionAmount` AS `commissionAmount`, `referenceId` AS `referenceId`, `createdAt` AS `createdAt`, `updatedAt` AS `updatedAt`
+prisma:query UPDATE `main`.`game_participants` SET `cardsCount` = ?, `totalSpent` = ? WHERE (`main`.`game_participants`.`id` = ? AND 1=1) RETURNING `id` AS `id`, `userId` AS `userId`, `gameId` AS `gameId`, `joinedAt` AS `joinedAt`, `cardsCount` AS `cardsCount`, `totalSpent` AS `totalSpent`, `hasWon` AS `hasWon`, `prizeWon` AS `prizeWon`
+prisma:query SELECT MAX(`cardNumber`) FROM (SELECT `main`.`bingo_cards`.`cardNumber` FROM `main`.`bingo_cards` WHERE `main`.`bingo_cards`.`gameId` = ? LIMIT ? OFFSET ?) AS `sub`
+prisma:query INSERT INTO `main`.`bingo_cards` (`id`, `userId`, `gameId`, `cardNumber`, `isActive`, `markedNumbers`, `isWinner`, `createdAt`, `updatedAt`) VALUES (?,?,?,?,?,?,?,?,?) RETURNING `id` AS `id`, `userId` AS `userId`, `gameId` AS `gameId`, `cardNumber` AS `cardNumber`, `isActive` AS `isActive`, `markedNumbers` AS `markedNumbers`, `isWinner` AS `isWinner`, `winningPattern` AS `winningPattern`, `createdAt` AS `createdAt`, `updatedAt` AS `updatedAt`
+prisma:query INSERT INTO `main`.`card_numbers` (`id`, `cardId`, `position`, `column`, `number`, `isMarked`, `isFree`) VALUES (?,?,?,?,?,?,?) RETURNING `id` AS `id`, `cardId` AS `cardId`, `position` AS `position`, `column` AS `column`, `number` AS `number`, `isMarked` AS `isMarked`, `isFree` AS `isFree`
+prisma:query INSERT INTO `main`.`card_numbers` (`id`, `cardId`, `position`, `column`, `number`, `isMarked`, `isFree`) VALUES (?,?,?,?,?,?,?) RETURNING `id` AS `id`, `cardId` AS `cardId`, `position` AS `position`, `column` AS `column`, `number` AS `number`, `isMarked` AS `isMarked`, `isFree` AS `isFree`
+prisma:query INSERT INTO `main`.`card_numbers` (`id`, `cardId`, `position`, `column`, `number`, `isMarked`, `isFree`) VALUES (?,?,?,?,?,?,?) RETURNING `id` AS `id`, `cardId` AS `cardId`, `position` AS `position`, `column` AS `column`, `number` AS `number`, `isMarked` AS `isMarked`, `isFree` AS `isFree`
+prisma:query INSERT INTO `main`.`card_numbers` (`id`, `cardId`, `position`, `column`, `number`, `isMarked`, `isFree`) VALUES (?,?,?,?,?,?,?) RETURNING `id` AS `id`, `cardId` AS `cardId`, `position` AS `position`, `column` AS `column`, `number` AS `number`, `isMarked` AS `isMarked`, `isFree` AS `isFree`
+prisma:query INSERT INTO `main`.`card_numbers` (`id`, `cardId`, `position`, `column`, `number`, `isMarked`, `isFree`) VALUES (?,?,?,?,?,?,?) RETURNING `id` AS `id`, `cardId` AS `cardId`, `position` AS `position`, `column` AS `column`, `number` AS `number`, `isMarked` AS `isMarked`, `isFree` AS `isFree`
+prisma:query INSERT INTO `main`.`card_numbers` (`id`, `cardId`, `position`, `column`, `number`, `isMarked`, `isFree`) VALUES (?,?,?,?,?,?,?) RETURNING `id` AS `id`, `cardId` AS `cardId`, `position` AS `position`, `column` AS `column`, `number` AS `number`, `isMarked` AS `isMarked`, `isFree` AS `isFree`
+prisma:query INSERT INTO `main`.`card_numbers` (`id`, `cardId`, `position`, `column`, `number`, `isMarked`, `isFree`) VALUES (?,?,?,?,?,?,?) RETURNING `id` AS `id`, `cardId` AS `cardId`, `position` AS `position`, `column` AS `column`, `number` AS `number`, `isMarked` AS `isMarked`, `isFree` AS `isFree`
+prisma:query INSERT INTO `main`.`card_numbers` (`id`, `cardId`, `position`, `column`, `number`, `isMarked`, `isFree`) VALUES (?,?,?,?,?,?,?) RETURNING `id` AS `id`, `cardId` AS `cardId`, `position` AS `position`, `column` AS `column`, `number` AS `number`, `isMarked` AS `isMarked`, `isFree` AS `isFree`
+prisma:query INSERT INTO `main`.`card_numbers` (`id`, `cardId`, `position`, `column`, `number`, `isMarked`, `isFree`) VALUES (?,?,?,?,?,?,?) RETURNING `id` AS `id`, `cardId` AS `cardId`, `position` AS `position`, `column` AS `column`, `number` AS `number`, `isMarked` AS `isMarked`, `isFree` AS `isFree`
+prisma:query INSERT INTO `main`.`card_numbers` (`id`, `cardId`, `position`, `column`, `number`, `isMarked`, `isFree`) VALUES (?,?,?,?,?,?,?) RETURNING `id` AS `id`, `cardId` AS `cardId`, `position` AS `position`, `column` AS `column`, `number` AS `number`, `isMarked` AS `isMarked`, `isFree` AS `isFree`
+prisma:query INSERT INTO `main`.`card_numbers` (`id`, `cardId`, `position`, `column`, `number`, `isMarked`, `isFree`) VALUES (?,?,?,?,?,?,?) RETURNING `id` AS `id`, `cardId` AS `cardId`, `position` AS `position`, `column` AS `column`, `number` AS `number`, `isMarked` AS `isMarked`, `isFree` AS `isFree`
+prisma:query INSERT INTO `main`.`card_numbers` (`id`, `cardId`, `position`, `column`, `number`, `isMarked`, `isFree`) VALUES (?,?,?,?,?,?,?) RETURNING `id` AS `id`, `cardId` AS `cardId`, `position` AS `position`, `column` AS `column`, `number` AS `number`, `isMarked` AS `isMarked`, `isFree` AS `isFree`
+prisma:query INSERT INTO `main`.`card_numbers` (`id`, `cardId`, `position`, `column`, `number`, `isMarked`, `isFree`) VALUES (?,?,?,?,?,?,?) RETURNING `id` AS `id`, `cardId` AS `cardId`, `position` AS `position`, `column` AS `column`, `number` AS `number`, `isMarked` AS `isMarked`, `isFree` AS `isFree`
+prisma:query INSERT INTO `main`.`card_numbers` (`id`, `cardId`, `position`, `column`, `number`, `isMarked`, `isFree`) VALUES (?,?,?,?,?,?,?) RETURNING `id` AS `id`, `cardId` AS `cardId`, `position` AS `position`, `column` AS `column`, `number` AS `number`, `isMarked` AS `isMarked`, `isFree` AS `isFree`
+prisma:query INSERT INTO `main`.`card_numbers` (`id`, `cardId`, `position`, `column`, `number`, `isMarked`, `isFree`) VALUES (?,?,?,?,?,?,?) RETURNING `id` AS `id`, `cardId` AS `cardId`, `position` AS `position`, `column` AS `column`, `number` AS `number`, `isMarked` AS `isMarked`, `isFree` AS `isFree`
+prisma:query INSERT INTO `main`.`card_numbers` (`id`, `cardId`, `position`, `column`, `number`, `isMarked`, `isFree`) VALUES (?,?,?,?,?,?,?) RETURNING `id` AS `id`, `cardId` AS `cardId`, `position` AS `position`, `column` AS `column`, `number` AS `number`, `isMarked` AS `isMarked`, `isFree` AS `isFree`
+prisma:query INSERT INTO `main`.`card_numbers` (`id`, `cardId`, `position`, `column`, `number`, `isMarked`, `isFree`) VALUES (?,?,?,?,?,?,?) RETURNING `id` AS `id`, `cardId` AS `cardId`, `position` AS `position`, `column` AS `column`, `number` AS `number`, `isMarked` AS `isMarked`, `isFree` AS `isFree`
+prisma:query INSERT INTO `main`.`card_numbers` (`id`, `cardId`, `position`, `column`, `number`, `isMarked`, `isFree`) VALUES (?,?,?,?,?,?,?) RETURNING `id` AS `id`, `cardId` AS `cardId`, `position` AS `position`, `column` AS `column`, `number` AS `number`, `isMarked` AS `isMarked`, `isFree` AS `isFree`
+prisma:query INSERT INTO `main`.`card_numbers` (`id`, `cardId`, `position`, `column`, `number`, `isMarked`, `isFree`) VALUES (?,?,?,?,?,?,?) RETURNING `id` AS `id`, `cardId` AS `cardId`, `position` AS `position`, `column` AS `column`, `number` AS `number`, `isMarked` AS `isMarked`, `isFree` AS `isFree`
+prisma:query INSERT INTO `main`.`card_numbers` (`id`, `cardId`, `position`, `column`, `number`, `isMarked`, `isFree`) VALUES (?,?,?,?,?,?,?) RETURNING `id` AS `id`, `cardId` AS `cardId`, `position` AS `position`, `column` AS `column`, `number` AS `number`, `isMarked` AS `isMarked`, `isFree` AS `isFree`
+prisma:query INSERT INTO `main`.`card_numbers` (`id`, `cardId`, `position`, `column`, `number`, `isMarked`, `isFree`) VALUES (?,?,?,?,?,?,?) RETURNING `id` AS `id`, `cardId` AS `cardId`, `position` AS `position`, `column` AS `column`, `number` AS `number`, `isMarked` AS `isMarked`, `isFree` AS `isFree`
+prisma:query INSERT INTO `main`.`card_numbers` (`id`, `cardId`, `position`, `column`, `number`, `isMarked`, `isFree`) VALUES (?,?,?,?,?,?,?) RETURNING `id` AS `id`, `cardId` AS `cardId`, `position` AS `position`, `column` AS `column`, `number` AS `number`, `isMarked` AS `isMarked`, `isFree` AS `isFree`
+prisma:query INSERT INTO `main`.`card_numbers` (`id`, `cardId`, `position`, `column`, `number`, `isMarked`, `isFree`) VALUES (?,?,?,?,?,?,?) RETURNING `id` AS `id`, `cardId` AS `cardId`, `position` AS `position`, `column` AS `column`, `number` AS `number`, `isMarked` AS `isMarked`, `isFree` AS `isFree`
+prisma:query INSERT INTO `main`.`card_numbers` (`id`, `cardId`, `position`, `column`, `number`, `isMarked`, `isFree`) VALUES (?,?,?,?,?,?,?) RETURNING `id` AS `id`, `cardId` AS `cardId`, `position` AS `position`, `column` AS `column`, `number` AS `number`, `isMarked` AS `isMarked`, `isFree` AS `isFree`
+prisma:query INSERT INTO `main`.`card_numbers` (`id`, `cardId`, `position`, `column`, `number`, `isMarked`, `isFree`) VALUES (?,?,?,?,?,?,?) RETURNING `id` AS `id`, `cardId` AS `cardId`, `position` AS `position`, `column` AS `column`, `number` AS `number`, `isMarked` AS `isMarked`, `isFree` AS `isFree`
+prisma:query SELECT MAX(`cardNumber`) FROM (SELECT `main`.`bingo_cards`.`cardNumber` FROM `main`.`bingo_cards` WHERE `main`.`bingo_cards`.`gameId` = ? LIMIT ? OFFSET ?) AS `sub`
+prisma:query INSERT INTO `main`.`bingo_cards` (`id`, `userId`, `gameId`, `cardNumber`, `isActive`, `markedNumbers`, `isWinner`, `createdAt`, `updatedAt`) VALUES (?,?,?,?,?,?,?,?,?) RETURNING `id` AS `id`, `userId` AS `userId`, `gameId` AS `gameId`, `cardNumber` AS `cardNumber`, `isActive` AS `isActive`, `markedNumbers` AS `markedNumbers`, `isWinner` AS `isWinner`, `winningPattern` AS `winningPattern`, `createdAt` AS `createdAt`, `updatedAt` AS `updatedAt`
+prisma:query INSERT INTO `main`.`card_numbers` (`id`, `cardId`, `position`, `column`, `number`, `isMarked`, `isFree`) VALUES (?,?,?,?,?,?,?) RETURNING `id` AS `id`, `cardId` AS `cardId`, `position` AS `position`, `column` AS `column`, `number` AS `number`, `isMarked` AS `isMarked`, `isFree` AS `isFree`
+prisma:query INSERT INTO `main`.`card_numbers` (`id`, `cardId`, `position`, `column`, `number`, `isMarked`, `isFree`) VALUES (?,?,?,?,?,?,?) RETURNING `id` AS `id`, `cardId` AS `cardId`, `position` AS `position`, `column` AS `column`, `number` AS `number`, `isMarked` AS `isMarked`, `isFree` AS `isFree`
+prisma:query INSERT INTO `main`.`card_numbers` (`id`, `cardId`, `position`, `column`, `number`, `isMarked`, `isFree`) VALUES (?,?,?,?,?,?,?) RETURNING `id` AS `id`, `cardId` AS `cardId`, `position` AS `position`, `column` AS `column`, `number` AS `number`, `isMarked` AS `isMarked`, `isFree` AS `isFree`
+prisma:query INSERT INTO `main`.`card_numbers` (`id`, `cardId`, `position`, `column`, `number`, `isMarked`, `isFree`) VALUES (?,?,?,?,?,?,?) RETURNING `id` AS `id`, `cardId` AS `cardId`, `position` AS `position`, `column` AS `column`, `number` AS `number`, `isMarked` AS `isMarked`, `isFree` AS `isFree`
+prisma:query INSERT INTO `main`.`card_numbers` (`id`, `cardId`, `position`, `column`, `number`, `isMarked`, `isFree`) VALUES (?,?,?,?,?,?,?) RETURNING `id` AS `id`, `cardId` AS `cardId`, `position` AS `position`, `column` AS `column`, `number` AS `number`, `isMarked` AS `isMarked`, `isFree` AS `isFree`
+prisma:query INSERT INTO `main`.`card_numbers` (`id`, `cardId`, `position`, `column`, `number`, `isMarked`, `isFree`) VALUES (?,?,?,?,?,?,?) RETURNING `id` AS `id`, `cardId` AS `cardId`, `position` AS `position`, `column` AS `column`, `number` AS `number`, `isMarked` AS `isMarked`, `isFree` AS `isFree`
+prisma:query INSERT INTO `main`.`card_numbers` (`id`, `cardId`, `position`, `column`, `number`, `isMarked`, `isFree`) VALUES (?,?,?,?,?,?,?) RETURNING `id` AS `id`, `cardId` AS `cardId`, `position` AS `position`, `column` AS `column`, `number` AS `number`, `isMarked` AS `isMarked`, `isFree` AS `isFree`
+prisma:query INSERT INTO `main`.`card_numbers` (`id`, `cardId`, `position`, `column`, `number`, `isMarked`, `isFree`) VALUES (?,?,?,?,?,?,?) RETURNING `id` AS `id`, `cardId` AS `cardId`, `position` AS `position`, `column` AS `column`, `number` AS `number`, `isMarked` AS `isMarked`, `isFree` AS `isFree`
+prisma:query INSERT INTO `main`.`card_numbers` (`id`, `cardId`, `position`, `column`, `number`, `isMarked`, `isFree`) VALUES (?,?,?,?,?,?,?) RETURNING `id` AS `id`, `cardId` AS `cardId`, `position` AS `position`, `column` AS `column`, `number` AS `number`, `isMarked` AS `isMarked`, `isFree` AS `isFree`
+prisma:query INSERT INTO `main`.`card_numbers` (`id`, `cardId`, `position`, `column`, `number`, `isMarked`, `isFree`) VALUES (?,?,?,?,?,?,?) RETURNING `id` AS `id`, `cardId` AS `cardId`, `position` AS `position`, `column` AS `column`, `number` AS `number`, `isMarked` AS `isMarked`, `isFree` AS `isFree`
+prisma:query INSERT INTO `main`.`card_numbers` (`id`, `cardId`, `position`, `column`, `number`, `isMarked`, `isFree`) VALUES (?,?,?,?,?,?,?) RETURNING `id` AS `id`, `cardId` AS `cardId`, `position` AS `position`, `column` AS `column`, `number` AS `number`, `isMarked` AS `isMarked`, `isFree` AS `isFree`
+prisma:query INSERT INTO `main`.`card_numbers` (`id`, `cardId`, `position`, `column`, `number`, `isMarked`, `isFree`) VALUES (?,?,?,?,?,?,?) RETURNING `id` AS `id`, `cardId` AS `cardId`, `position` AS `position`, `column` AS `column`, `number` AS `number`, `isMarked` AS `isMarked`, `isFree` AS `isFree`
+prisma:query INSERT INTO `main`.`card_numbers` (`id`, `cardId`, `position`, `column`, `number`, `isMarked`, `isFree`) VALUES (?,?,?,?,?,?,?) RETURNING `id` AS `id`, `cardId` AS `cardId`, `position` AS `position`, `column` AS `column`, `number` AS `number`, `isMarked` AS `isMarked`, `isFree` AS `isFree`
+prisma:query INSERT INTO `main`.`card_numbers` (`id`, `cardId`, `position`, `column`, `number`, `isMarked`, `isFree`) VALUES (?,?,?,?,?,?,?) RETURNING `id` AS `id`, `cardId` AS `cardId`, `position` AS `position`, `column` AS `column`, `number` AS `number`, `isMarked` AS `isMarked`, `isFree` AS `isFree`
+prisma:query INSERT INTO `main`.`card_numbers` (`id`, `cardId`, `position`, `column`, `number`, `isMarked`, `isFree`) VALUES (?,?,?,?,?,?,?) RETURNING `id` AS `id`, `cardId` AS `cardId`, `position` AS `position`, `column` AS `column`, `number` AS `number`, `isMarked` AS `isMarked`, `isFree` AS `isFree`
+prisma:query INSERT INTO `main`.`card_numbers` (`id`, `cardId`, `position`, `column`, `number`, `isMarked`, `isFree`) VALUES (?,?,?,?,?,?,?) RETURNING `id` AS `id`, `cardId` AS `cardId`, `position` AS `position`, `column` AS `column`, `number` AS `number`, `isMarked` AS `isMarked`, `isFree` AS `isFree`
+prisma:query INSERT INTO `main`.`card_numbers` (`id`, `cardId`, `position`, `column`, `number`, `isMarked`, `isFree`) VALUES (?,?,?,?,?,?,?) RETURNING `id` AS `id`, `cardId` AS `cardId`, `position` AS `position`, `column` AS `column`, `number` AS `number`, `isMarked` AS `isMarked`, `isFree` AS `isFree`
+prisma:query INSERT INTO `main`.`card_numbers` (`id`, `cardId`, `position`, `column`, `number`, `isMarked`, `isFree`) VALUES (?,?,?,?,?,?,?) RETURNING `id` AS `id`, `cardId` AS `cardId`, `position` AS `position`, `column` AS `column`, `number` AS `number`, `isMarked` AS `isMarked`, `isFree` AS `isFree`
+prisma:query INSERT INTO `main`.`card_numbers` (`id`, `cardId`, `position`, `column`, `number`, `isMarked`, `isFree`) VALUES (?,?,?,?,?,?,?) RETURNING `id` AS `id`, `cardId` AS `cardId`, `position` AS `position`, `column` AS `column`, `number` AS `number`, `isMarked` AS `isMarked`, `isFree` AS `isFree`
+prisma:query INSERT INTO `main`.`card_numbers` (`id`, `cardId`, `position`, `column`, `number`, `isMarked`, `isFree`) VALUES (?,?,?,?,?,?,?) RETURNING `id` AS `id`, `cardId` AS `cardId`, `position` AS `position`, `column` AS `column`, `number` AS `number`, `isMarked` AS `isMarked`, `isFree` AS `isFree`
+prisma:query INSERT INTO `main`.`card_numbers` (`id`, `cardId`, `position`, `column`, `number`, `isMarked`, `isFree`) VALUES (?,?,?,?,?,?,?) RETURNING `id` AS `id`, `cardId` AS `cardId`, `position` AS `position`, `column` AS `column`, `number` AS `number`, `isMarked` AS `isMarked`, `isFree` AS `isFree`
+prisma:query INSERT INTO `main`.`card_numbers` (`id`, `cardId`, `position`, `column`, `number`, `isMarked`, `isFree`) VALUES (?,?,?,?,?,?,?) RETURNING `id` AS `id`, `cardId` AS `cardId`, `position` AS `position`, `column` AS `column`, `number` AS `number`, `isMarked` AS `isMarked`, `isFree` AS `isFree`
+prisma:query INSERT INTO `main`.`card_numbers` (`id`, `cardId`, `position`, `column`, `number`, `isMarked`, `isFree`) VALUES (?,?,?,?,?,?,?) RETURNING `id` AS `id`, `cardId` AS `cardId`, `position` AS `position`, `column` AS `column`, `number` AS `number`, `isMarked` AS `isMarked`, `isFree` AS `isFree`
+prisma:query INSERT INTO `main`.`card_numbers` (`id`, `cardId`, `position`, `column`, `number`, `isMarked`, `isFree`) VALUES (?,?,?,?,?,?,?) RETURNING `id` AS `id`, `cardId` AS `cardId`, `position` AS `position`, `column` AS `column`, `number` AS `number`, `isMarked` AS `isMarked`, `isFree` AS `isFree`
+prisma:query INSERT INTO `main`.`card_numbers` (`id`, `cardId`, `position`, `column`, `number`, `isMarked`, `isFree`) VALUES (?,?,?,?,?,?,?) RETURNING `id` AS `id`, `cardId` AS `cardId`, `position` AS `position`, `column` AS `column`, `number` AS `number`, `isMarked` AS `isMarked`, `isFree` AS `isFree`
+prisma:query COMMIT
+16:51:44 [[36minfo[39m]: [36mCartones comprados con Perlas exitosamente[39m
+{
+  "userId": "cme3boc9d0001131ojj801ouw",
+  "gameId": "cme3boc9t000e131on2iaxg19",
+  "cardCount": 2,
+  "totalCost": 10,
+  "newBalance": 39,
+  "transactionId": "cme92tqag004hiibepy25ikb3"
+}
+16:51:44 [[36minfo[39m]: [36mCompra de cartones exitosa[39m
+{
+  "userId": "cme3boc9d0001131ojj801ouw",
+  "gameId": "cme3boc9t000e131on2iaxg19",
+  "cardCount": 2,
+  "totalAmount": 10,
+  "newBalance": 39,
+  "transactionId": "cme92tqag004hiibepy25ikb3"
+}
+16:51:44 [[36minfo[39m]: [36mHTTP POST /cards 200 151ms[39m
+{
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36",
+  "ip": "::1",
+  "httpRequest": {
+    "method": "POST",
+    "url": "/cards",
+    "statusCode": 200,
+    "responseTime": 151
+  },
+  "type": "http"
+}
+16:51:44 [[36minfo[39m]: [36mHTTP GET /balance 200 9ms[39m
+{
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36",
+  "ip": "::1",
+  "httpRequest": {
+    "method": "GET",
+    "url": "/balance",
+    "statusCode": 200,
+    "responseTime": 9
+  },
+  "type": "http"
+}
+16:51:44 [[36minfo[39m]: [36mBalance consultado[39m
+{
+  "userId": "cme3boc9d0001131ojj801ouw",
+  "balance": 39
+}
+16:51:44 [[36minfo[39m]: [36mHTTP GET /transactions 200 11ms[39m
+{
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36",
+  "ip": "::1",
+  "httpRequest": {
+    "method": "GET",
+    "url": "/transactions",
+    "statusCode": 200,
+    "responseTime": 11
+  },
+  "type": "http"
+}
+16:51:44 [[36minfo[39m]: [36mHistorial de transacciones consultado[39m
+{
+  "userId": "cme3boc9d0001131ojj801ouw",
+  "limit": 15,
+  "offset": 0,
+  "resultCount": 12
+}
+16:51:44 [[36minfo[39m]: [36mHTTP GET /balance 200 6ms[39m
+{
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36",
+  "ip": "::1",
+  "httpRequest": {
+    "method": "GET",
+    "url": "/balance",
+    "statusCode": 200,
+    "responseTime": 6
+  },
+  "type": "http"
+}
+16:51:44 [[36minfo[39m]: [36mBalance consultado[39m
+{
+  "userId": "cme3boc9d0001131ojj801ouw",
+  "balance": 39
+}
+16:51:44 [[36minfo[39m]: [36mHTTP GET /transactions 200 8ms[39m
+{
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36",
+  "ip": "::1",
+  "httpRequest": {
+    "method": "GET",
+    "url": "/transactions",
+    "statusCode": 200,
+    "responseTime": 8
+  },
+  "type": "http"
+}
+16:51:44 [[36minfo[39m]: [36mHistorial de transacciones consultado[39m
+{
+  "userId": "cme3boc9d0001131ojj801ouw",
+  "limit": 15,
+  "offset": 0,
+  "resultCount": 12
+}
+16:51:57 [[36minfo[39m]: Realtime metrics recorded
+prisma:query SELECT 1
+16:52:11 [[36minfo[39m]: [36mHTTP GET /balance 200 4ms[39m
+{
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36",
+  "ip": "::1",
+  "httpRequest": {
+    "method": "GET",
+    "url": "/balance",
+    "statusCode": 200,
+    "responseTime": 4
+  },
+  "type": "http"
+}
+16:52:11 [[36minfo[39m]: [36mBalance consultado[39m
+{
+  "userId": "cme3boc9d0001131ojj801ouw",
+  "balance": 39
+}
+prisma:query SELECT `main`.`bingo_cards`.`id`, `main`.`bingo_cards`.`userId`, `main`.`bingo_cards`.`gameId`, `main`.`bingo_cards`.`cardNumber`, `main`.`bingo_cards`.`isActive`, `main`.`bingo_cards`.`markedNumbers`, `main`.`bingo_cards`.`isWinner`, `main`.`bingo_cards`.`winningPattern`, `main`.`bingo_cards`.`createdAt`, `main`.`bingo_cards`.`updatedAt` FROM `main`.`bingo_cards` WHERE (`main`.`bingo_cards`.`userId` = ? AND `main`.`bingo_cards`.`isActive` = ?) LIMIT ? OFFSET ?
+prisma:query SELECT `main`.`games`.`id`, `main`.`games`.`title`, `main`.`games`.`cardPrice`, `main`.`games`.`status`, `main`.`games`.`scheduledAt`, `main`.`games`.`totalPrize`, `main`.`games`.`maxPlayers`, `main`.`games`.`description`, COALESCE(`aggr_selection_0_GameParticipant`.`_aggr_count_participants`, 0) AS `_aggr_count_participants` FROM `main`.`games` LEFT JOIN (SELECT `main`.`game_participants`.`gameId`, COUNT(*) AS `_aggr_count_participants` FROM `main`.`game_participants` WHERE 1=1 GROUP BY `main`.`game_participants`.`gameId`) AS `aggr_selection_0_GameParticipant` ON (`main`.`games`.`id` = `aggr_selection_0_GameParticipant`.`gameId`) WHERE `main`.`games`.`id` IN (?,?) LIMIT ? OFFSET ?
+prisma:query SELECT `main`.`card_numbers`.`id`, `main`.`card_numbers`.`cardId`, `main`.`card_numbers`.`position`, `main`.`card_numbers`.`column`, `main`.`card_numbers`.`number`, `main`.`card_numbers`.`isMarked`, `main`.`card_numbers`.`isFree` FROM `main`.`card_numbers` WHERE `main`.`card_numbers`.`cardId` IN (?,?,?,?,?,?,?,?,?) ORDER BY `main`.`card_numbers`.`position` ASC LIMIT ? OFFSET ?
+16:52:11 [[36minfo[39m]: [36mHTTP GET /balance 200 3ms[39m
+{
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36",
+  "ip": "::1",
+  "httpRequest": {
+    "method": "GET",
+    "url": "/balance",
+    "statusCode": 200,
+    "responseTime": 3
+  },
+  "type": "http"
+}
+16:52:11 [[36minfo[39m]: [36mBalance consultado[39m
+{
+  "userId": "cme3boc9d0001131ojj801ouw",
+  "balance": 39
+}
+16:52:11 [[36minfo[39m]: [36mHTTP GET /my-all 200 51ms[39m
+{
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36",
+  "ip": "::1",
+  "httpRequest": {
+    "method": "GET",
+    "url": "/my-all",
+    "statusCode": 200,
+    "responseTime": 51
+  },
+  "type": "http"
+}
+16:52:18 [[36minfo[39m]: [36mHTTP GET /balance 200 7ms[39m
+{
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36",
+  "ip": "::1",
+  "httpRequest": {
+    "method": "GET",
+    "url": "/balance",
+    "statusCode": 200,
+    "responseTime": 7
+  },
+  "type": "http"
+}
+16:52:18 [[36minfo[39m]: [36mBalance consultado[39m
+{
+  "userId": "cme3boc9d0001131ojj801ouw",
+  "balance": 39
+}
+16:52:18 [[36minfo[39m]: [36mHTTP GET /balance 200 4ms[39m
+{
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36",
+  "ip": "::1",
+  "httpRequest": {
+    "method": "GET",
+    "url": "/balance",
+    "statusCode": 200,
+    "responseTime": 4
+  },
+  "type": "http"
+}
+16:52:18 [[36minfo[39m]: [36mBalance consultado[39m
+{
+  "userId": "cme3boc9d0001131ojj801ouw",
+  "balance": 39
+}
+16:52:27 [[36minfo[39m]: Realtime metrics recorded
+16:52:32 [[36minfo[39m]: [36mSOCKET: client_connected[39m
+{
+  "socketEvent": "client_connected",
+  "socketData": {
+    "socketId": "VLm_y5RCcbD1UI1rAAAI"
+  },
+  "type": "socket"
+}
+16:52:32 [[36minfo[39m]: [36mBUSINESS: player_joined[39m
+{
+  "module": "game",
+  "userId": "VLm_y5RCcbD1UI1rAAAI",
+  "businessEvent": "player_joined",
+  "businessData": {
+    "gameId": "cme3boc9t000e131on2iaxg19",
+    "playerCount": 1
+  },
+  "type": "business"
+}
+prisma:query SELECT 1
+prisma:query SELECT `main`.`users`.`id`, `main`.`users`.`email`, `main`.`users`.`username`, `main`.`users`.`password`, `main`.`users`.`role`, `main`.`users`.`balance`, `main`.`users`.`pearlsBalance`, `main`.`users`.`createdAt`, `main`.`users`.`updatedAt`, `main`.`users`.`isActive`, `main`.`users`.`isVerified`, `main`.`users`.`fullName`, `main`.`users`.`phone`, `main`.`users`.`dni`, `main`.`users`.`birthDate` FROM `main`.`users` WHERE (`main`.`users`.`email` = ? OR `main`.`users`.`username` = ?) LIMIT ? OFFSET ?
+prisma:query SELECT `main`.`users`.`id`, `main`.`users`.`email`, `main`.`users`.`username`, `main`.`users`.`password`, `main`.`users`.`role`, `main`.`users`.`balance`, `main`.`users`.`pearlsBalance`, `main`.`users`.`createdAt`, `main`.`users`.`updatedAt`, `main`.`users`.`isActive`, `main`.`users`.`isVerified`, `main`.`users`.`fullName`, `main`.`users`.`phone`, `main`.`users`.`dni`, `main`.`users`.`birthDate` FROM `main`.`users` WHERE (`main`.`users`.`id` = ? AND 1=1) LIMIT ? OFFSET ?
+16:52:44 [[36minfo[39m]: Tokens generados para usuario: admin@bingo-la-perla.com
+16:52:44 [[35maudit[39m]: [35mAUDIT: login_attempt on user_session[39m
+{
+  "module": "auth",
+  "ip": "::1",
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36",
+  "auditEvent": {
+    "action": "login_attempt",
+    "resource": "user_session",
+    "userId": "admin@bingo-la-perla.com",
+    "success": true,
+    "reason": "valid_credentials"
+  }
+}
+16:52:44 [[36minfo[39m]: [36mHTTP POST /login 200 336ms[39m
+{
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36",
+  "ip": "::1",
+  "httpRequest": {
+    "method": "POST",
+    "url": "/login",
+    "statusCode": 200,
+    "responseTime": 336
+  },
+  "type": "http"
+}
+16:52:49 [[36minfo[39m]: [36mSOCKET: client_connected[39m
+{
+  "socketEvent": "client_connected",
+  "socketData": {
+    "socketId": "fVQl_hkxzlBZPukwAAAM"
+  },
+  "type": "socket"
+}
+16:52:49 [[36minfo[39m]: [36mBUSINESS: player_joined[39m
+{
+  "module": "game",
+  "userId": "fVQl_hkxzlBZPukwAAAM",
+  "businessEvent": "player_joined",
+  "businessData": {
+    "gameId": "cme3boc9t000e131on2iaxg19",
+    "playerCount": 2
+  },
+  "type": "business"
+}
+16:52:49 [[36minfo[39m]: [36mSOCKET: admin_joined[39m
+{
+  "socketEvent": "admin_joined",
+  "socketData": {
+    "gameId": "cme3boc9t000e131on2iaxg19",
+    "socketId": "fVQl_hkxzlBZPukwAAAM"
+  },
+  "type": "socket"
+}
+16:52:57 [[36minfo[39m]: Realtime metrics recorded
+16:53:19 [[36minfo[39m]: [36mBUSINESS: admin_set_pattern[39m
+{
+  "gameId": "cme3boc9t000e131on2iaxg19",
+  "businessEvent": "admin_set_pattern",
+  "businessData": {
+    "pattern": "full"
+  },
+  "type": "business"
+}
+16:53:21 [[36minfo[39m]: [36mBUSINESS: admin_reset_game[39m
+{
+  "gameId": "cme3boc9t000e131on2iaxg19",
+  "businessEvent": "admin_reset_game",
+  "businessData": {},
+  "type": "business"
+}
+16:53:24 [[36minfo[39m]: [36mBUSINESS: admin_toggle_game[39m
+{
+  "gameId": "cme3boc9t000e131on2iaxg19",
+  "businessEvent": "admin_toggle_game",
+  "businessData": {
+    "status": "paused"
+  },
+  "type": "business"
+}
+16:53:26 [[36minfo[39m]: [36mBUSINESS: admin_reset_game[39m
+{
+  "gameId": "cme3boc9t000e131on2iaxg19",
+  "businessEvent": "admin_reset_game",
+  "businessData": {},
+  "type": "business"
+}
+16:53:27 [[36minfo[39m]: Realtime metrics recorded
+16:53:57 [[36minfo[39m]: Realtime metrics recorded
+16:54:27 [[36minfo[39m]: Realtime metrics recorded
+16:54:57 [[36minfo[39m]: Realtime metrics recorded
+16:55:15 [[36minfo[39m]: [36mBUSINESS: admin_called_number[39m
+{
+  "gameId": "cme3boc9t000e131on2iaxg19",
+  "businessEvent": "admin_called_number",
+  "businessData": {
+    "number": 1
+  },
+  "type": "business"
+}
+16:55:16 [[36minfo[39m]: [36mBUSINESS: admin_called_number[39m
+{
+  "gameId": "cme3boc9t000e131on2iaxg19",
+  "businessEvent": "admin_called_number",
+  "businessData": {
+    "number": 16
+  },
+  "type": "business"
+}
+16:55:17 [[36minfo[39m]: [36mBUSINESS: admin_called_number[39m
+{
+  "gameId": "cme3boc9t000e131on2iaxg19",
+  "businessEvent": "admin_called_number",
+  "businessData": {
+    "number": 31
+  },
+  "type": "business"
+}
+16:55:17 [[36minfo[39m]: [36mBUSINESS: admin_called_number[39m
+{
+  "gameId": "cme3boc9t000e131on2iaxg19",
+  "businessEvent": "admin_called_number",
+  "businessData": {
+    "number": 46
+  },
+  "type": "business"
+}
+16:55:18 [[36minfo[39m]: [36mBUSINESS: admin_called_number[39m
+{
+  "gameId": "cme3boc9t000e131on2iaxg19",
+  "businessEvent": "admin_called_number",
+  "businessData": {
+    "number": 61
+  },
+  "type": "business"
+}
+16:55:27 [[36minfo[39m]: Realtime metrics recorded
+16:55:57 [[36minfo[39m]: Realtime metrics recorded
+16:56:27 [[36minfo[39m]: Realtime metrics recorded
+16:56:57 [[36minfo[39m]: Realtime metrics recorded
+16:57:27 [[36minfo[39m]: Realtime metrics recorded
+16:57:57 [[36minfo[39m]: Realtime metrics recorded
+16:58:27 [[36minfo[39m]: Realtime metrics recorded
+16:58:57 [[36minfo[39m]: Realtime metrics recorded
+16:59:27 [[36minfo[39m]: Realtime metrics recorded
+16:59:57 [[36minfo[39m]: Realtime metrics recorded
+17:00:27 [[36minfo[39m]: Realtime metrics recorded
+17:00:57 [[36minfo[39m]: Realtime metrics recorded
+17:01:27 [[36minfo[39m]: Realtime metrics recorded
+17:01:57 [[36minfo[39m]: Realtime metrics recorded
+17:02:27 [[36minfo[39m]: Realtime metrics recorded
+17:02:57 [[36minfo[39m]: Realtime metrics recorded
+17:03:15 [[36minfo[39m]: [36mSOCKET: client_disconnected[39m
+{
+  "socketEvent": "client_disconnected",
+  "socketData": {
+    "socketId": "fVQl_hkxzlBZPukwAAAM",
+    "reason": "client namespace disconnect"
+  },
+  "type": "socket"
+}
+17:03:15 [[36minfo[39m]: [36mAcceso admin autorizado[39m
+{
+  "adminId": "cme3boc990000131oaapq2f11",
+  "username": "admin",
+  "endpoint": "/api/admin/payment/dashboard",
+  "method": "GET",
+  "ip": "::1"
+}
+17:03:16 [[36minfo[39m]: [36mHTTP GET /dashboard 200 240ms[39m
+{
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36",
+  "ip": "::1",
+  "httpRequest": {
+    "method": "GET",
+    "url": "/dashboard",
+    "statusCode": 200,
+    "responseTime": 240
+  },
+  "type": "http"
+}
+17:03:16 [[36minfo[39m]: [36mDashboard de pagos admin consultado[39m
+{
+  "adminId": "cme3boc990000131oaapq2f11",
+  "pendingDeposits": 2,
+  "pendingWithdrawals": 0
+}
+17:03:16 [[36minfo[39m]: [36mAcceso admin autorizado[39m
+{
+  "adminId": "cme3boc990000131oaapq2f11",
+  "username": "admin",
+  "endpoint": "/api/admin/payment/dashboard",
+  "method": "GET",
+  "ip": "::1"
+}
+17:03:16 [[36minfo[39m]: [36mHTTP GET /dashboard 200 30ms[39m
+{
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36",
+  "ip": "::1",
+  "httpRequest": {
+    "method": "GET",
+    "url": "/dashboard",
+    "statusCode": 200,
+    "responseTime": 30
+  },
+  "type": "http"
+}
+17:03:16 [[36minfo[39m]: [36mDashboard de pagos admin consultado[39m
+{
+  "adminId": "cme3boc990000131oaapq2f11",
+  "pendingDeposits": 2,
+  "pendingWithdrawals": 0
+}
+17:03:25 [[36minfo[39m]: [36mAcceso admin autorizado[39m
+{
+  "adminId": "cme3boc990000131oaapq2f11",
+  "username": "admin",
+  "endpoint": "/api/admin/payment/deposits/pending?status=PENDING&limit=20&offset=0",
+  "method": "GET",
+  "ip": "::1"
+}
+17:03:25 [[33mwarn[39m]: [33mHTTP GET /deposits/pending 400 38ms[39m
+{
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36",
+  "ip": "::1",
+  "httpRequest": {
+    "method": "GET",
+    "url": "/deposits/pending",
+    "statusCode": 400,
+    "responseTime": 38
+  },
+  "type": "http"
+}
+17:03:25 [[36minfo[39m]: [36mAcceso admin autorizado[39m
+{
+  "adminId": "cme3boc990000131oaapq2f11",
+  "username": "admin",
+  "endpoint": "/api/admin/payment/deposits/pending?status=PENDING&limit=20&offset=0",
+  "method": "GET",
+  "ip": "::1"
+}
+17:03:25 [[33mwarn[39m]: [33mHTTP GET /deposits/pending 400 2ms[39m
+{
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36",
+  "ip": "::1",
+  "httpRequest": {
+    "method": "GET",
+    "url": "/deposits/pending",
+    "statusCode": 400,
+    "responseTime": 2
+  },
+  "type": "http"
+}
+17:03:27 [[36minfo[39m]: Realtime metrics recorded
+17:03:29 [[36minfo[39m]: [36mAcceso admin autorizado[39m
+{
+  "adminId": "cme3boc990000131oaapq2f11",
+  "username": "admin",
+  "endpoint": "/api/admin/payment/withdrawals/pending?limit=20&offset=0",
+  "method": "GET",
+  "ip": "::1"
+}
+17:03:29 [[36minfo[39m]: [36mHTTP GET /withdrawals/pending 200 52ms[39m
+{
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36",
+  "ip": "::1",
+  "httpRequest": {
+    "method": "GET",
+    "url": "/withdrawals/pending",
+    "statusCode": 200,
+    "responseTime": 52
+  },
+  "type": "http"
+}
+17:03:29 [[36minfo[39m]: [36mRetiros pendientes consultados por admin[39m
+{
+  "adminId": "cme3boc990000131oaapq2f11",
+  "resultCount": 0
+}
+17:03:30 [[36minfo[39m]: [36mAcceso admin autorizado[39m
+{
+  "adminId": "cme3boc990000131oaapq2f11",
+  "username": "admin",
+  "endpoint": "/api/admin/payment/withdrawals/pending?limit=20&offset=0",
+  "method": "GET",
+  "ip": "::1"
+}
+17:03:30 [[36minfo[39m]: [36mHTTP GET /withdrawals/pending 200 4ms[39m
+{
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36",
+  "ip": "::1",
+  "httpRequest": {
+    "method": "GET",
+    "url": "/withdrawals/pending",
+    "statusCode": 200,
+    "responseTime": 4
+  },
+  "type": "http"
+}
+17:03:30 [[36minfo[39m]: [36mRetiros pendientes consultados por admin[39m
+{
+  "adminId": "cme3boc990000131oaapq2f11",
+  "resultCount": 0
+}
+17:03:31 [[36minfo[39m]: [36mAcceso admin autorizado[39m
+{
+  "adminId": "cme3boc990000131oaapq2f11",
+  "username": "admin",
+  "endpoint": "/api/admin/payment/deposits/pending?status=PENDING&limit=20&offset=0",
+  "method": "GET",
+  "ip": "::1"
+}
+17:03:31 [[33mwarn[39m]: [33mHTTP GET /deposits/pending 400 3ms[39m
+{
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36",
+  "ip": "::1",
+  "httpRequest": {
+    "method": "GET",
+    "url": "/deposits/pending",
+    "statusCode": 400,
+    "responseTime": 3
+  },
+  "type": "http"
+}
+17:03:31 [[36minfo[39m]: [36mAcceso admin autorizado[39m
+{
+  "adminId": "cme3boc990000131oaapq2f11",
+  "username": "admin",
+  "endpoint": "/api/admin/payment/deposits/pending?status=PENDING&limit=20&offset=0",
+  "method": "GET",
+  "ip": "::1"
+}
+17:03:31 [[33mwarn[39m]: [33mHTTP GET /deposits/pending 400 3ms[39m
+{
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36",
+  "ip": "::1",
+  "httpRequest": {
+    "method": "GET",
+    "url": "/deposits/pending",
+    "statusCode": 400,
+    "responseTime": 3
+  },
+  "type": "http"
+}
+17:03:32 [[36minfo[39m]: [36mAcceso admin autorizado[39m
+{
+  "adminId": "cme3boc990000131oaapq2f11",
+  "username": "admin",
+  "endpoint": "/api/admin/payment/dashboard",
+  "method": "GET",
+  "ip": "::1"
+}
+17:03:32 [[36minfo[39m]: [36mHTTP GET /dashboard 200 24ms[39m
+{
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36",
+  "ip": "::1",
+  "httpRequest": {
+    "method": "GET",
+    "url": "/dashboard",
+    "statusCode": 200,
+    "responseTime": 24
+  },
+  "type": "http"
+}
+17:03:32 [[36minfo[39m]: [36mDashboard de pagos admin consultado[39m
+{
+  "adminId": "cme3boc990000131oaapq2f11",
+  "pendingDeposits": 2,
+  "pendingWithdrawals": 0
+}
+17:03:32 [[36minfo[39m]: [36mAcceso admin autorizado[39m
+{
+  "adminId": "cme3boc990000131oaapq2f11",
+  "username": "admin",
+  "endpoint": "/api/admin/payment/dashboard",
+  "method": "GET",
+  "ip": "::1"
+}
+17:03:32 [[36minfo[39m]: [36mHTTP GET /dashboard 200 32ms[39m
+{
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36",
+  "ip": "::1",
+  "httpRequest": {
+    "method": "GET",
+    "url": "/dashboard",
+    "statusCode": 200,
+    "responseTime": 32
+  },
+  "type": "http"
+}
+17:03:32 [[36minfo[39m]: [36mDashboard de pagos admin consultado[39m
+{
+  "adminId": "cme3boc990000131oaapq2f11",
+  "pendingDeposits": 2,
+  "pendingWithdrawals": 0
+}
+17:03:39 [[36minfo[39m]: [36mAcceso admin autorizado[39m
+{
+  "adminId": "cme3boc990000131oaapq2f11",
+  "username": "admin",
+  "endpoint": "/api/admin/payment/deposits/pending?status=PENDING&limit=20&offset=0",
+  "method": "GET",
+  "ip": "::1"
+}
+17:03:39 [[33mwarn[39m]: [33mHTTP GET /deposits/pending 400 3ms[39m
+{
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36",
+  "ip": "::1",
+  "httpRequest": {
+    "method": "GET",
+    "url": "/deposits/pending",
+    "statusCode": 400,
+    "responseTime": 3
+  },
+  "type": "http"
+}
+17:03:39 [[36minfo[39m]: [36mAcceso admin autorizado[39m
+{
+  "adminId": "cme3boc990000131oaapq2f11",
+  "username": "admin",
+  "endpoint": "/api/admin/payment/deposits/pending?status=PENDING&limit=20&offset=0",
+  "method": "GET",
+  "ip": "::1"
+}
+17:03:39 [[33mwarn[39m]: [33mHTTP GET /deposits/pending 400 1ms[39m
+{
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36",
+  "ip": "::1",
+  "httpRequest": {
+    "method": "GET",
+    "url": "/deposits/pending",
+    "statusCode": 400,
+    "responseTime": 1
+  },
+  "type": "http"
+}
+17:03:44 [[36minfo[39m]: [36mAcceso admin autorizado[39m
+{
+  "adminId": "cme3boc990000131oaapq2f11",
+  "username": "admin",
+  "endpoint": "/api/admin/payment/dashboard",
+  "method": "GET",
+  "ip": "::1"
+}
+17:03:44 [[36minfo[39m]: [36mHTTP GET /dashboard 200 36ms[39m
+{
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36",
+  "ip": "::1",
+  "httpRequest": {
+    "method": "GET",
+    "url": "/dashboard",
+    "statusCode": 200,
+    "responseTime": 36
+  },
+  "type": "http"
+}
+17:03:44 [[36minfo[39m]: [36mDashboard de pagos admin consultado[39m
+{
+  "adminId": "cme3boc990000131oaapq2f11",
+  "pendingDeposits": 2,
+  "pendingWithdrawals": 0
+}
+17:03:44 [[36minfo[39m]: [36mAcceso admin autorizado[39m
+{
+  "adminId": "cme3boc990000131oaapq2f11",
+  "username": "admin",
+  "endpoint": "/api/admin/payment/dashboard",
+  "method": "GET",
+  "ip": "::1"
+}
+17:03:44 [[36minfo[39m]: [36mHTTP GET /dashboard 200 24ms[39m
+{
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36",
+  "ip": "::1",
+  "httpRequest": {
+    "method": "GET",
+    "url": "/dashboard",
+    "statusCode": 200,
+    "responseTime": 24
+  },
+  "type": "http"
+}
+17:03:44 [[36minfo[39m]: [36mDashboard de pagos admin consultado[39m
+{
+  "adminId": "cme3boc990000131oaapq2f11",
+  "pendingDeposits": 2,
+  "pendingWithdrawals": 0
+}
+17:03:57 [[36minfo[39m]: Realtime metrics recorded
+17:03:59 [[36minfo[39m]: [36mSOCKET: client_disconnected[39m
+{
+  "socketEvent": "client_disconnected",
+  "socketData": {
+    "socketId": "VLm_y5RCcbD1UI1rAAAI",
+    "reason": "client namespace disconnect"
+  },
+  "type": "socket"
+}
+prisma:query SELECT 1
+prisma:query SELECT `main`.`bingo_cards`.`id`, `main`.`bingo_cards`.`userId`, `main`.`bingo_cards`.`gameId`, `main`.`bingo_cards`.`cardNumber`, `main`.`bingo_cards`.`isActive`, `main`.`bingo_cards`.`markedNumbers`, `main`.`bingo_cards`.`isWinner`, `main`.`bingo_cards`.`winningPattern`, `main`.`bingo_cards`.`createdAt`, `main`.`bingo_cards`.`updatedAt` FROM `main`.`bingo_cards` WHERE (`main`.`bingo_cards`.`userId` = ? AND `main`.`bingo_cards`.`isActive` = ?) LIMIT ? OFFSET ?
+prisma:query SELECT `main`.`games`.`id`, `main`.`games`.`title`, `main`.`games`.`cardPrice`, `main`.`games`.`status`, `main`.`games`.`scheduledAt`, `main`.`games`.`totalPrize`, `main`.`games`.`maxPlayers`, `main`.`games`.`description`, COALESCE(`aggr_selection_0_GameParticipant`.`_aggr_count_participants`, 0) AS `_aggr_count_participants` FROM `main`.`games` LEFT JOIN (SELECT `main`.`game_participants`.`gameId`, COUNT(*) AS `_aggr_count_participants` FROM `main`.`game_participants` WHERE 1=1 GROUP BY `main`.`game_participants`.`gameId`) AS `aggr_selection_0_GameParticipant` ON (`main`.`games`.`id` = `aggr_selection_0_GameParticipant`.`gameId`) WHERE `main`.`games`.`id` IN (?,?) LIMIT ? OFFSET ?
+prisma:query SELECT `main`.`card_numbers`.`id`, `main`.`card_numbers`.`cardId`, `main`.`card_numbers`.`position`, `main`.`card_numbers`.`column`, `main`.`card_numbers`.`number`, `main`.`card_numbers`.`isMarked`, `main`.`card_numbers`.`isFree` FROM `main`.`card_numbers` WHERE `main`.`card_numbers`.`cardId` IN (?,?,?,?,?,?,?,?,?) ORDER BY `main`.`card_numbers`.`position` ASC LIMIT ? OFFSET ?
+17:03:59 [[36minfo[39m]: [36mHTTP GET /balance 200 3ms[39m
+{
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36",
+  "ip": "::1",
+  "httpRequest": {
+    "method": "GET",
+    "url": "/balance",
+    "statusCode": 200,
+    "responseTime": 3
+  },
+  "type": "http"
+}
+17:03:59 [[36minfo[39m]: [36mBalance consultado[39m
+{
+  "userId": "cme3boc9d0001131ojj801ouw",
+  "balance": 39
+}
+17:03:59 [[36minfo[39m]: [36mHTTP GET /my-all 200 11ms[39m
+{
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36",
+  "ip": "::1",
+  "httpRequest": {
+    "method": "GET",
+    "url": "/my-all",
+    "statusCode": 200,
+    "responseTime": 11
+  },
+  "type": "http"
+}
+17:03:59 [[36minfo[39m]: [36mHTTP GET /balance 200 3ms[39m
+{
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36",
+  "ip": "::1",
+  "httpRequest": {
+    "method": "GET",
+    "url": "/balance",
+    "statusCode": 200,
+    "responseTime": 3
+  },
+  "type": "http"
+}
+17:03:59 [[36minfo[39m]: [36mBalance consultado[39m
+{
+  "userId": "cme3boc9d0001131ojj801ouw",
+  "balance": 39
+}
+17:04:04 [[36minfo[39m]: [36mHTTP GET /balance 200 6ms[39m
+{
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36",
+  "ip": "::1",
+  "httpRequest": {
+    "method": "GET",
+    "url": "/balance",
+    "statusCode": 200,
+    "responseTime": 6
+  },
+  "type": "http"
+}
+17:04:04 [[36minfo[39m]: [36mBalance consultado[39m
+{
+  "userId": "cme3boc9d0001131ojj801ouw",
+  "balance": 39
+}
+17:04:04 [[36minfo[39m]: [36mHTTP GET /transactions 200 8ms[39m
+{
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36",
+  "ip": "::1",
+  "httpRequest": {
+    "method": "GET",
+    "url": "/transactions",
+    "statusCode": 200,
+    "responseTime": 8
+  },
+  "type": "http"
+}
+17:04:04 [[36minfo[39m]: [36mHistorial de transacciones consultado[39m
+{
+  "userId": "cme3boc9d0001131ojj801ouw",
+  "limit": 15,
+  "offset": 0,
+  "resultCount": 12
+}
+17:04:04 [[36minfo[39m]: [36mHTTP GET /balance 200 17ms[39m
+{
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36",
+  "ip": "::1",
+  "httpRequest": {
+    "method": "GET",
+    "url": "/balance",
+    "statusCode": 200,
+    "responseTime": 17
+  },
+  "type": "http"
+}
+17:04:04 [[36minfo[39m]: [36mBalance consultado[39m
+{
+  "userId": "cme3boc9d0001131ojj801ouw",
+  "balance": 39
+}
+17:04:04 [[36minfo[39m]: [36mHTTP GET /transactions 200 42ms[39m
+{
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36",
+  "ip": "::1",
+  "httpRequest": {
+    "method": "GET",
+    "url": "/transactions",
+    "statusCode": 200,
+    "responseTime": 42
+  },
+  "type": "http"
+}
+17:04:04 [[36minfo[39m]: [36mHistorial de transacciones consultado[39m
+{
+  "userId": "cme3boc9d0001131ojj801ouw",
+  "limit": 15,
+  "offset": 0,
+  "resultCount": 12
+}
+17:04:04 [[36minfo[39m]: [36mHTTP GET /balance 200 44ms[39m
+{
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36",
+  "ip": "::1",
+  "httpRequest": {
+    "method": "GET",
+    "url": "/balance",
+    "statusCode": 200,
+    "responseTime": 44
+  },
+  "type": "http"
+}
+17:04:04 [[36minfo[39m]: [36mBalance consultado[39m
+{
+  "userId": "cme3boc9d0001131ojj801ouw",
+  "balance": 39
+}
+17:04:04 [[36minfo[39m]: [36mHTTP GET /balance 200 4ms[39m
+{
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36",
+  "ip": "::1",
+  "httpRequest": {
+    "method": "GET",
+    "url": "/balance",
+    "statusCode": 200,
+    "responseTime": 4
+  },
+  "type": "http"
+}
+17:04:04 [[36minfo[39m]: [36mBalance consultado[39m
+{
+  "userId": "cme3boc9d0001131ojj801ouw",
+  "balance": 39
+}
+17:04:06 [[36minfo[39m]: [36mHTTP GET /methods 200 145ms[39m
+{
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36",
+  "ip": "::1",
+  "httpRequest": {
+    "method": "GET",
+    "url": "/methods",
+    "statusCode": 200,
+    "responseTime": 145
+  },
+  "type": "http"
+}
+17:04:06 [[36minfo[39m]: [36mMétodos de pago consultados[39m
+{
+  "methodCount": 6
+}
+17:04:14 [[36minfo[39m]: [36mAcceso admin autorizado[39m
+{
+  "adminId": "cme3boc990000131oaapq2f11",
+  "username": "admin",
+  "endpoint": "/api/admin/payment/dashboard",
+  "method": "GET",
+  "ip": "::1"
+}
+17:04:14 [[36minfo[39m]: [36mHTTP GET /dashboard 200 49ms[39m
+{
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36",
+  "ip": "::1",
+  "httpRequest": {
+    "method": "GET",
+    "url": "/dashboard",
+    "statusCode": 200,
+    "responseTime": 49
+  },
+  "type": "http"
+}
+17:04:14 [[36minfo[39m]: [36mDashboard de pagos admin consultado[39m
+{
+  "adminId": "cme3boc990000131oaapq2f11",
+  "pendingDeposits": 2,
+  "pendingWithdrawals": 0
+}
+17:04:27 [[36minfo[39m]: Realtime metrics recorded
+17:04:44 [[36minfo[39m]: [36mAcceso admin autorizado[39m
+{
+  "adminId": "cme3boc990000131oaapq2f11",
+  "username": "admin",
+  "endpoint": "/api/admin/payment/dashboard",
+  "method": "GET",
+  "ip": "::1"
+}
+17:04:44 [[36minfo[39m]: [36mHTTP GET /dashboard 200 33ms[39m
+{
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36",
+  "ip": "::1",
+  "httpRequest": {
+    "method": "GET",
+    "url": "/dashboard",
+    "statusCode": 200,
+    "responseTime": 33
+  },
+  "type": "http"
+}
+17:04:44 [[36minfo[39m]: [36mDashboard de pagos admin consultado[39m
+{
+  "adminId": "cme3boc990000131oaapq2f11",
+  "pendingDeposits": 2,
+  "pendingWithdrawals": 0
+}
+17:04:57 [[36minfo[39m]: Realtime metrics recorded
+17:05:14 [[36minfo[39m]: [36mAcceso admin autorizado[39m
+{
+  "adminId": "cme3boc990000131oaapq2f11",
+  "username": "admin",
+  "endpoint": "/api/admin/payment/dashboard",
+  "method": "GET",
+  "ip": "::1"
+}
+17:05:14 [[36minfo[39m]: [36mHTTP GET /dashboard 200 35ms[39m
+{
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36",
+  "ip": "::1",
+  "httpRequest": {
+    "method": "GET",
+    "url": "/dashboard",
+    "statusCode": 200,
+    "responseTime": 35
+  },
+  "type": "http"
+}
+17:05:14 [[36minfo[39m]: [36mDashboard de pagos admin consultado[39m
+{
+  "adminId": "cme3boc990000131oaapq2f11",
+  "pendingDeposits": 2,
+  "pendingWithdrawals": 0
+}
+17:05:27 [[36minfo[39m]: Realtime metrics recorded
+17:05:44 [[36minfo[39m]: [36mAcceso admin autorizado[39m
+{
+  "adminId": "cme3boc990000131oaapq2f11",
+  "username": "admin",
+  "endpoint": "/api/admin/payment/dashboard",
+  "method": "GET",
+  "ip": "::1"
+}
+17:05:44 [[36minfo[39m]: [36mHTTP GET /dashboard 200 40ms[39m
+{
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36",
+  "ip": "::1",
+  "httpRequest": {
+    "method": "GET",
+    "url": "/dashboard",
+    "statusCode": 200,
+    "responseTime": 40
+  },
+  "type": "http"
+}
+17:05:44 [[36minfo[39m]: [36mDashboard de pagos admin consultado[39m
+{
+  "adminId": "cme3boc990000131oaapq2f11",
+  "pendingDeposits": 2,
+  "pendingWithdrawals": 0
+}
+17:05:56 [[36minfo[39m]: [36mSOCKET: client_connected[39m
+{
+  "socketEvent": "client_connected",
+  "socketData": {
+    "socketId": "ZjOXNg7xI9Cz0d-1AAAQ"
+  },
+  "type": "socket"
+}
+17:05:56 [[36minfo[39m]: [36mBUSINESS: player_joined[39m
+{
+  "module": "game",
+  "userId": "ZjOXNg7xI9Cz0d-1AAAQ",
+  "businessEvent": "player_joined",
+  "businessData": {
+    "gameId": "cme3boc9t000e131on2iaxg19",
+    "playerCount": 1
+  },
+  "type": "business"
+}
+17:05:56 [[36minfo[39m]: [36mSOCKET: admin_joined[39m
+{
+  "socketEvent": "admin_joined",
+  "socketData": {
+    "gameId": "cme3boc9t000e131on2iaxg19",
+    "socketId": "ZjOXNg7xI9Cz0d-1AAAQ"
+  },
+  "type": "socket"
+}
+17:05:57 [[36minfo[39m]: Realtime metrics recorded
+17:06:27 [[36minfo[39m]: Realtime metrics recorded
+17:06:57 [[36minfo[39m]: Realtime metrics recorded
+17:07:27 [[36minfo[39m]: Realtime metrics recorded
+17:07:57 [[36minfo[39m]: Realtime metrics recorded
+17:08:27 [[36minfo[39m]: Realtime metrics recorded
+17:08:57 [[36minfo[39m]: Realtime metrics recorded
+17:09:27 [[36minfo[39m]: Realtime metrics recorded
+17:09:57 [[36minfo[39m]: Realtime metrics recorded
+17:10:27 [[36minfo[39m]: Realtime metrics recorded
+17:10:57 [[36minfo[39m]: Realtime metrics recorded
+17:11:27 [[36minfo[39m]: Realtime metrics recorded
+17:11:57 [[36minfo[39m]: Realtime metrics recorded
+17:12:27 [[36minfo[39m]: Realtime metrics recorded
+17:12:57 [[36minfo[39m]: Realtime metrics recorded
+17:13:27 [[36minfo[39m]: Realtime metrics recorded
+17:13:57 [[36minfo[39m]: Realtime metrics recorded
+17:14:27 [[36minfo[39m]: Realtime metrics recorded
+17:14:57 [[36minfo[39m]: Realtime metrics recorded
+17:15:27 [[36minfo[39m]: Realtime metrics recorded
+17:15:57 [[36minfo[39m]: Realtime metrics recorded
+17:16:27 [[36minfo[39m]: Realtime metrics recorded
+17:16:57 [[36minfo[39m]: Realtime metrics recorded
+17:17:27 [[36minfo[39m]: Realtime metrics recorded
+17:17:57 [[36minfo[39m]: Realtime metrics recorded
+17:18:27 [[36minfo[39m]: Realtime metrics recorded
+17:18:57 [[36minfo[39m]: Realtime metrics recorded
+17:19:27 [[36minfo[39m]: Realtime metrics recorded
+17:19:57 [[36minfo[39m]: Realtime metrics recorded
+17:20:27 [[36minfo[39m]: Realtime metrics recorded
+17:20:57 [[36minfo[39m]: Realtime metrics recorded
+17:21:27 [[36minfo[39m]: Realtime metrics recorded
+17:21:57 [[36minfo[39m]: Realtime metrics recorded
+17:22:27 [[36minfo[39m]: Realtime metrics recorded
+17:22:57 [[36minfo[39m]: Realtime metrics recorded
+17:23:27 [[36minfo[39m]: Realtime metrics recorded
+17:23:57 [[36minfo[39m]: Realtime metrics recorded
+17:24:27 [[36minfo[39m]: Realtime metrics recorded
+17:24:57 [[36minfo[39m]: Realtime metrics recorded
+17:25:27 [[36minfo[39m]: Realtime metrics recorded
+17:25:57 [[36minfo[39m]: Realtime metrics recorded
+17:26:27 [[36minfo[39m]: Realtime metrics recorded
+17:26:57 [[36minfo[39m]: Realtime metrics recorded
+17:27:27 [[36minfo[39m]: Realtime metrics recorded
+17:27:57 [[36minfo[39m]: Realtime metrics recorded
+17:28:27 [[36minfo[39m]: Realtime metrics recorded
+17:28:57 [[36minfo[39m]: Realtime metrics recorded
+17:29:27 [[36minfo[39m]: Realtime metrics recorded
+17:29:57 [[36minfo[39m]: Realtime metrics recorded
+17:30:27 [[36minfo[39m]: Realtime metrics recorded
+17:30:57 [[36minfo[39m]: Realtime metrics recorded
+17:31:27 [[36minfo[39m]: Realtime metrics recorded
+17:31:57 [[36minfo[39m]: Realtime metrics recorded
+17:32:27 [[36minfo[39m]: Realtime metrics recorded
+17:32:57 [[36minfo[39m]: Realtime metrics recorded
+17:33:27 [[36minfo[39m]: Realtime metrics recorded
+17:33:57 [[36minfo[39m]: Realtime metrics recorded
+17:34:27 [[36minfo[39m]: Realtime metrics recorded
+17:34:57 [[36minfo[39m]: Realtime metrics recorded
+17:35:27 [[36minfo[39m]: Realtime metrics recorded
+17:35:57 [[36minfo[39m]: Realtime metrics recorded
+17:36:27 [[36minfo[39m]: Realtime metrics recorded
+17:36:57 [[36minfo[39m]: Realtime metrics recorded
+17:37:27 [[36minfo[39m]: Realtime metrics recorded
+17:37:57 [[36minfo[39m]: Realtime metrics recorded
+prisma:query SELECT 1
+prisma:query SELECT `main`.`bingo_cards`.`id`, `main`.`bingo_cards`.`userId`, `main`.`bingo_cards`.`gameId`, `main`.`bingo_cards`.`cardNumber`, `main`.`bingo_cards`.`isActive`, `main`.`bingo_cards`.`markedNumbers`, `main`.`bingo_cards`.`isWinner`, `main`.`bingo_cards`.`winningPattern`, `main`.`bingo_cards`.`createdAt`, `main`.`bingo_cards`.`updatedAt` FROM `main`.`bingo_cards` WHERE (`main`.`bingo_cards`.`userId` = ? AND `main`.`bingo_cards`.`isActive` = ?) LIMIT ? OFFSET ?
+17:38:11 [[36minfo[39m]: [36mHTTP GET /balance 200 38ms[39m
+{
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36",
+  "ip": "::1",
+  "httpRequest": {
+    "method": "GET",
+    "url": "/balance",
+    "statusCode": 200,
+    "responseTime": 38
+  },
+  "type": "http"
+}
+17:38:11 [[36minfo[39m]: [36mBalance consultado[39m
+{
+  "userId": "cme3boc9d0001131ojj801ouw",
+  "balance": 39
+}
+prisma:query SELECT `main`.`games`.`id`, `main`.`games`.`title`, `main`.`games`.`cardPrice`, `main`.`games`.`status`, `main`.`games`.`scheduledAt`, `main`.`games`.`totalPrize`, `main`.`games`.`maxPlayers`, `main`.`games`.`description`, COALESCE(`aggr_selection_0_GameParticipant`.`_aggr_count_participants`, 0) AS `_aggr_count_participants` FROM `main`.`games` LEFT JOIN (SELECT `main`.`game_participants`.`gameId`, COUNT(*) AS `_aggr_count_participants` FROM `main`.`game_participants` WHERE 1=1 GROUP BY `main`.`game_participants`.`gameId`) AS `aggr_selection_0_GameParticipant` ON (`main`.`games`.`id` = `aggr_selection_0_GameParticipant`.`gameId`) WHERE `main`.`games`.`id` IN (?,?) LIMIT ? OFFSET ?
+prisma:query SELECT `main`.`card_numbers`.`id`, `main`.`card_numbers`.`cardId`, `main`.`card_numbers`.`position`, `main`.`card_numbers`.`column`, `main`.`card_numbers`.`number`, `main`.`card_numbers`.`isMarked`, `main`.`card_numbers`.`isFree` FROM `main`.`card_numbers` WHERE `main`.`card_numbers`.`cardId` IN (?,?,?,?,?,?,?,?,?) ORDER BY `main`.`card_numbers`.`position` ASC LIMIT ? OFFSET ?
+17:38:11 [[36minfo[39m]: [36mHTTP GET /my-all 200 104ms[39m
+{
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36",
+  "ip": "::1",
+  "httpRequest": {
+    "method": "GET",
+    "url": "/my-all",
+    "statusCode": 200,
+    "responseTime": 104
+  },
+  "type": "http"
+}
+17:38:11 [[36minfo[39m]: [36mHTTP GET /balance 200 8ms[39m
+{
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36",
+  "ip": "::1",
+  "httpRequest": {
+    "method": "GET",
+    "url": "/balance",
+    "statusCode": 200,
+    "responseTime": 8
+  },
+  "type": "http"
+}
+17:38:11 [[36minfo[39m]: [36mBalance consultado[39m
+{
+  "userId": "cme3boc9d0001131ojj801ouw",
+  "balance": 39
+}
+17:38:13 [[36minfo[39m]: [36mSOCKET: client_connected[39m
+{
+  "socketEvent": "client_connected",
+  "socketData": {
+    "socketId": "8695ynhWQUqo0LplAAAS"
+  },
+  "type": "socket"
+}
+17:38:13 [[36minfo[39m]: [36mBUSINESS: player_joined[39m
+{
+  "module": "game",
+  "userId": "8695ynhWQUqo0LplAAAS",
+  "businessEvent": "player_joined",
+  "businessData": {
+    "gameId": "cme3boc9t000e131on2iaxg19",
+    "playerCount": 2
+  },
+  "type": "business"
+}
+17:38:19 [[36minfo[39m]: [36mBUSINESS: admin_toggle_game[39m
+{
+  "gameId": "cme3boc9t000e131on2iaxg19",
+  "businessEvent": "admin_toggle_game",
+  "businessData": {
+    "status": "paused"
+  },
+  "type": "business"
+}
+17:38:21 [[36minfo[39m]: [36mBUSINESS: admin_reset_game[39m
+{
+  "gameId": "cme3boc9t000e131on2iaxg19",
+  "businessEvent": "admin_reset_game",
+  "businessData": {},
+  "type": "business"
+}
+17:38:27 [[36minfo[39m]: Realtime metrics recorded
+17:38:47 [[36minfo[39m]: [36mBUSINESS: admin_set_pattern[39m
+{
+  "gameId": "cme3boc9t000e131on2iaxg19",
+  "businessEvent": "admin_set_pattern",
+  "businessData": {
+    "pattern": "horizontal"
+  },
+  "type": "business"
+}
+17:38:57 [[36minfo[39m]: Realtime metrics recorded
+17:39:27 [[36minfo[39m]: Realtime metrics recorded
+17:39:36 [[36minfo[39m]: [36mBUSINESS: admin_called_number[39m
+{
+  "gameId": "cme3boc9t000e131on2iaxg19",
+  "businessEvent": "admin_called_number",
+  "businessData": {
+    "number": 7
+  },
+  "type": "business"
+}
+17:39:57 [[36minfo[39m]: Realtime metrics recorded
+17:40:07 [[36minfo[39m]: [36mBUSINESS: admin_called_number[39m
+{
+  "gameId": "cme3boc9t000e131on2iaxg19",
+  "businessEvent": "admin_called_number",
+  "businessData": {
+    "number": 75
+  },
+  "type": "business"
+}
+17:40:27 [[36minfo[39m]: Realtime metrics recorded
+17:40:57 [[36minfo[39m]: Realtime metrics recorded
+17:41:27 [[36minfo[39m]: Realtime metrics recorded
+17:41:44 [[36minfo[39m]: [36mBUSINESS: admin_called_number[39m
+{
+  "gameId": "cme3boc9t000e131on2iaxg19",
+  "businessEvent": "admin_called_number",
+  "businessData": {
+    "number": 23
+  },
+  "type": "business"
+}
+17:41:48 [[36minfo[39m]: [36mBUSINESS: admin_called_number[39m
+{
+  "gameId": "cme3boc9t000e131on2iaxg19",
+  "businessEvent": "admin_called_number",
+  "businessData": {
+    "number": 35
+  },
+  "type": "business"
+}
+17:41:57 [[36minfo[39m]: Realtime metrics recorded
+17:41:57 [[36minfo[39m]: [36mBUSINESS: admin_called_number[39m
+{
+  "gameId": "cme3boc9t000e131on2iaxg19",
+  "businessEvent": "admin_called_number",
+  "businessData": {
+    "number": 47
+  },
+  "type": "business"
+}
+17:41:58 [[36minfo[39m]: [36mBUSINESS: admin_called_number[39m
+{
+  "gameId": "cme3boc9t000e131on2iaxg19",
+  "businessEvent": "admin_called_number",
+  "businessData": {
+    "number": 63
+  },
+  "type": "business"
+}
+17:42:27 [[36minfo[39m]: Realtime metrics recorded
+17:42:57 [[36minfo[39m]: Realtime metrics recorded
+17:43:27 [[36minfo[39m]: Realtime metrics recorded
+17:43:57 [[36minfo[39m]: Realtime metrics recorded
+17:44:27 [[36minfo[39m]: Realtime metrics recorded
+17:44:57 [[36minfo[39m]: Realtime metrics recorded
+17:45:27 [[36minfo[39m]: Realtime metrics recorded
+17:45:57 [[36minfo[39m]: Realtime metrics recorded
+17:46:27 [[36minfo[39m]: Realtime metrics recorded
+17:46:57 [[36minfo[39m]: Realtime metrics recorded
+17:47:27 [[36minfo[39m]: Realtime metrics recorded
+17:47:57 [[36minfo[39m]: Realtime metrics recorded
+17:48:27 [[36minfo[39m]: Realtime metrics recorded
+17:48:57 [[36minfo[39m]: Realtime metrics recorded
+17:49:27 [[36minfo[39m]: Realtime metrics recorded
+17:49:57 [[36minfo[39m]: Realtime metrics recorded
+17:50:27 [[36minfo[39m]: Realtime metrics recorded
+17:50:57 [[36minfo[39m]: Realtime metrics recorded
+17:51:27 [[36minfo[39m]: Realtime metrics recorded
+17:51:57 [[36minfo[39m]: Realtime metrics recorded
+17:52:27 [[36minfo[39m]: Realtime metrics recorded
+17:52:57 [[36minfo[39m]: Realtime metrics recorded
+17:53:27 [[36minfo[39m]: Realtime metrics recorded
+17:53:57 [[36minfo[39m]: Realtime metrics recorded
+17:54:27 [[36minfo[39m]: Realtime metrics recorded
+17:54:57 [[36minfo[39m]: Realtime metrics recorded
+17:55:27 [[36minfo[39m]: Realtime metrics recorded
+17:55:57 [[36minfo[39m]: Realtime metrics recorded
+17:56:27 [[36minfo[39m]: Realtime metrics recorded
+17:56:57 [[36minfo[39m]: Realtime metrics recorded
+17:57:27 [[36minfo[39m]: Realtime metrics recorded
+17:57:57 [[36minfo[39m]: Realtime metrics recorded
+17:58:27 [[36minfo[39m]: Realtime metrics recorded
+17:58:57 [[36minfo[39m]: Realtime metrics recorded
+17:59:27 [[36minfo[39m]: Realtime metrics recorded
+17:59:57 [[36minfo[39m]: Realtime metrics recorded
+18:00:27 [[36minfo[39m]: Realtime metrics recorded
+18:00:49 [[36minfo[39m]: [36mSOCKET: client_disconnected[39m
+{
+  "socketEvent": "client_disconnected",
+  "socketData": {
+    "socketId": "8695ynhWQUqo0LplAAAS",
+    "reason": "transport close"
+  },
+  "type": "socket"
+}
+18:00:49 [[36minfo[39m]: [36mSOCKET: client_disconnected[39m
+{
+  "socketEvent": "client_disconnected",
+  "socketData": {
+    "socketId": "ZjOXNg7xI9Cz0d-1AAAQ",
+    "reason": "transport close"
+  },
+  "type": "socket"
+}
+18:00:50 [[36minfo[39m]: [36mSOCKET: client_connected[39m
+{
+  "socketEvent": "client_connected",
+  "socketData": {
+    "socketId": "tBJ3PNMEMTimLKlvAAAU"
+  },
+  "type": "socket"
+}
+18:00:50 [[36minfo[39m]: [36mBUSINESS: player_joined[39m
+{
+  "module": "game",
+  "userId": "tBJ3PNMEMTimLKlvAAAU",
+  "businessEvent": "player_joined",
+  "businessData": {
+    "gameId": "cme3boc9t000e131on2iaxg19",
+    "playerCount": 1
+  },
+  "type": "business"
+}
+18:00:50 [[36minfo[39m]: [36mSOCKET: admin_joined[39m
+{
+  "socketEvent": "admin_joined",
+  "socketData": {
+    "gameId": "cme3boc9t000e131on2iaxg19",
+    "socketId": "tBJ3PNMEMTimLKlvAAAU"
+  },
+  "type": "socket"
+}
+18:00:50 [[36minfo[39m]: [36mSOCKET: client_disconnected[39m
+{
+  "socketEvent": "client_disconnected",
+  "socketData": {
+    "socketId": "tBJ3PNMEMTimLKlvAAAU",
+    "reason": "transport close"
+  },
+  "type": "socket"
+}
+prisma:query SELECT 1
+prisma:query SELECT `main`.`users`.`id`, `main`.`users`.`email`, `main`.`users`.`username`, `main`.`users`.`password`, `main`.`users`.`role`, `main`.`users`.`balance`, `main`.`users`.`pearlsBalance`, `main`.`users`.`createdAt`, `main`.`users`.`updatedAt`, `main`.`users`.`isActive`, `main`.`users`.`isVerified`, `main`.`users`.`fullName`, `main`.`users`.`phone`, `main`.`users`.`dni`, `main`.`users`.`birthDate` FROM `main`.`users` WHERE (`main`.`users`.`id` = ? AND 1=1) LIMIT ? OFFSET ?
+prisma:query SELECT `main`.`users`.`id`, `main`.`users`.`email`, `main`.`users`.`username`, `main`.`users`.`password`, `main`.`users`.`role`, `main`.`users`.`balance`, `main`.`users`.`pearlsBalance`, `main`.`users`.`createdAt`, `main`.`users`.`updatedAt`, `main`.`users`.`isActive`, `main`.`users`.`isVerified`, `main`.`users`.`fullName`, `main`.`users`.`phone`, `main`.`users`.`dni`, `main`.`users`.`birthDate` FROM `main`.`users` WHERE (`main`.`users`.`id` = ? AND 1=1) LIMIT ? OFFSET ?
+prisma:query SELECT `main`.`games`.`id`, `main`.`games`.`title`, `main`.`games`.`description`, `main`.`games`.`maxPlayers`, `main`.`games`.`cardPrice`, `main`.`games`.`totalPrize`, `main`.`games`.`status`, `main`.`games`.`scheduledAt`, `main`.`games`.`startedAt`, `main`.`games`.`endedAt`, `main`.`games`.`ballsDrawn`, `main`.`games`.`currentBall`, `main`.`games`.`winningCards`, `main`.`games`.`createdAt`, `main`.`games`.`updatedAt`, COALESCE(`aggr_selection_0_GameParticipant`.`_aggr_count_participants`, 0) AS `_aggr_count_participants` FROM `main`.`games` LEFT JOIN (SELECT `main`.`game_participants`.`gameId`, COUNT(*) AS `_aggr_count_participants` FROM `main`.`game_participants` WHERE 1=1 GROUP BY `main`.`game_participants`.`gameId`) AS `aggr_selection_0_GameParticipant` ON (`main`.`games`.`id` = `aggr_selection_0_GameParticipant`.`gameId`) WHERE 1=1 ORDER BY `main`.`games`.`scheduledAt` ASC LIMIT ? OFFSET ?
+18:00:55 [[36minfo[39m]: [36mHTTP GET / 200 59ms[39m
+{
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36",
+  "ip": "::1",
+  "httpRequest": {
+    "method": "GET",
+    "url": "/",
+    "statusCode": 200,
+    "responseTime": 59
+  },
+  "type": "http"
+}
+18:00:55 [[36minfo[39m]: [36mHTTP GET / 200 48ms[39m
+{
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36",
+  "ip": "::1",
+  "httpRequest": {
+    "method": "GET",
+    "url": "/",
+    "statusCode": 200,
+    "responseTime": 48
+  },
+  "type": "http"
+}
+prisma:query SELECT `main`.`games`.`id`, `main`.`games`.`title`, `main`.`games`.`description`, `main`.`games`.`maxPlayers`, `main`.`games`.`cardPrice`, `main`.`games`.`totalPrize`, `main`.`games`.`status`, `main`.`games`.`scheduledAt`, `main`.`games`.`startedAt`, `main`.`games`.`endedAt`, `main`.`games`.`ballsDrawn`, `main`.`games`.`currentBall`, `main`.`games`.`winningCards`, `main`.`games`.`createdAt`, `main`.`games`.`updatedAt`, COALESCE(`aggr_selection_0_GameParticipant`.`_aggr_count_participants`, 0) AS `_aggr_count_participants` FROM `main`.`games` LEFT JOIN (SELECT `main`.`game_participants`.`gameId`, COUNT(*) AS `_aggr_count_participants` FROM `main`.`game_participants` WHERE 1=1 GROUP BY `main`.`game_participants`.`gameId`) AS `aggr_selection_0_GameParticipant` ON (`main`.`games`.`id` = `aggr_selection_0_GameParticipant`.`gameId`) WHERE 1=1 ORDER BY `main`.`games`.`scheduledAt` ASC LIMIT ? OFFSET ?
+prisma:query SELECT `main`.`users`.`id`, `main`.`users`.`email`, `main`.`users`.`username`, `main`.`users`.`password`, `main`.`users`.`role`, `main`.`users`.`balance`, `main`.`users`.`pearlsBalance`, `main`.`users`.`createdAt`, `main`.`users`.`updatedAt`, `main`.`users`.`isActive`, `main`.`users`.`isVerified`, `main`.`users`.`fullName`, `main`.`users`.`phone`, `main`.`users`.`dni`, `main`.`users`.`birthDate` FROM `main`.`users` WHERE (`main`.`users`.`id` = ? AND 1=1) LIMIT ? OFFSET ?
+prisma:query SELECT `main`.`users`.`id`, `main`.`users`.`email`, `main`.`users`.`username`, `main`.`users`.`password`, `main`.`users`.`role`, `main`.`users`.`balance`, `main`.`users`.`pearlsBalance`, `main`.`users`.`createdAt`, `main`.`users`.`updatedAt`, `main`.`users`.`isActive`, `main`.`users`.`isVerified`, `main`.`users`.`fullName`, `main`.`users`.`phone`, `main`.`users`.`dni`, `main`.`users`.`birthDate` FROM `main`.`users` WHERE (`main`.`users`.`id` = ? AND 1=1) LIMIT ? OFFSET ?
+18:00:55 [[36minfo[39m]: [36mHTTP GET /me 200 119ms[39m
+{
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36",
+  "ip": "::1",
+  "httpRequest": {
+    "method": "GET",
+    "url": "/me",
+    "statusCode": 200,
+    "responseTime": 119
+  },
+  "type": "http"
+}
+18:00:55 [[36minfo[39m]: [36mHTTP GET /me 200 62ms[39m
+{
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36",
+  "ip": "::1",
+  "httpRequest": {
+    "method": "GET",
+    "url": "/me",
+    "statusCode": 200,
+    "responseTime": 62
+  },
+  "type": "http"
+}
+prisma:query SELECT `main`.`users`.`id`, `main`.`users`.`email`, `main`.`users`.`username`, `main`.`users`.`password`, `main`.`users`.`role`, `main`.`users`.`balance`, `main`.`users`.`pearlsBalance`, `main`.`users`.`createdAt`, `main`.`users`.`updatedAt`, `main`.`users`.`isActive`, `main`.`users`.`isVerified`, `main`.`users`.`fullName`, `main`.`users`.`phone`, `main`.`users`.`dni`, `main`.`users`.`birthDate` FROM `main`.`users` WHERE (`main`.`users`.`id` = ? AND 1=1) LIMIT ? OFFSET ?
+prisma:query SELECT `main`.`users`.`id`, `main`.`users`.`email`, `main`.`users`.`username`, `main`.`users`.`password`, `main`.`users`.`role`, `main`.`users`.`balance`, `main`.`users`.`pearlsBalance`, `main`.`users`.`createdAt`, `main`.`users`.`updatedAt`, `main`.`users`.`isActive`, `main`.`users`.`isVerified`, `main`.`users`.`fullName`, `main`.`users`.`phone`, `main`.`users`.`dni`, `main`.`users`.`birthDate` FROM `main`.`users` WHERE (`main`.`users`.`id` = ? AND 1=1) LIMIT ? OFFSET ?
+18:00:55 [[36minfo[39m]: [36mHTTP GET /me 200 24ms[39m
+{
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36",
+  "ip": "::1",
+  "httpRequest": {
+    "method": "GET",
+    "url": "/me",
+    "statusCode": 200,
+    "responseTime": 24
+  },
+  "type": "http"
+}
+prisma:query SELECT `main`.`users`.`id`, `main`.`users`.`email`, `main`.`users`.`username`, `main`.`users`.`password`, `main`.`users`.`role`, `main`.`users`.`balance`, `main`.`users`.`pearlsBalance`, `main`.`users`.`createdAt`, `main`.`users`.`updatedAt`, `main`.`users`.`isActive`, `main`.`users`.`isVerified`, `main`.`users`.`fullName`, `main`.`users`.`phone`, `main`.`users`.`dni`, `main`.`users`.`birthDate` FROM `main`.`users` WHERE (`main`.`users`.`id` = ? AND 1=1) LIMIT ? OFFSET ?
+prisma:query SELECT `main`.`users`.`id`, `main`.`users`.`email`, `main`.`users`.`username`, `main`.`users`.`password`, `main`.`users`.`role`, `main`.`users`.`balance`, `main`.`users`.`pearlsBalance`, `main`.`users`.`createdAt`, `main`.`users`.`updatedAt`, `main`.`users`.`isActive`, `main`.`users`.`isVerified`, `main`.`users`.`fullName`, `main`.`users`.`phone`, `main`.`users`.`dni`, `main`.`users`.`birthDate` FROM `main`.`users` WHERE (`main`.`users`.`id` = ? AND 1=1) LIMIT ? OFFSET ?
+18:00:55 [[36minfo[39m]: [36mHTTP GET /me 200 11ms[39m
+{
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36",
+  "ip": "::1",
+  "httpRequest": {
+    "method": "GET",
+    "url": "/me",
+    "statusCode": 200,
+    "responseTime": 11
+  },
+  "type": "http"
+}
+prisma:query SELECT `main`.`games`.`id`, `main`.`games`.`title`, `main`.`games`.`description`, `main`.`games`.`maxPlayers`, `main`.`games`.`cardPrice`, `main`.`games`.`totalPrize`, `main`.`games`.`status`, `main`.`games`.`scheduledAt`, `main`.`games`.`startedAt`, `main`.`games`.`endedAt`, `main`.`games`.`ballsDrawn`, `main`.`games`.`currentBall`, `main`.`games`.`winningCards`, `main`.`games`.`createdAt`, `main`.`games`.`updatedAt`, COALESCE(`aggr_selection_0_GameParticipant`.`_aggr_count_participants`, 0) AS `_aggr_count_participants` FROM `main`.`games` LEFT JOIN (SELECT `main`.`game_participants`.`gameId`, COUNT(*) AS `_aggr_count_participants` FROM `main`.`game_participants` WHERE 1=1 GROUP BY `main`.`game_participants`.`gameId`) AS `aggr_selection_0_GameParticipant` ON (`main`.`games`.`id` = `aggr_selection_0_GameParticipant`.`gameId`) WHERE 1=1 ORDER BY `main`.`games`.`scheduledAt` ASC LIMIT ? OFFSET ?
+18:00:55 [[36minfo[39m]: [36mHTTP GET / 200 3ms[39m
+{
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36",
+  "ip": "::1",
+  "httpRequest": {
+    "method": "GET",
+    "url": "/",
+    "statusCode": 200,
+    "responseTime": 3
+  },
+  "type": "http"
+}
+prisma:query SELECT `main`.`users`.`id`, `main`.`users`.`email`, `main`.`users`.`username`, `main`.`users`.`password`, `main`.`users`.`role`, `main`.`users`.`balance`, `main`.`users`.`pearlsBalance`, `main`.`users`.`createdAt`, `main`.`users`.`updatedAt`, `main`.`users`.`isActive`, `main`.`users`.`isVerified`, `main`.`users`.`fullName`, `main`.`users`.`phone`, `main`.`users`.`dni`, `main`.`users`.`birthDate` FROM `main`.`users` WHERE (`main`.`users`.`id` = ? AND 1=1) LIMIT ? OFFSET ?
+prisma:query SELECT `main`.`users`.`id`, `main`.`users`.`email`, `main`.`users`.`username`, `main`.`users`.`password`, `main`.`users`.`role`, `main`.`users`.`balance`, `main`.`users`.`pearlsBalance`, `main`.`users`.`createdAt`, `main`.`users`.`updatedAt`, `main`.`users`.`isActive`, `main`.`users`.`isVerified`, `main`.`users`.`fullName`, `main`.`users`.`phone`, `main`.`users`.`dni`, `main`.`users`.`birthDate` FROM `main`.`users` WHERE (`main`.`users`.`id` = ? AND 1=1) LIMIT ? OFFSET ?
+18:00:55 [[36minfo[39m]: [36mHTTP GET /me 200 28ms[39m
+{
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36",
+  "ip": "::1",
+  "httpRequest": {
+    "method": "GET",
+    "url": "/me",
+    "statusCode": 200,
+    "responseTime": 28
+  },
+  "type": "http"
+}
+prisma:query SELECT `main`.`users`.`id`, `main`.`users`.`email`, `main`.`users`.`username`, `main`.`users`.`password`, `main`.`users`.`role`, `main`.`users`.`balance`, `main`.`users`.`pearlsBalance`, `main`.`users`.`createdAt`, `main`.`users`.`updatedAt`, `main`.`users`.`isActive`, `main`.`users`.`isVerified`, `main`.`users`.`fullName`, `main`.`users`.`phone`, `main`.`users`.`dni`, `main`.`users`.`birthDate` FROM `main`.`users` WHERE (`main`.`users`.`id` = ? AND 1=1) LIMIT ? OFFSET ?
+prisma:query SELECT `main`.`users`.`id`, `main`.`users`.`email`, `main`.`users`.`username`, `main`.`users`.`password`, `main`.`users`.`role`, `main`.`users`.`balance`, `main`.`users`.`pearlsBalance`, `main`.`users`.`createdAt`, `main`.`users`.`updatedAt`, `main`.`users`.`isActive`, `main`.`users`.`isVerified`, `main`.`users`.`fullName`, `main`.`users`.`phone`, `main`.`users`.`dni`, `main`.`users`.`birthDate` FROM `main`.`users` WHERE (`main`.`users`.`id` = ? AND 1=1) LIMIT ? OFFSET ?
+18:00:55 [[36minfo[39m]: [36mHTTP GET /me 200 4ms[39m
+{
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36",
+  "ip": "::1",
+  "httpRequest": {
+    "method": "GET",
+    "url": "/me",
+    "statusCode": 200,
+    "responseTime": 4
+  },
+  "type": "http"
+}
+18:00:57 [[36minfo[39m]: Realtime metrics recorded
+18:01:27 [[36minfo[39m]: Realtime metrics recorded
+18:17:21 [[36minfo[39m]: Realtime metrics recorded
+18:33:16 [[36minfo[39m]: Realtime metrics recorded
+18:33:46 [[36minfo[39m]: Realtime metrics recorded
+18:49:40 [[36minfo[39m]: Realtime metrics recorded
+18:50:10 [[36minfo[39m]: Realtime metrics recorded
+19:08:59 [[36minfo[39m]: Realtime metrics recorded
+19:24:54 [[36minfo[39m]: Realtime metrics recorded
+19:25:24 [[36minfo[39m]: Realtime metrics recorded
+19:41:18 [[36minfo[39m]: Realtime metrics recorded
+19:41:48 [[36minfo[39m]: Realtime metrics recorded
+19:56:19 [[36minfo[39m]: Realtime metrics recorded
+20:02:10 [[36minfo[39m]: Realtime metrics recorded
+20:02:40 [[36minfo[39m]: Realtime metrics recorded
+20:18:34 [[36minfo[39m]: Realtime metrics recorded
+20:34:27 [[36minfo[39m]: Realtime metrics recorded
+20:34:57 [[36minfo[39m]: Realtime metrics recorded
+20:50:52 [[36minfo[39m]: Realtime metrics recorded
+20:51:22 [[36minfo[39m]: Realtime metrics recorded
+21:02:02 [[36minfo[39m]: Realtime metrics recorded
+22:03:01 [[36minfo[39m]: Realtime metrics recorded
+22:03:31 [[36minfo[39m]: Realtime metrics recorded
+22:05:46 [[36minfo[39m]: Realtime metrics recorded
+22:06:15 [[36minfo[39m]: Realtime metrics recorded
+23:04:08 [[36minfo[39m]: Realtime metrics recorded
+23:04:38 [[36minfo[39m]: Realtime metrics recorded
+00:05:21 [[36minfo[39m]: Realtime metrics recorded
+01:06:18 [[36minfo[39m]: Realtime metrics recorded
+01:06:47 [[36minfo[39m]: Realtime metrics recorded
+03:06:46 [[36minfo[39m]: Realtime metrics recorded
+05:06:59 [[36minfo[39m]: Realtime metrics recorded
+05:07:28 [[36minfo[39m]: Realtime metrics recorded
+06:02:56 [[36minfo[39m]: Realtime metrics recorded
+07:10:29 [[36minfo[39m]: Realtime metrics recorded
+07:10:59 [[36minfo[39m]: Realtime metrics recorded
+07:11:29 [[36minfo[39m]: Realtime metrics recorded
+07:11:59 [[36minfo[39m]: Realtime metrics recorded
+07:12:29 [[36minfo[39m]: Realtime metrics recorded
+07:12:59 [[36minfo[39m]: Realtime metrics recorded
+07:13:29 [[36minfo[39m]: Realtime metrics recorded
+07:13:59 [[36minfo[39m]: Realtime metrics recorded
+07:14:29 [[36minfo[39m]: Realtime metrics recorded
+07:14:59 [[36minfo[39m]: Realtime metrics recorded
+07:15:29 [[36minfo[39m]: Realtime metrics recorded
+07:15:59 [[36minfo[39m]: Realtime metrics recorded
+07:16:29 [[36minfo[39m]: Realtime metrics recorded
+07:16:59 [[36minfo[39m]: Realtime metrics recorded
+07:17:29 [[36minfo[39m]: Realtime metrics recorded
+07:17:59 [[36minfo[39m]: Realtime metrics recorded
+07:18:29 [[36minfo[39m]: Realtime metrics recorded
+07:18:59 [[36minfo[39m]: Realtime metrics recorded
+07:19:29 [[36minfo[39m]: Realtime metrics recorded
+07:19:59 [[36minfo[39m]: Realtime metrics recorded
+07:20:29 [[36minfo[39m]: Realtime metrics recorded
+07:20:59 [[36minfo[39m]: Realtime metrics recorded
+07:21:29 [[36minfo[39m]: Realtime metrics recorded
+07:21:59 [[36minfo[39m]: Realtime metrics recorded
+07:22:29 [[36minfo[39m]: Realtime metrics recorded
+07:22:59 [[36minfo[39m]: Realtime metrics recorded
+07:23:29 [[36minfo[39m]: Realtime metrics recorded
+07:23:59 [[36minfo[39m]: Realtime metrics recorded
+07:24:29 [[36minfo[39m]: Realtime metrics recorded
+07:24:59 [[36minfo[39m]: Realtime metrics recorded
+07:25:29 [[36minfo[39m]: Realtime metrics recorded
+07:26:00 [[36minfo[39m]: Realtime metrics recorded
+07:26:29 [[36minfo[39m]: Realtime metrics recorded
+07:26:59 [[36minfo[39m]: Realtime metrics recorded
+07:27:29 [[36minfo[39m]: Realtime metrics recorded
+07:27:59 [[36minfo[39m]: Realtime metrics recorded
+07:28:29 [[36minfo[39m]: Realtime metrics recorded
+07:28:59 [[36minfo[39m]: Realtime metrics recorded
+07:29:30 [[36minfo[39m]: Realtime metrics recorded
+07:30:00 [[36minfo[39m]: Realtime metrics recorded
+07:30:30 [[36minfo[39m]: Realtime metrics recorded
+07:31:00 [[36minfo[39m]: Realtime metrics recorded
+07:31:30 [[36minfo[39m]: Realtime metrics recorded
+07:32:00 [[36minfo[39m]: Realtime metrics recorded
+07:32:30 [[36minfo[39m]: Realtime metrics recorded
+07:33:00 [[36minfo[39m]: Realtime metrics recorded
+07:33:30 [[36minfo[39m]: Realtime metrics recorded
+07:34:00 [[36minfo[39m]: Realtime metrics recorded
+07:34:30 [[36minfo[39m]: Realtime metrics recorded
+07:35:00 [[36minfo[39m]: Realtime metrics recorded
+07:35:30 [[36minfo[39m]: Realtime metrics recorded
+07:36:00 [[36minfo[39m]: Realtime metrics recorded
+07:36:30 [[36minfo[39m]: Realtime metrics recorded
+07:37:00 [[36minfo[39m]: Realtime metrics recorded
+07:37:30 [[36minfo[39m]: Realtime metrics recorded
+07:38:00 [[36minfo[39m]: Realtime metrics recorded
+07:38:30 [[36minfo[39m]: Realtime metrics recorded
+07:39:00 [[36minfo[39m]: Realtime metrics recorded
+07:39:30 [[36minfo[39m]: Realtime metrics recorded
+07:40:00 [[36minfo[39m]: Realtime metrics recorded
+07:40:30 [[36minfo[39m]: Realtime metrics recorded
+07:41:00 [[36minfo[39m]: Realtime metrics recorded
+07:41:30 [[36minfo[39m]: Realtime metrics recorded
+07:42:00 [[36minfo[39m]: Realtime metrics recorded
+07:42:30 [[36minfo[39m]: Realtime metrics recorded
+07:43:00 [[36minfo[39m]: Realtime metrics recorded
+07:43:30 [[36minfo[39m]: Realtime metrics recorded
+07:44:00 [[36minfo[39m]: Realtime metrics recorded
+07:44:30 [[36minfo[39m]: Realtime metrics recorded
+07:45:00 [[36minfo[39m]: Realtime metrics recorded
+07:45:30 [[36minfo[39m]: Realtime metrics recorded
+07:46:00 [[36minfo[39m]: Realtime metrics recorded
+07:46:30 [[36minfo[39m]: Realtime metrics recorded
+07:47:00 [[36minfo[39m]: Realtime metrics recorded
+07:47:30 [[36minfo[39m]: Realtime metrics recorded
+07:48:00 [[36minfo[39m]: Realtime metrics recorded
+07:48:30 [[36minfo[39m]: Realtime metrics recorded
+07:49:00 [[36minfo[39m]: Realtime metrics recorded
+07:49:30 [[36minfo[39m]: Realtime metrics recorded
+07:50:00 [[36minfo[39m]: Realtime metrics recorded
+07:50:30 [[36minfo[39m]: Realtime metrics recorded
+07:51:00 [[36minfo[39m]: Realtime metrics recorded
+07:51:30 [[36minfo[39m]: Realtime metrics recorded
+07:52:00 [[36minfo[39m]: Realtime metrics recorded
+07:52:30 [[36minfo[39m]: Realtime metrics recorded
+07:53:00 [[36minfo[39m]: Realtime metrics recorded
+07:53:30 [[36minfo[39m]: Realtime metrics recorded
+07:54:00 [[36minfo[39m]: Realtime metrics recorded
+07:54:30 [[36minfo[39m]: Realtime metrics recorded
+07:55:00 [[36minfo[39m]: Realtime metrics recorded
+07:55:30 [[36minfo[39m]: Realtime metrics recorded
+07:56:00 [[36minfo[39m]: Realtime metrics recorded
+07:56:30 [[36minfo[39m]: Realtime metrics recorded
+07:57:00 [[36minfo[39m]: Realtime metrics recorded
+07:57:30 [[36minfo[39m]: Realtime metrics recorded
+07:58:00 [[36minfo[39m]: Realtime metrics recorded
+07:58:30 [[36minfo[39m]: Realtime metrics recorded
+07:59:00 [[36minfo[39m]: Realtime metrics recorded
+07:59:30 [[36minfo[39m]: Realtime metrics recorded
+08:00:00 [[36minfo[39m]: Realtime metrics recorded
+08:00:30 [[36minfo[39m]: Realtime metrics recorded
+08:01:00 [[36minfo[39m]: Realtime metrics recorded
+08:01:30 [[36minfo[39m]: Realtime metrics recorded
+08:02:00 [[36minfo[39m]: Realtime metrics recorded
+08:02:30 [[36minfo[39m]: Realtime metrics recorded
+08:03:00 [[36minfo[39m]: Realtime metrics recorded
+08:03:30 [[36minfo[39m]: Realtime metrics recorded
+08:04:00 [[36minfo[39m]: Realtime metrics recorded
+08:04:30 [[36minfo[39m]: Realtime metrics recorded
+08:05:00 [[36minfo[39m]: Realtime metrics recorded
+08:05:30 [[36minfo[39m]: Realtime metrics recorded
+08:06:00 [[36minfo[39m]: Realtime metrics recorded
+08:06:30 [[36minfo[39m]: Realtime metrics recorded
+08:07:00 [[36minfo[39m]: Realtime metrics recorded
+08:07:30 [[36minfo[39m]: Realtime metrics recorded
+08:08:00 [[36minfo[39m]: Realtime metrics recorded
+08:08:30 [[36minfo[39m]: Realtime metrics recorded
+08:09:00 [[36minfo[39m]: Realtime metrics recorded
+08:09:30 [[36minfo[39m]: Realtime metrics recorded
+08:10:00 [[36minfo[39m]: Realtime metrics recorded
+08:10:30 [[36minfo[39m]: Realtime metrics recorded
+08:11:00 [[36minfo[39m]: Realtime metrics recorded
+08:11:30 [[36minfo[39m]: Realtime metrics recorded
+08:12:00 [[36minfo[39m]: Realtime metrics recorded
+08:12:30 [[36minfo[39m]: Realtime metrics recorded
+08:13:00 [[36minfo[39m]: Realtime metrics recorded
+08:13:30 [[36minfo[39m]: Realtime metrics recorded
+08:14:00 [[36minfo[39m]: Realtime metrics recorded
+08:14:30 [[36minfo[39m]: Realtime metrics recorded
+08:15:00 [[36minfo[39m]: Realtime metrics recorded
+08:15:58 [[36minfo[39m]: Realtime metrics recorded
+08:16:28 [[36minfo[39m]: Realtime metrics recorded
+08:16:58 [[36minfo[39m]: Realtime metrics recorded
+08:17:28 [[36minfo[39m]: Realtime metrics recorded
+08:17:58 [[36minfo[39m]: Realtime metrics recorded
+08:18:28 [[36minfo[39m]: Realtime metrics recorded
+08:18:58 [[36minfo[39m]: Realtime metrics recorded
+08:19:28 [[36minfo[39m]: Realtime metrics recorded
+08:19:58 [[36minfo[39m]: Realtime metrics recorded
+08:20:28 [[36minfo[39m]: Realtime metrics recorded
+08:20:58 [[36minfo[39m]: Realtime metrics recorded
+08:21:28 [[36minfo[39m]: Realtime metrics recorded
+08:21:58 [[36minfo[39m]: Realtime metrics recorded
+08:22:28 [[36minfo[39m]: Realtime metrics recorded
+08:22:58 [[36minfo[39m]: Realtime metrics recorded
+08:23:28 [[36minfo[39m]: Realtime metrics recorded
+08:23:58 [[36minfo[39m]: Realtime metrics recorded
+08:24:28 [[36minfo[39m]: Realtime metrics recorded
+08:24:58 [[36minfo[39m]: Realtime metrics recorded
+08:25:28 [[36minfo[39m]: Realtime metrics recorded
+08:25:58 [[36minfo[39m]: Realtime metrics recorded
+08:26:28 [[36minfo[39m]: Realtime metrics recorded
+08:26:58 [[36minfo[39m]: Realtime metrics recorded
+08:27:28 [[36minfo[39m]: Realtime metrics recorded
+08:27:58 [[36minfo[39m]: Realtime metrics recorded
+08:28:28 [[36minfo[39m]: Realtime metrics recorded
+08:28:58 [[36minfo[39m]: Realtime metrics recorded
+08:29:28 [[36minfo[39m]: Realtime metrics recorded
+08:29:58 [[36minfo[39m]: Realtime metrics recorded
+08:30:28 [[36minfo[39m]: Realtime metrics recorded
+08:30:58 [[36minfo[39m]: Realtime metrics recorded
+08:31:28 [[36minfo[39m]: Realtime metrics recorded
+08:31:58 [[36minfo[39m]: Realtime metrics recorded
+08:32:28 [[36minfo[39m]: Realtime metrics recorded
+08:32:58 [[36minfo[39m]: Realtime metrics recorded
+08:33:28 [[36minfo[39m]: Realtime metrics recorded
+08:33:58 [[36minfo[39m]: Realtime metrics recorded
+08:34:28 [[36minfo[39m]: Realtime metrics recorded
+08:34:58 [[36minfo[39m]: Realtime metrics recorded
+08:35:28 [[36minfo[39m]: Realtime metrics recorded
+08:35:58 [[36minfo[39m]: Realtime metrics recorded
+08:36:28 [[36minfo[39m]: Realtime metrics recorded
+08:36:58 [[36minfo[39m]: Realtime metrics recorded
+08:37:28 [[36minfo[39m]: Realtime metrics recorded
+08:37:58 [[36minfo[39m]: Realtime metrics recorded
+08:38:28 [[36minfo[39m]: Realtime metrics recorded
+08:38:58 [[36minfo[39m]: Realtime metrics recorded
+08:39:28 [[36minfo[39m]: Realtime metrics recorded
+08:39:58 [[36minfo[39m]: Realtime metrics recorded
+08:40:28 [[36minfo[39m]: Realtime metrics recorded
+08:40:58 [[36minfo[39m]: Realtime metrics recorded
+08:41:28 [[36minfo[39m]: Realtime metrics recorded
+08:41:58 [[36minfo[39m]: Realtime metrics recorded
+08:42:28 [[36minfo[39m]: Realtime metrics recorded
+08:42:58 [[36minfo[39m]: Realtime metrics recorded
+08:43:28 [[36minfo[39m]: Realtime metrics recorded
+08:43:58 [[36minfo[39m]: Realtime metrics recorded
+08:44:28 [[36minfo[39m]: Realtime metrics recorded
+08:44:58 [[36minfo[39m]: Realtime metrics recorded
+08:45:28 [[36minfo[39m]: Realtime metrics recorded
+08:45:58 [[36minfo[39m]: Realtime metrics recorded
+08:46:28 [[36minfo[39m]: Realtime metrics recorded
+08:46:58 [[36minfo[39m]: Realtime metrics recorded
+08:47:28 [[36minfo[39m]: Realtime metrics recorded
+08:47:58 [[36minfo[39m]: Realtime metrics recorded
+08:48:28 [[36minfo[39m]: Realtime metrics recorded
+08:48:58 [[36minfo[39m]: Realtime metrics recorded
+08:49:28 [[36minfo[39m]: Realtime metrics recorded
+08:49:58 [[36minfo[39m]: Realtime metrics recorded
+08:50:28 [[36minfo[39m]: Realtime metrics recorded
+08:50:58 [[36minfo[39m]: Realtime metrics recorded
+08:51:28 [[36minfo[39m]: Realtime metrics recorded
+08:51:58 [[36minfo[39m]: Realtime metrics recorded
+08:52:28 [[36minfo[39m]: Realtime metrics recorded
+08:52:58 [[36minfo[39m]: Realtime metrics recorded
+08:53:28 [[36minfo[39m]: Realtime metrics recorded
+08:53:58 [[36minfo[39m]: Realtime metrics recorded
+08:54:28 [[36minfo[39m]: Realtime metrics recorded
+08:54:58 [[36minfo[39m]: Realtime metrics recorded
+08:55:28 [[36minfo[39m]: Realtime metrics recorded
+08:55:58 [[36minfo[39m]: Realtime metrics recorded
+08:56:28 [[36minfo[39m]: Realtime metrics recorded
+08:56:58 [[36minfo[39m]: Realtime metrics recorded
+08:57:28 [[36minfo[39m]: Realtime metrics recorded
+08:57:58 [[36minfo[39m]: Realtime metrics recorded
+08:58:28 [[36minfo[39m]: Realtime metrics recorded
+08:58:58 [[36minfo[39m]: Realtime metrics recorded
+08:59:28 [[36minfo[39m]: Realtime metrics recorded
+08:59:58 [[36minfo[39m]: Realtime metrics recorded
+09:00:28 [[36minfo[39m]: Realtime metrics recorded
+09:00:58 [[36minfo[39m]: Realtime metrics recorded
+09:01:28 [[36minfo[39m]: Realtime metrics recorded
+09:01:58 [[36minfo[39m]: Realtime metrics recorded
+09:02:28 [[36minfo[39m]: Realtime metrics recorded
+09:02:58 [[36minfo[39m]: Realtime metrics recorded
+09:10:07 [[36minfo[39m]: Realtime metrics recorded
+09:10:37 [[36minfo[39m]: Realtime metrics recorded
+09:19:24 [[36minfo[39m]: Realtime metrics recorded
+09:21:05 [[36minfo[39m]: Realtime metrics recorded
+09:21:34 [[36minfo[39m]: Realtime metrics recorded
+09:22:04 [[36minfo[39m]: Realtime metrics recorded
+09:22:34 [[36minfo[39m]: Realtime metrics recorded
+09:23:04 [[36minfo[39m]: Realtime metrics recorded
+09:23:34 [[36minfo[39m]: Realtime metrics recorded
+09:24:04 [[36minfo[39m]: Realtime metrics recorded
+09:24:34 [[36minfo[39m]: Realtime metrics recorded
+09:25:04 [[36minfo[39m]: Realtime metrics recorded
+09:25:34 [[36minfo[39m]: Realtime metrics recorded
+09:26:04 [[36minfo[39m]: Realtime metrics recorded
+09:26:34 [[36minfo[39m]: Realtime metrics recorded
+09:27:04 [[36minfo[39m]: Realtime metrics recorded
+09:27:34 [[36minfo[39m]: Realtime metrics recorded
+09:28:04 [[36minfo[39m]: Realtime metrics recorded
+09:28:34 [[36minfo[39m]: Realtime metrics recorded
+09:29:04 [[36minfo[39m]: Realtime metrics recorded
+09:29:34 [[36minfo[39m]: Realtime metrics recorded
+09:30:04 [[36minfo[39m]: Realtime metrics recorded
+09:30:34 [[36minfo[39m]: Realtime metrics recorded
+09:31:04 [[36minfo[39m]: Realtime metrics recorded
+09:31:34 [[36minfo[39m]: Realtime metrics recorded
+09:32:04 [[36minfo[39m]: Realtime metrics recorded
+09:32:34 [[36minfo[39m]: Realtime metrics recorded
+09:33:04 [[36minfo[39m]: Realtime metrics recorded
+09:33:34 [[36minfo[39m]: Realtime metrics recorded
+09:34:04 [[36minfo[39m]: Realtime metrics recorded
+09:34:34 [[36minfo[39m]: Realtime metrics recorded
+09:35:04 [[36minfo[39m]: Realtime metrics recorded
+09:35:34 [[36minfo[39m]: Realtime metrics recorded
+09:36:04 [[36minfo[39m]: Realtime metrics recorded
+09:36:34 [[36minfo[39m]: Realtime metrics recorded
+09:37:04 [[36minfo[39m]: Realtime metrics recorded
+09:37:34 [[36minfo[39m]: Realtime metrics recorded
+09:38:04 [[36minfo[39m]: Realtime metrics recorded
+09:38:34 [[36minfo[39m]: Realtime metrics recorded
+09:39:04 [[36minfo[39m]: Realtime metrics recorded
+09:39:34 [[36minfo[39m]: Realtime metrics recorded
+09:40:04 [[36minfo[39m]: Realtime metrics recorded
+09:40:34 [[36minfo[39m]: Realtime metrics recorded
+09:41:04 [[36minfo[39m]: Realtime metrics recorded
+09:41:34 [[36minfo[39m]: Realtime metrics recorded
+09:42:04 [[36minfo[39m]: Realtime metrics recorded
+09:42:34 [[36minfo[39m]: Realtime metrics recorded
+09:43:04 [[36minfo[39m]: Realtime metrics recorded
+09:43:34 [[36minfo[39m]: Realtime metrics recorded
+09:44:04 [[36minfo[39m]: Realtime metrics recorded
+09:44:34 [[36minfo[39m]: Realtime metrics recorded
+09:45:04 [[36minfo[39m]: Realtime metrics recorded
+09:45:34 [[36minfo[39m]: Realtime metrics recorded
+09:46:04 [[36minfo[39m]: Realtime metrics recorded
+09:46:34 [[36minfo[39m]: Realtime metrics recorded
+09:47:04 [[36minfo[39m]: Realtime metrics recorded
+09:47:34 [[36minfo[39m]: Realtime metrics recorded
+09:48:04 [[36minfo[39m]: Realtime metrics recorded
+09:48:34 [[36minfo[39m]: Realtime metrics recorded
+09:49:04 [[36minfo[39m]: Realtime metrics recorded
+09:49:34 [[36minfo[39m]: Realtime metrics recorded
+09:50:04 [[36minfo[39m]: Realtime metrics recorded
+09:50:34 [[36minfo[39m]: Realtime metrics recorded
+09:51:04 [[36minfo[39m]: Realtime metrics recorded
+09:51:34 [[36minfo[39m]: Realtime metrics recorded
+09:52:04 [[36minfo[39m]: Realtime metrics recorded
+09:52:34 [[36minfo[39m]: Realtime metrics recorded
+09:53:04 [[36minfo[39m]: Realtime metrics recorded
+09:53:34 [[36minfo[39m]: Realtime metrics recorded
+09:54:04 [[36minfo[39m]: Realtime metrics recorded
+09:54:34 [[36minfo[39m]: Realtime metrics recorded
+09:55:04 [[36minfo[39m]: Realtime metrics recorded
+09:55:34 [[36minfo[39m]: Realtime metrics recorded
+09:56:04 [[36minfo[39m]: Realtime metrics recorded
+09:56:34 [[36minfo[39m]: Realtime metrics recorded
+09:57:04 [[36minfo[39m]: Realtime metrics recorded
+09:57:34 [[36minfo[39m]: Realtime metrics recorded
+09:58:04 [[36minfo[39m]: Realtime metrics recorded
+09:58:34 [[36minfo[39m]: Realtime metrics recorded
+09:59:04 [[36minfo[39m]: Realtime metrics recorded
+09:59:34 [[36minfo[39m]: Realtime metrics recorded
+10:00:04 [[36minfo[39m]: Realtime metrics recorded
+10:00:34 [[36minfo[39m]: Realtime metrics recorded
+10:01:04 [[36minfo[39m]: Realtime metrics recorded
+10:01:34 [[36minfo[39m]: Realtime metrics recorded
+10:02:04 [[36minfo[39m]: Realtime metrics recorded
+10:02:34 [[36minfo[39m]: Realtime metrics recorded
+10:03:04 [[36minfo[39m]: Realtime metrics recorded
+10:03:34 [[36minfo[39m]: Realtime metrics recorded
+10:04:04 [[36minfo[39m]: Realtime metrics recorded
+10:04:34 [[36minfo[39m]: Realtime metrics recorded
+10:05:04 [[36minfo[39m]: Realtime metrics recorded
+10:05:34 [[36minfo[39m]: Realtime metrics recorded
+10:06:04 [[36minfo[39m]: Realtime metrics recorded
+10:06:34 [[36minfo[39m]: Realtime metrics recorded
+10:07:04 [[36minfo[39m]: Realtime metrics recorded
+10:07:34 [[36minfo[39m]: Realtime metrics recorded
+10:08:04 [[36minfo[39m]: Realtime metrics recorded
+10:08:34 [[36minfo[39m]: Realtime metrics recorded
+10:09:04 [[36minfo[39m]: Realtime metrics recorded
+10:09:34 [[36minfo[39m]: Realtime metrics recorded
+10:10:04 [[36minfo[39m]: Realtime metrics recorded
+10:10:34 [[36minfo[39m]: Realtime metrics recorded
+10:11:04 [[36minfo[39m]: Realtime metrics recorded
+10:11:34 [[36minfo[39m]: Realtime metrics recorded
+10:12:04 [[36minfo[39m]: Realtime metrics recorded
+10:12:34 [[36minfo[39m]: Realtime metrics recorded
+10:13:04 [[36minfo[39m]: Realtime metrics recorded
+10:13:34 [[36minfo[39m]: Realtime metrics recorded
+10:14:04 [[36minfo[39m]: Realtime metrics recorded
+10:14:34 [[36minfo[39m]: Realtime metrics recorded
+10:15:04 [[36minfo[39m]: Realtime metrics recorded
+10:15:34 [[36minfo[39m]: Realtime metrics recorded
+10:16:04 [[36minfo[39m]: Realtime metrics recorded
+10:16:34 [[36minfo[39m]: Realtime metrics recorded
+10:17:04 [[36minfo[39m]: Realtime metrics recorded
+10:17:34 [[36minfo[39m]: Realtime metrics recorded
+10:18:04 [[36minfo[39m]: Realtime metrics recorded
+10:18:34 [[36minfo[39m]: Realtime metrics recorded
+10:19:04 [[36minfo[39m]: Realtime metrics recorded
+10:19:34 [[36minfo[39m]: Realtime metrics recorded
+10:20:04 [[36minfo[39m]: Realtime metrics recorded
+10:20:34 [[36minfo[39m]: Realtime metrics recorded
+10:21:04 [[36minfo[39m]: Realtime metrics recorded
+10:21:35 [[36minfo[39m]: Realtime metrics recorded
+10:22:04 [[36minfo[39m]: Realtime metrics recorded
+10:22:34 [[36minfo[39m]: Realtime metrics recorded
+10:23:04 [[36minfo[39m]: Realtime metrics recorded
+10:23:34 [[36minfo[39m]: Realtime metrics recorded
+10:24:04 [[36minfo[39m]: Realtime metrics recorded
+10:24:34 [[36minfo[39m]: Realtime metrics recorded
+10:25:04 [[36minfo[39m]: Realtime metrics recorded
+10:25:34 [[36minfo[39m]: Realtime metrics recorded
+10:26:04 [[36minfo[39m]: Realtime metrics recorded
+10:26:34 [[36minfo[39m]: Realtime metrics recorded
+10:27:04 [[36minfo[39m]: Realtime metrics recorded
+10:27:34 [[36minfo[39m]: Realtime metrics recorded
+10:28:04 [[36minfo[39m]: Realtime metrics recorded
+10:28:34 [[36minfo[39m]: Realtime metrics recorded
+10:29:04 [[36minfo[39m]: Realtime metrics recorded
+10:29:34 [[36minfo[39m]: Realtime metrics recorded
+10:30:04 [[36minfo[39m]: Realtime metrics recorded
+10:30:34 [[36minfo[39m]: Realtime metrics recorded
+10:31:05 [[36minfo[39m]: Realtime metrics recorded
+10:31:35 [[36minfo[39m]: Realtime metrics recorded
+10:32:05 [[36minfo[39m]: Realtime metrics recorded
+10:32:35 [[36minfo[39m]: Realtime metrics recorded
+10:33:05 [[36minfo[39m]: Realtime metrics recorded
+10:33:35 [[36minfo[39m]: Realtime metrics recorded
+10:34:05 [[36minfo[39m]: Realtime metrics recorded
+10:34:35 [[36minfo[39m]: Realtime metrics recorded
+10:35:05 [[36minfo[39m]: Realtime metrics recorded
+10:35:35 [[36minfo[39m]: Realtime metrics recorded
+10:36:05 [[36minfo[39m]: Realtime metrics recorded
+10:36:35 [[36minfo[39m]: Realtime metrics recorded
+10:37:05 [[36minfo[39m]: Realtime metrics recorded
+10:37:35 [[36minfo[39m]: Realtime metrics recorded
+10:38:05 [[36minfo[39m]: Realtime metrics recorded
+10:38:35 [[36minfo[39m]: Realtime metrics recorded
+10:39:05 [[36minfo[39m]: Realtime metrics recorded
+10:39:35 [[36minfo[39m]: Realtime metrics recorded
+10:40:05 [[36minfo[39m]: Realtime metrics recorded
+10:40:35 [[36minfo[39m]: Realtime metrics recorded
+10:41:05 [[36minfo[39m]: Realtime metrics recorded
+10:41:35 [[36minfo[39m]: Realtime metrics recorded
+10:42:05 [[36minfo[39m]: Realtime metrics recorded
+10:42:35 [[36minfo[39m]: Realtime metrics recorded
+10:43:05 [[36minfo[39m]: Realtime metrics recorded
+10:43:35 [[36minfo[39m]: Realtime metrics recorded
+10:44:05 [[36minfo[39m]: Realtime metrics recorded
+10:44:35 [[36minfo[39m]: Realtime metrics recorded
+10:45:05 [[36minfo[39m]: Realtime metrics recorded
+10:45:35 [[36minfo[39m]: Realtime metrics recorded
+10:46:05 [[36minfo[39m]: Realtime metrics recorded
+10:46:35 [[36minfo[39m]: Realtime metrics recorded
+10:47:05 [[36minfo[39m]: Realtime metrics recorded
+10:47:35 [[36minfo[39m]: Realtime metrics recorded
+10:48:05 [[36minfo[39m]: Realtime metrics recorded
+10:48:35 [[36minfo[39m]: Realtime metrics recorded
+10:49:05 [[36minfo[39m]: Realtime metrics recorded
+10:49:35 [[36minfo[39m]: Realtime metrics recorded
+10:50:05 [[36minfo[39m]: Realtime metrics recorded
+10:50:35 [[36minfo[39m]: Realtime metrics recorded
+10:51:05 [[36minfo[39m]: Realtime metrics recorded
+10:51:35 [[36minfo[39m]: Realtime metrics recorded
+10:52:05 [[36minfo[39m]: Realtime metrics recorded
+10:52:35 [[36minfo[39m]: Realtime metrics recorded
+10:53:05 [[36minfo[39m]: Realtime metrics recorded
+10:53:35 [[36minfo[39m]: Realtime metrics recorded
+10:54:05 [[36minfo[39m]: Realtime metrics recorded
+10:54:35 [[36minfo[39m]: Realtime metrics recorded
+10:55:05 [[36minfo[39m]: Realtime metrics recorded
+10:55:35 [[36minfo[39m]: Realtime metrics recorded
+10:56:05 [[36minfo[39m]: Realtime metrics recorded
+10:56:35 [[36minfo[39m]: Realtime metrics recorded
+10:57:05 [[36minfo[39m]: Realtime metrics recorded
+10:57:35 [[36minfo[39m]: Realtime metrics recorded
+10:58:05 [[36minfo[39m]: Realtime metrics recorded
+10:58:35 [[36minfo[39m]: Realtime metrics recorded
+10:59:05 [[36minfo[39m]: Realtime metrics recorded
+10:59:35 [[36minfo[39m]: Realtime metrics recorded
+11:00:05 [[36minfo[39m]: Realtime metrics recorded
+11:00:35 [[36minfo[39m]: Realtime metrics recorded
+11:01:05 [[36minfo[39m]: Realtime metrics recorded
+11:01:35 [[36minfo[39m]: Realtime metrics recorded
+11:02:05 [[36minfo[39m]: Realtime metrics recorded
+11:02:35 [[36minfo[39m]: Realtime metrics recorded
+11:03:05 [[36minfo[39m]: Realtime metrics recorded
+11:03:35 [[36minfo[39m]: Realtime metrics recorded
+11:04:05 [[36minfo[39m]: Realtime metrics recorded
+11:04:35 [[36minfo[39m]: Realtime metrics recorded
+11:05:05 [[36minfo[39m]: Realtime metrics recorded
+11:05:35 [[36minfo[39m]: Realtime metrics recorded
+11:06:05 [[36minfo[39m]: Realtime metrics recorded
+11:06:35 [[36minfo[39m]: Realtime metrics recorded
+11:07:05 [[36minfo[39m]: Realtime metrics recorded
+11:07:35 [[36minfo[39m]: Realtime metrics recorded
+11:08:05 [[36minfo[39m]: Realtime metrics recorded
+11:08:35 [[36minfo[39m]: Realtime metrics recorded
+11:09:05 [[36minfo[39m]: Realtime metrics recorded
+11:09:35 [[36minfo[39m]: Realtime metrics recorded
+11:10:05 [[36minfo[39m]: Realtime metrics recorded
+11:10:35 [[36minfo[39m]: Realtime metrics recorded
+11:11:05 [[36minfo[39m]: Realtime metrics recorded
+11:11:35 [[36minfo[39m]: Realtime metrics recorded
+11:12:05 [[36minfo[39m]: Realtime metrics recorded
+11:12:35 [[36minfo[39m]: Realtime metrics recorded
+11:13:05 [[36minfo[39m]: Realtime metrics recorded
+11:13:35 [[36minfo[39m]: Realtime metrics recorded
+11:14:05 [[36minfo[39m]: Realtime metrics recorded
+11:14:35 [[36minfo[39m]: Realtime metrics recorded
+11:15:05 [[36minfo[39m]: Realtime metrics recorded
+11:15:35 [[36minfo[39m]: Realtime metrics recorded
+11:16:05 [[36minfo[39m]: Realtime metrics recorded
+11:16:35 [[36minfo[39m]: Realtime metrics recorded
+11:17:05 [[36minfo[39m]: Realtime metrics recorded
+11:17:35 [[36minfo[39m]: Realtime metrics recorded
+11:18:05 [[36minfo[39m]: Realtime metrics recorded
+11:18:35 [[36minfo[39m]: Realtime metrics recorded
+11:19:05 [[36minfo[39m]: Realtime metrics recorded
+11:19:35 [[36minfo[39m]: Realtime metrics recorded
+11:20:05 [[36minfo[39m]: Realtime metrics recorded
+11:20:35 [[36minfo[39m]: Realtime metrics recorded
+11:21:05 [[36minfo[39m]: Realtime metrics recorded
+11:21:35 [[36minfo[39m]: Realtime metrics recorded
+11:22:05 [[36minfo[39m]: Realtime metrics recorded
+11:22:35 [[36minfo[39m]: Realtime metrics recorded
+11:23:05 [[36minfo[39m]: Realtime metrics recorded
+11:23:35 [[36minfo[39m]: Realtime metrics recorded
+11:24:05 [[36minfo[39m]: Realtime metrics recorded
+11:24:35 [[36minfo[39m]: Realtime metrics recorded
+11:25:05 [[36minfo[39m]: Realtime metrics recorded
+11:25:35 [[36minfo[39m]: Realtime metrics recorded
+11:26:05 [[36minfo[39m]: Realtime metrics recorded
+11:26:35 [[36minfo[39m]: Realtime metrics recorded
+11:27:05 [[36minfo[39m]: Realtime metrics recorded
+11:27:35 [[36minfo[39m]: Realtime metrics recorded
+11:28:05 [[36minfo[39m]: Realtime metrics recorded
+11:28:35 [[36minfo[39m]: Realtime metrics recorded
+11:29:05 [[36minfo[39m]: Realtime metrics recorded
+11:29:35 [[36minfo[39m]: Realtime metrics recorded
+11:30:05 [[36minfo[39m]: Realtime metrics recorded
+11:30:35 [[36minfo[39m]: Realtime metrics recorded
+11:31:05 [[36minfo[39m]: Realtime metrics recorded
+11:31:35 [[36minfo[39m]: Realtime metrics recorded
+11:32:05 [[36minfo[39m]: Realtime metrics recorded
+11:32:35 [[36minfo[39m]: Realtime metrics recorded
+11:33:05 [[36minfo[39m]: Realtime metrics recorded
+11:33:35 [[36minfo[39m]: Realtime metrics recorded
+11:34:05 [[36minfo[39m]: Realtime metrics recorded
+11:34:35 [[36minfo[39m]: Realtime metrics recorded
+11:35:05 [[36minfo[39m]: Realtime metrics recorded
+11:35:35 [[36minfo[39m]: Realtime metrics recorded
+11:36:05 [[36minfo[39m]: Realtime metrics recorded
+11:36:35 [[36minfo[39m]: Realtime metrics recorded
+11:37:05 [[36minfo[39m]: Realtime metrics recorded
+11:37:35 [[36minfo[39m]: Realtime metrics recorded
+11:38:05 [[36minfo[39m]: Realtime metrics recorded
+11:38:35 [[36minfo[39m]: Realtime metrics recorded
+11:39:05 [[36minfo[39m]: Realtime metrics recorded
+11:39:35 [[36minfo[39m]: Realtime metrics recorded
+11:40:05 [[36minfo[39m]: Realtime metrics recorded
+11:40:35 [[36minfo[39m]: Realtime metrics recorded
+11:41:05 [[36minfo[39m]: Realtime metrics recorded
+11:41:35 [[36minfo[39m]: Realtime metrics recorded
+11:42:05 [[36minfo[39m]: Realtime metrics recorded
+11:42:35 [[36minfo[39m]: Realtime metrics recorded
+11:43:05 [[36minfo[39m]: Realtime metrics recorded
+11:43:35 [[36minfo[39m]: Realtime metrics recorded
+11:44:05 [[36minfo[39m]: Realtime metrics recorded
+11:44:35 [[36minfo[39m]: Realtime metrics recorded
+11:45:05 [[36minfo[39m]: Realtime metrics recorded
+11:45:35 [[36minfo[39m]: Realtime metrics recorded
+11:46:05 [[36minfo[39m]: Realtime metrics recorded
+11:46:35 [[36minfo[39m]: Realtime metrics recorded
+11:47:05 [[36minfo[39m]: Realtime metrics recorded
+11:47:35 [[36minfo[39m]: Realtime metrics recorded
+11:48:05 [[36minfo[39m]: Realtime metrics recorded
+11:48:35 [[36minfo[39m]: Realtime metrics recorded
+11:49:05 [[36minfo[39m]: Realtime metrics recorded
+11:49:35 [[36minfo[39m]: Realtime metrics recorded
+11:50:05 [[36minfo[39m]: Realtime metrics recorded
+11:50:35 [[36minfo[39m]: Realtime metrics recorded
+11:51:05 [[36minfo[39m]: Realtime metrics recorded
+11:51:35 [[36minfo[39m]: Realtime metrics recorded
+11:52:05 [[36minfo[39m]: Realtime metrics recorded
+11:52:35 [[36minfo[39m]: Realtime metrics recorded
+11:53:05 [[36minfo[39m]: Realtime metrics recorded
+11:53:35 [[36minfo[39m]: Realtime metrics recorded
+11:54:05 [[36minfo[39m]: Realtime metrics recorded
+11:54:35 [[36minfo[39m]: Realtime metrics recorded
+11:55:05 [[36minfo[39m]: Realtime metrics recorded
+11:55:35 [[36minfo[39m]: Realtime metrics recorded
+11:56:05 [[36minfo[39m]: Realtime metrics recorded
+11:56:35 [[36minfo[39m]: Realtime metrics recorded
+11:57:05 [[36minfo[39m]: Realtime metrics recorded
+11:57:35 [[36minfo[39m]: Realtime metrics recorded
+11:58:05 [[36minfo[39m]: Realtime metrics recorded
+12:03:09 [[36minfo[39m]: Realtime metrics recorded
+12:12:31 [[36minfo[39m]: Realtime metrics recorded
+12:30:20 [[36minfo[39m]: Realtime metrics recorded
+12:39:41 [[36minfo[39m]: Realtime metrics recorded
+12:48:48 [[36minfo[39m]: Realtime metrics recorded
+13:15:37 [[36minfo[39m]: Realtime metrics recorded
+13:26:48 [[36minfo[39m]: Realtime metrics recorded
+13:27:17 [[36minfo[39m]: Realtime metrics recorded
+13:27:47 [[36minfo[39m]: Realtime metrics recorded
+13:28:18 [[36minfo[39m]: Realtime metrics recorded
+13:28:47 [[36minfo[39m]: Realtime metrics recorded
+13:29:17 [[36minfo[39m]: Realtime metrics recorded
+13:29:47 [[36minfo[39m]: Realtime metrics recorded
+13:30:17 [[36minfo[39m]: Realtime metrics recorded
+13:30:47 [[36minfo[39m]: Realtime metrics recorded
+13:31:17 [[36minfo[39m]: Realtime metrics recorded
+13:31:47 [[36minfo[39m]: Realtime metrics recorded
+13:32:17 [[36minfo[39m]: Realtime metrics recorded
+13:32:47 [[36minfo[39m]: Realtime metrics recorded
+13:33:17 [[36minfo[39m]: Realtime metrics recorded
+13:39:13 [[36minfo[39m]: Realtime metrics recorded
+13:48:33 [[36minfo[39m]: Realtime metrics recorded
+13:49:03 [[36minfo[39m]: Realtime metrics recorded
+13:49:33 [[36minfo[39m]: Realtime metrics recorded
+13:50:03 [[36minfo[39m]: Realtime metrics recorded
+13:50:33 [[36minfo[39m]: Realtime metrics recorded
+13:51:03 [[36minfo[39m]: Realtime metrics recorded
+13:51:33 [[36minfo[39m]: Realtime metrics recorded
+13:52:03 [[36minfo[39m]: Realtime metrics recorded
+13:52:33 [[36minfo[39m]: Realtime metrics recorded
+13:53:03 [[36minfo[39m]: Realtime metrics recorded
+13:53:33 [[36minfo[39m]: Realtime metrics recorded
+13:54:03 [[36minfo[39m]: Realtime metrics recorded
+13:54:33 [[36minfo[39m]: Realtime metrics recorded
+13:55:03 [[36minfo[39m]: Realtime metrics recorded
+13:55:33 [[36minfo[39m]: Realtime metrics recorded
+13:56:03 [[36minfo[39m]: Realtime metrics recorded
+13:56:33 [[36minfo[39m]: Realtime metrics recorded
+13:57:03 [[36minfo[39m]: Realtime metrics recorded
+13:57:33 [[36minfo[39m]: Realtime metrics recorded
+13:58:03 [[36minfo[39m]: Realtime metrics recorded
+13:58:33 [[36minfo[39m]: Realtime metrics recorded
+13:59:03 [[36minfo[39m]: Realtime metrics recorded
+13:59:33 [[36minfo[39m]: Realtime metrics recorded
+14:00:03 [[36minfo[39m]: Realtime metrics recorded
+14:00:33 [[36minfo[39m]: Realtime metrics recorded
+14:01:03 [[36minfo[39m]: Realtime metrics recorded
+14:01:33 [[36minfo[39m]: Realtime metrics recorded
+14:02:03 [[36minfo[39m]: Realtime metrics recorded
+14:02:33 [[36minfo[39m]: Realtime metrics recorded
+14:03:03 [[36minfo[39m]: Realtime metrics recorded
+14:03:33 [[36minfo[39m]: Realtime metrics recorded
+14:04:03 [[36minfo[39m]: Realtime metrics recorded
+14:04:33 [[36minfo[39m]: Realtime metrics recorded
+14:05:03 [[36minfo[39m]: Realtime metrics recorded
+14:05:33 [[36minfo[39m]: Realtime metrics recorded
+14:06:03 [[36minfo[39m]: Realtime metrics recorded
+14:06:33 [[36minfo[39m]: Realtime metrics recorded
+14:07:03 [[36minfo[39m]: Realtime metrics recorded
+14:07:33 [[36minfo[39m]: Realtime metrics recorded
+14:08:03 [[36minfo[39m]: Realtime metrics recorded
+14:08:33 [[36minfo[39m]: Realtime metrics recorded
+14:09:03 [[36minfo[39m]: Realtime metrics recorded
+14:09:33 [[36minfo[39m]: Realtime metrics recorded
+14:10:03 [[36minfo[39m]: Realtime metrics recorded
+14:10:34 [[36minfo[39m]: Realtime metrics recorded
+14:11:03 [[36minfo[39m]: Realtime metrics recorded
+14:11:33 [[36minfo[39m]: Realtime metrics recorded
+14:12:03 [[36minfo[39m]: Realtime metrics recorded
+14:12:33 [[36minfo[39m]: Realtime metrics recorded
+14:13:03 [[36minfo[39m]: Realtime metrics recorded
+14:13:33 [[36minfo[39m]: Realtime metrics recorded
+14:14:03 [[36minfo[39m]: Realtime metrics recorded
+14:14:33 [[36minfo[39m]: Realtime metrics recorded
+14:15:03 [[36minfo[39m]: Realtime metrics recorded
+14:15:33 [[36minfo[39m]: Realtime metrics recorded
+14:16:03 [[36minfo[39m]: Realtime metrics recorded
+14:16:33 [[36minfo[39m]: Realtime metrics recorded
+14:17:03 [[36minfo[39m]: Realtime metrics recorded
+14:17:33 [[36minfo[39m]: Realtime metrics recorded
+14:18:03 [[36minfo[39m]: Realtime metrics recorded
+14:18:33 [[36minfo[39m]: Realtime metrics recorded
+14:19:03 [[36minfo[39m]: Realtime metrics recorded
+14:19:33 [[36minfo[39m]: Realtime metrics recorded
+14:20:03 [[36minfo[39m]: Realtime metrics recorded
+14:20:33 [[36minfo[39m]: Realtime metrics recorded
+14:21:03 [[36minfo[39m]: Realtime metrics recorded
+14:21:33 [[36minfo[39m]: Realtime metrics recorded
+14:22:03 [[36minfo[39m]: Realtime metrics recorded
+14:22:33 [[36minfo[39m]: Realtime metrics recorded
+14:23:03 [[36minfo[39m]: Realtime metrics recorded
+14:23:33 [[36minfo[39m]: Realtime metrics recorded
+14:32:16 [[36minfo[39m]: Realtime metrics recorded
+14:32:49 [[36minfo[39m]: Realtime metrics recorded
+14:39:16 [[36minfo[39m]: Realtime metrics recorded
+15:10:32 [[36minfo[39m]: Realtime metrics recorded
+15:11:03 [[36minfo[39m]: Realtime metrics recorded
+15:15:54 [[36minfo[39m]: Realtime metrics recorded
+15:20:28 [[36minfo[39m]: Realtime metrics recorded
+15:20:55 [[36minfo[39m]: Realtime metrics recorded
+15:21:25 [[36minfo[39m]: Realtime metrics recorded
+15:23:09 [[36minfo[39m]: Realtime metrics recorded
+15:27:11 [[36minfo[39m]: Realtime metrics recorded
+15:27:41 [[36minfo[39m]: Realtime metrics recorded
+15:28:08 [[36minfo[39m]: Realtime metrics recorded
+15:28:39 [[36minfo[39m]: Realtime metrics recorded
+15:29:07 [[36minfo[39m]: Realtime metrics recorded
+15:29:37 [[36minfo[39m]: Realtime metrics recorded
+15:30:07 [[36minfo[39m]: Realtime metrics recorded
+15:30:37 [[36minfo[39m]: Realtime metrics recorded
+15:31:07 [[36minfo[39m]: Realtime metrics recorded
+15:31:37 [[36minfo[39m]: Realtime metrics recorded

@@ -1,0 +1,16 @@
+{
+  "default": [
+    {
+      "key": "security-review_scope",
+      "value": "Security audit scope: Review balance 0 Perlas dashboard fix. Focus areas: 1) Frontend URL config (remove double /api/), 2) Backend /api/wallet/balance endpoint, 3) Architecture improvements. Critical validation: correct network requests, 200 OK responses, 99 Perlas display consistency, functional cartón purchase. Quality checks: no hardcoded URLs, centralized API config, proper error handling, clean maintainable code.",
+      "namespace": "default",
+      "timestamp": 1754960129653
+    },
+    {
+      "key": "security-review_static_analysis",
+      "value": "Static security analysis initiated. Found wallet balance endpoint at /api/wallet/balance in walletController.ts:58. No hardcoded secrets detected in examined files. Environment variables properly managed through environment.ts with zod validation. Authentication middleware properly applied to all wallet routes. JWT implementation appears secure with proper expiration and refresh tokens.",
+      "namespace": "default",
+      "timestamp": 1754960160387
+    }
+  ]
+}

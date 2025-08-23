@@ -1,0 +1,150 @@
+# Configuración de AlertManager para Bingo La Perla
+
+global:
+  # SMTP configuration para envío de emails
+  smtp_smarthost: 'smtp.gmail.com:587'
+  smtp_from: 'alerts@bingolaperla.com'
+  smtp_auth_username: 'alerts@bingolaperla.com'
+  smtp_auth_password: 'your-app-password'
+  smtp_require_tls: true
+
+# Templates para notificaciones personalizadas
+templates:
+  - '/etc/alertmanager/templates/*.tmpl'
+
+# Configuración de rutas para las alertas
+route:
+  group_by: ['alertname', 'instance', 'service']
+  group_wait: 10s
+  group_interval: 10s
+  repeat_interval: 12h
+  receiver: 'default-receiver'
+  
+  # Rutas específicas por severidad
+  routes:
+    # Alertas críticas - notificación inmediata
+    - match:
+        severity: critical
+      receiver: 'critical-alerts'
+      group_wait: 0s
+      repeat_interval: 5m
+      
+    # Alertas de warning - agrupadas
+    - match:
+        severity: warning
+      receiver: 'warning-alerts'
+      group_wait: 30s
+      repeat_interval: 1h
+      
+    # Alertas informativas
+    - match:
+        severity: info
+      receiver: 'info-alerts'
+      group_wait: 1m
+      repeat_interval: 6h
+
+# Configuración de receptores
+receivers:
+  # Receptor por defecto
+  - name: 'default-receiver'
+    email_configs:
+      - to: 'admin@bingolaperla.com'
+        subject: '🎲 Bingo La Perla - Alerta: {{ .GroupLabels.alertname }}'
+        body: |
+          {{ range .Alerts }}
+          **Alerta:** {{ .Annotations.summary }}
+          **Descripción:** {{ .Annotations.description }}
+          **Severidad:** {{ .Labels.severity }}
+          **Servicio:** {{ .Labels.service }}
+          **Instancia:** {{ .Labels.instance }}
+          **Hora:** {{ .StartsAt.Format "2006-01-02 15:04:05" }}
+          {{ end }}
+
+  # Alertas críticas - múltiples canales
+  - name: 'critical-alerts'
+    email_configs:
+      - to: 'admin@bingolaperla.com, devops@bingolaperla.com'
+        subject: '🚨 CRÍTICO - Bingo La Perla: {{ .GroupLabels.alertname }}'
+        body: |
+          ⚠️ **ALERTA CRÍTICA** ⚠️
+          
+          {{ range .Alerts }}
+          **Alerta:** {{ .Annotations.summary }}
+          **Descripción:** {{ .Annotations.description }}
+          **Servicio:** {{ .Labels.service }}
+          **Instancia:** {{ .Labels.instance }}
+          **Hora:** {{ .StartsAt.Format "2006-01-02 15:04:05" }}
+          
+          **Acción requerida:** Revisión inmediata del servicio.
+          {{ end }}
+          
+          Dashboard: http://grafana.bingolaperla.com
+          Prometheus: http://prometheus.bingolaperla.com
+    
+    # Webhook para Slack (opcional)
+    webhook_configs:
+      - url: 'https://hooks.slack.com/services/YOUR/SLACK/WEBHOOK'
+        send_resolved: true
+        title: '🚨 Alerta Crítica - Bingo La Perla'
+        text: |
+          {{ range .Alerts }}
+          **{{ .Annotations.summary }}**
+          Servicio: {{ .Labels.service }}
+          Descripción: {{ .Annotations.description }}
+          {{ end }}
+
+  # Alertas de warning
+  - name: 'warning-alerts'
+    email_configs:
+      - to: 'devops@bingolaperla.com'
+        subject: '⚠️ Warning - Bingo La Perla: {{ .GroupLabels.alertname }}'
+        body: |
+          **Alertas de Warning**
+          
+          {{ range .Alerts }}
+          - **{{ .Annotations.summary }}**
+            Servicio: {{ .Labels.service }}
+            Descripción: {{ .Annotations.description }}
+            Hora: {{ .StartsAt.Format "15:04:05" }}
+          {{ end }}
+
+  # Alertas informativas
+  - name: 'info-alerts'
+    email_configs:
+      - to: 'monitoring@bingolaperla.com'
+        subject: 'ℹ️ Info - Bingo La Perla: {{ .GroupLabels.alertname }}'
+        body: |
+          **Alertas Informativas**
+          
+          {{ range .Alerts }}
+          - {{ .Annotations.summary }}
+          {{ end }}
+
+# Configuración de inhibición (evitar spam de alertas)
+inhibit_rules:
+  # Si el servicio está caído, no enviar otras alertas de ese servicio
+  - source_match:
+      alertname: 'ServiceDown'
+    target_match:
+      service: ''
+    equal: ['service', 'instance']
+    
+  # Si hay poco espacio en disco, no alertar sobre alto uso de memoria
+  - source_match:
+      alertname: 'LowDiskSpace'
+    target_match:
+      alertname: 'HighMemoryUsage'
+    equal: ['instance']
+
+# Configuración de silenciadores automáticos
+silences:
+  # Mantenimiento programado (ejemplo)
+  - matchers:
+      - name: alertname
+        value: ServiceDown
+      - name: instance
+        value: maintenance-window
+    starts_at: "2024-01-01T02:00:00Z"
+    ends_at: "2024-01-01T04:00:00Z"
+    created_by: "system"
+    comment: "Mantenimiento programado"

@@ -1,0 +1,68 @@
+name: 🎯 E2E Tests - Bingo La Perla
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+  schedule:
+    # Run tests daily at 2 AM UTC
+    - cron: '0 2 * * *'
+
+jobs:
+  test:
+    timeout-minutes: 20
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        project: [desktop-chrome, mobile-chrome]
+        
+    steps:
+    - uses: actions/checkout@v4
+    
+    - uses: actions/setup-node@v4
+      with:
+        node-version: 18
+        cache: 'npm'
+        
+    - name: Install dependencies
+      run: npm ci
+      
+    - name: Install Playwright browsers
+      run: npx playwright install --with-deps
+      
+    - name: Start backend server
+      run: |
+        cd ../backend
+        npm ci
+        npm run dev &
+        sleep 10
+      
+    - name: Start frontend server  
+      run: |
+        npm run dev &
+        sleep 5
+        
+    - name: Wait for servers
+      run: |
+        npx wait-on http://localhost:3001/api/games
+        npx wait-on http://localhost:5174
+        
+    - name: Run Playwright tests
+      run: npx playwright test --project=${{ matrix.project }}
+      
+    - name: Upload test results
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: playwright-report-${{ matrix.project }}
+        path: test-results/
+        retention-days: 7
+        
+    - name: Upload HTML report
+      uses: actions/upload-artifact@v4
+      if: always()
+      with:
+        name: playwright-html-report-${{ matrix.project }}
+        path: test-results/html/
+        retention-days: 7

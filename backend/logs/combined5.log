@@ -1,0 +1,582 @@
+{
+  message: '✅ Conexión a PostgreSQL establecida exitosamente',
+  level: 'info',
+  service: 'bingo-backend',
+  timestamp: '2025-08-02 12:36:23'
+}
+{
+  message: '✅ Base de datos PostgreSQL funcionando correctamente',
+  level: 'info',
+  service: 'bingo-backend',
+  timestamp: '2025-08-02 12:36:23'
+}
+{
+  service: 'bingo-backend',
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: '❌ Error de Redis:',
+  stack: 'AggregateError\n' +
+    '    at internalConnectMultiple (node:net:1139:18)\n' +
+    '    at afterConnectMultiple (node:net:1714:7)',
+  timestamp: '2025-08-02 12:36:23'
+}
+{
+  service: 'bingo-backend',
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: '❌ Error al conectar con Redis:',
+  stack: 'AggregateError\n' +
+    '    at internalConnectMultiple (node:net:1139:18)\n' +
+    '    at afterConnectMultiple (node:net:1714:7)',
+  timestamp: '2025-08-02 12:36:23'
+}
+{
+  message: '⚠️ Continuando sin Redis para desarrollo',
+  level: 'warn',
+  service: 'bingo-backend',
+  timestamp: '2025-08-02 12:36:23'
+}
+{
+  service: 'bingo-backend',
+  activeUsers: 1,
+  activeGames: 0,
+  memoryUsage: 254.36,
+  cpuUsage: 16.599536666666665,
+  dbConnections: 5,
+  socketConnections: 0,
+  timestamp: '2025-08-02 12:36:53',
+  level: 'info',
+  message: 'Realtime metrics recorded'
+}
+{
+  service: 'bingo-backend',
+  activeUsers: 3,
+  activeGames: 0,
+  memoryUsage: 256.72,
+  cpuUsage: 12.701080000000001,
+  dbConnections: 5,
+  socketConnections: 0,
+  timestamp: '2025-08-02 12:37:23',
+  level: 'info',
+  message: 'Realtime metrics recorded'
+}
+{
+  service: 'bingo-backend',
+  activeUsers: 6,
+  activeGames: 0,
+  memoryUsage: 256.16,
+  cpuUsage: 13.233306666666667,
+  dbConnections: 5,
+  socketConnections: 0,
+  timestamp: '2025-08-02 12:37:53',
+  level: 'info',
+  message: 'Realtime metrics recorded'
+}
+{
+  service: 'bingo-backend',
+  activeUsers: 6,
+  activeGames: 0,
+  memoryUsage: 258.15,
+  cpuUsage: 10.275516666666666,
+  dbConnections: 5,
+  socketConnections: 0,
+  timestamp: '2025-08-02 12:38:23',
+  level: 'info',
+  message: 'Realtime metrics recorded'
+}
+{
+  service: 'bingo-backend',
+  activeUsers: 6,
+  activeGames: 0,
+  memoryUsage: 257.96,
+  cpuUsage: 9.48222,
+  dbConnections: 5,
+  socketConnections: 0,
+  timestamp: '2025-08-02 12:38:53',
+  level: 'info',
+  message: 'Realtime metrics recorded'
+}
+{
+  service: 'bingo-backend',
+  activeUsers: 6,
+  activeGames: 0,
+  memoryUsage: 257.78,
+  cpuUsage: 12.02046,
+  dbConnections: 5,
+  socketConnections: 0,
+  timestamp: '2025-08-02 12:39:23',
+  level: 'info',
+  message: 'Realtime metrics recorded'
+}
+{
+  service: 'bingo-backend',
+  activeUsers: 6,
+  activeGames: 0,
+  memoryUsage: 260.76,
+  cpuUsage: 10.333739999999999,
+  dbConnections: 5,
+  socketConnections: 0,
+  timestamp: '2025-08-02 12:39:53',
+  level: 'info',
+  message: 'Realtime metrics recorded'
+}
+{
+  service: 'bingo-backend',
+  activeUsers: 6,
+  activeGames: 0,
+  memoryUsage: 257.39,
+  cpuUsage: 9.415336666666667,
+  dbConnections: 5,
+  socketConnections: 0,
+  timestamp: '2025-08-02 12:40:23',
+  level: 'info',
+  message: 'Realtime metrics recorded'
+}
+{
+  service: 'bingo-backend',
+  activeUsers: 6,
+  activeGames: 0,
+  memoryUsage: 259.62,
+  cpuUsage: 10.3108,
+  dbConnections: 5,
+  socketConnections: 0,
+  timestamp: '2025-08-02 12:40:53',
+  level: 'info',
+  message: 'Realtime metrics recorded'
+}
+{
+  service: 'bingo-backend',
+  activeUsers: 6,
+  activeGames: 0,
+  memoryUsage: 259.55,
+  cpuUsage: 13.659003333333333,
+  dbConnections: 5,
+  socketConnections: 0,
+  timestamp: '2025-08-02 12:41:23',
+  level: 'info',
+  message: 'Realtime metrics recorded'
+}
+{
+  service: 'bingo-backend',
+  activeUsers: 6,
+  activeGames: 0,
+  memoryUsage: 263.69,
+  cpuUsage: 11.355913333333334,
+  dbConnections: 5,
+  socketConnections: 0,
+  timestamp: '2025-08-02 12:41:53',
+  level: 'info',
+  message: 'Realtime metrics recorded'
+}
+{
+  service: 'bingo-backend',
+  activeUsers: 9,
+  activeGames: 0,
+  memoryUsage: 260.68,
+  cpuUsage: 10.205156666666666,
+  dbConnections: 5,
+  socketConnections: 0,
+  timestamp: '2025-08-02 12:42:23',
+  level: 'info',
+  message: 'Realtime metrics recorded'
+}
+{
+  service: 'bingo-backend',
+  activeUsers: 11,
+  activeGames: 0,
+  memoryUsage: 262.66,
+  cpuUsage: 11.283316666666666,
+  dbConnections: 5,
+  socketConnections: 0,
+  timestamp: '2025-08-02 12:42:53',
+  level: 'info',
+  message: 'Realtime metrics recorded'
+}
+{
+  service: 'bingo-backend',
+  activeUsers: 11,
+  activeGames: 0,
+  memoryUsage: 262.72,
+  cpuUsage: 13.927923333333334,
+  dbConnections: 5,
+  socketConnections: 0,
+  timestamp: '2025-08-02 12:43:23',
+  level: 'info',
+  message: 'Realtime metrics recorded'
+}
+{
+  service: 'bingo-backend',
+  activeUsers: 11,
+  activeGames: 0,
+  memoryUsage: 262.44,
+  cpuUsage: 13.822566666666667,
+  dbConnections: 5,
+  socketConnections: 0,
+  timestamp: '2025-08-02 12:43:53',
+  level: 'info',
+  message: 'Realtime metrics recorded'
+}
+{
+  service: 'bingo-backend',
+  activeUsers: 11,
+  activeGames: 0,
+  memoryUsage: 262.59,
+  cpuUsage: 13.674339999999999,
+  dbConnections: 5,
+  socketConnections: 0,
+  timestamp: '2025-08-02 12:44:23',
+  level: 'info',
+  message: 'Realtime metrics recorded'
+}
+{
+  service: 'bingo-backend',
+  activeUsers: 11,
+  activeGames: 0,
+  memoryUsage: 262.01,
+  cpuUsage: 13.968820000000001,
+  dbConnections: 5,
+  socketConnections: 0,
+  timestamp: '2025-08-02 12:44:53',
+  level: 'info',
+  message: 'Realtime metrics recorded'
+}
+{
+  service: 'bingo-backend',
+  activeUsers: 11,
+  activeGames: 0,
+  memoryUsage: 262,
+  cpuUsage: 13.926676666666667,
+  dbConnections: 5,
+  socketConnections: 0,
+  timestamp: '2025-08-02 12:45:23',
+  level: 'info',
+  message: 'Realtime metrics recorded'
+}
+{
+  service: 'bingo-backend',
+  activeUsers: 11,
+  activeGames: 0,
+  memoryUsage: 261.58,
+  cpuUsage: 13.922203333333332,
+  dbConnections: 5,
+  socketConnections: 0,
+  timestamp: '2025-08-02 12:45:53',
+  level: 'info',
+  message: 'Realtime metrics recorded'
+}
+{
+  service: 'bingo-backend',
+  activeUsers: 11,
+  activeGames: 0,
+  memoryUsage: 261.31,
+  cpuUsage: 13.559363333333332,
+  dbConnections: 5,
+  socketConnections: 0,
+  timestamp: '2025-08-02 12:46:23',
+  level: 'info',
+  message: 'Realtime metrics recorded'
+}
+{
+  service: 'bingo-backend',
+  activeUsers: 11,
+  activeGames: 0,
+  memoryUsage: 260.49,
+  cpuUsage: 13.88863,
+  dbConnections: 5,
+  socketConnections: 0,
+  timestamp: '2025-08-02 12:46:53',
+  level: 'info',
+  message: 'Realtime metrics recorded'
+}
+{
+  service: 'bingo-backend',
+  activeUsers: 11,
+  activeGames: 0,
+  memoryUsage: 259.11,
+  cpuUsage: 13.627366666666665,
+  dbConnections: 5,
+  socketConnections: 0,
+  timestamp: '2025-08-02 12:47:23',
+  level: 'info',
+  message: 'Realtime metrics recorded'
+}
+{
+  service: 'bingo-backend',
+  activeUsers: 11,
+  activeGames: 0,
+  memoryUsage: 264.14,
+  cpuUsage: 14.066396666666666,
+  dbConnections: 5,
+  socketConnections: 0,
+  timestamp: '2025-08-02 12:47:53',
+  level: 'info',
+  message: 'Realtime metrics recorded'
+}
+{
+  service: 'bingo-backend',
+  activeUsers: 13,
+  activeGames: 0,
+  memoryUsage: 269.86,
+  cpuUsage: 12.767526666666667,
+  dbConnections: 5,
+  socketConnections: 0,
+  timestamp: '2025-08-02 12:48:23',
+  level: 'info',
+  message: 'Realtime metrics recorded'
+}
+{
+  service: 'bingo-backend',
+  activeUsers: 15,
+  activeGames: 0,
+  memoryUsage: 262.66,
+  cpuUsage: 13.319396666666666,
+  dbConnections: 5,
+  socketConnections: 0,
+  timestamp: '2025-08-02 12:48:53',
+  level: 'info',
+  message: 'Realtime metrics recorded'
+}
+{
+  service: 'bingo-backend',
+  activeUsers: 17,
+  activeGames: 0,
+  memoryUsage: 268.45,
+  cpuUsage: 13.56242,
+  dbConnections: 5,
+  socketConnections: 0,
+  timestamp: '2025-08-02 12:49:23',
+  level: 'info',
+  message: 'Realtime metrics recorded'
+}
+{
+  service: 'bingo-backend',
+  activeUsers: 17,
+  activeGames: 0,
+  memoryUsage: 263.2,
+  cpuUsage: 11.091373333333333,
+  dbConnections: 5,
+  socketConnections: 0,
+  timestamp: '2025-08-02 12:49:53',
+  level: 'info',
+  message: 'Realtime metrics recorded'
+}
+{
+  service: 'bingo-backend',
+  activeUsers: 17,
+  activeGames: 0,
+  memoryUsage: 270.92,
+  cpuUsage: 10.45169,
+  dbConnections: 5,
+  socketConnections: 0,
+  timestamp: '2025-08-02 12:50:23',
+  level: 'info',
+  message: 'Realtime metrics recorded'
+}
+{
+  service: 'bingo-backend',
+  activeUsers: 17,
+  activeGames: 0,
+  memoryUsage: 265.41,
+  cpuUsage: 9.67976,
+  dbConnections: 5,
+  socketConnections: 0,
+  timestamp: '2025-08-02 12:50:53',
+  level: 'info',
+  message: 'Realtime metrics recorded'
+}
+{
+  message: '✅ Conexión a PostgreSQL establecida exitosamente',
+  level: 'info',
+  service: 'bingo-backend',
+  timestamp: '2025-08-03 04:37:58'
+}
+{
+  message: '✅ Base de datos PostgreSQL funcionando correctamente',
+  level: 'info',
+  service: 'bingo-backend',
+  timestamp: '2025-08-03 04:37:58'
+}
+{
+  service: 'bingo-backend',
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: '❌ Error de Redis:',
+  stack: 'AggregateError\n' +
+    '    at internalConnectMultiple (node:net:1139:18)\n' +
+    '    at afterConnectMultiple (node:net:1714:7)',
+  timestamp: '2025-08-03 04:37:58'
+}
+{
+  service: 'bingo-backend',
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: '❌ Error al conectar con Redis:',
+  stack: 'AggregateError\n' +
+    '    at internalConnectMultiple (node:net:1139:18)\n' +
+    '    at afterConnectMultiple (node:net:1714:7)',
+  timestamp: '2025-08-03 04:37:58'
+}
+{
+  message: '⚠️ Continuando sin Redis para desarrollo',
+  level: 'warn',
+  service: 'bingo-backend',
+  timestamp: '2025-08-03 04:37:58'
+}
+{
+  message: '✅ Conexión a PostgreSQL establecida exitosamente',
+  level: 'info',
+  service: 'bingo-backend',
+  timestamp: '2025-08-12 14:09:30'
+}
+{
+  message: '✅ Base de datos PostgreSQL funcionando correctamente',
+  level: 'info',
+  service: 'bingo-backend',
+  timestamp: '2025-08-12 14:09:30'
+}
+{
+  service: 'bingo-backend',
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: '❌ Error de Redis:',
+  stack: 'AggregateError\n' +
+    '    at internalConnectMultiple (node:net:1139:18)\n' +
+    '    at afterConnectMultiple (node:net:1714:7)',
+  timestamp: '2025-08-12 14:09:30'
+}
+{
+  service: 'bingo-backend',
+  code: 'ECONNREFUSED',
+  level: 'error',
+  message: '❌ Error al conectar con Redis:',
+  stack: 'AggregateError\n' +
+    '    at internalConnectMultiple (node:net:1139:18)\n' +
+    '    at afterConnectMultiple (node:net:1714:7)',
+  timestamp: '2025-08-12 14:09:30'
+}
+{
+  message: '⚠️ Continuando sin Redis para desarrollo',
+  level: 'warn',
+  service: 'bingo-backend',
+  timestamp: '2025-08-12 14:09:30'
+}
+{
+  service: 'bingo-backend',
+  activeUsers: 1,
+  activeGames: 0,
+  memoryUsage: 305.04,
+  cpuUsage: 10.471583333333333,
+  dbConnections: 5,
+  socketConnections: 0,
+  timestamp: '2025-08-12 14:09:59',
+  level: 'info',
+  message: 'Realtime metrics recorded'
+}
+{
+  service: 'bingo-backend',
+  activeUsers: 1,
+  activeGames: 0,
+  memoryUsage: 305.11,
+  cpuUsage: 0.013153333333333333,
+  dbConnections: 5,
+  socketConnections: 0,
+  timestamp: '2025-08-12 14:10:29',
+  level: 'info',
+  message: 'Realtime metrics recorded'
+}
+{
+  service: 'bingo-backend',
+  activeUsers: 1,
+  activeGames: 0,
+  memoryUsage: 305.17,
+  cpuUsage: 0.00613,
+  dbConnections: 5,
+  socketConnections: 0,
+  timestamp: '2025-08-12 14:10:59',
+  level: 'info',
+  message: 'Realtime metrics recorded'
+}
+{
+  service: 'bingo-backend',
+  activeUsers: 1,
+  activeGames: 0,
+  memoryUsage: 305.2,
+  cpuUsage: 0.007643333333333334,
+  dbConnections: 5,
+  socketConnections: 0,
+  timestamp: '2025-08-12 14:11:29',
+  level: 'info',
+  message: 'Realtime metrics recorded'
+}
+{
+  service: 'bingo-backend',
+  activeUsers: 18,
+  activeGames: 0,
+  memoryUsage: 306.21,
+  cpuUsage: 0.4856433333333333,
+  dbConnections: 5,
+  socketConnections: 0,
+  timestamp: '2025-08-12 14:11:59',
+  level: 'info',
+  message: 'Realtime metrics recorded'
+}
+{
+  service: 'bingo-backend',
+  activeUsers: 19,
+  activeGames: 0,
+  memoryUsage: 307.39,
+  cpuUsage: 0.3283,
+  dbConnections: 5,
+  socketConnections: 0,
+  timestamp: '2025-08-12 14:12:29',
+  level: 'info',
+  message: 'Realtime metrics recorded'
+}
+{
+  service: 'bingo-backend',
+  activeUsers: 19,
+  activeGames: 0,
+  memoryUsage: 307.42,
+  cpuUsage: 0.00806,
+  dbConnections: 5,
+  socketConnections: 0,
+  timestamp: '2025-08-12 14:12:59',
+  level: 'info',
+  message: 'Realtime metrics recorded'
+}
+{
+  service: 'bingo-backend',
+  activeUsers: 19,
+  activeGames: 0,
+  memoryUsage: 307.45,
+  cpuUsage: 0.012283333333333334,
+  dbConnections: 5,
+  socketConnections: 0,
+  timestamp: '2025-08-12 14:13:29',
+  level: 'info',
+  message: 'Realtime metrics recorded'
+}
+{
+  service: 'bingo-backend',
+  activeUsers: 19,
+  activeGames: 0,
+  memoryUsage: 307.48,
+  cpuUsage: 0.019486666666666666,
+  dbConnections: 5,
+  socketConnections: 0,
+  timestamp: '2025-08-12 14:13:59',
+  level: 'info',
+  message: 'Realtime metrics recorded'
+}
+{
+  service: 'bingo-backend',
+  activeUsers: 19,
+  activeGames: 0,
+  memoryUsage: 307.52,
+  cpuUsage: 0.0117,
+  dbConnections: 5,
+  socketConnections: 0,
+  timestamp: '2025-08-12 14:14:29',
+  level: 'info',
+  message: 'Realtime metrics recorded'
+}

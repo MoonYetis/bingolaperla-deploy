@@ -1,0 +1,182 @@
+// Production schema for PostgreSQL
+// Use this file for production deployments
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  username  String   @unique
+  password  String
+  role      UserRole @default(USER)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relaciones con otras tablas
+  gameParticipations GameParticipant[]
+  bingoCards         BingoCard[]
+  transactions       Transaction[]
+
+  @@map("users")
+}
+
+enum UserRole {
+  ADMIN
+  USER
+}
+
+// Modelo para partidas de bingo
+model Game {
+  id          String      @id @default(cuid())
+  title       String
+  description String?
+  maxPlayers  Int         @default(500)
+  cardPrice   Decimal     @default(5.00) @db.Decimal(10, 2)
+  totalPrize  Decimal     @default(0.00) @db.Decimal(10, 2)
+  status      GameStatus  @default(SCHEDULED)
+  
+  // Horarios
+  scheduledAt DateTime
+  startedAt   DateTime?
+  endedAt     DateTime?
+  
+  // Configuración del juego
+  ballsDrawn   Int[]    @default([])
+  currentBall  Int?
+  winningCards String[] @default([])
+  
+  // Timestamps
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  
+  // Relaciones
+  participants GameParticipant[]
+  bingoCards   BingoCard[]
+  
+  @@map("games")
+}
+
+enum GameStatus {
+  SCHEDULED  // Programada
+  OPEN       // Abierta para inscripciones
+  IN_PROGRESS // En curso
+  PAUSED     // Pausada
+  COMPLETED  // Terminada
+  CANCELLED  // Cancelada
+}
+
+// Tabla de unión entre User y Game
+model GameParticipant {
+  id     String @id @default(cuid())
+  userId String
+  gameId String
+  
+  // Información de participación
+  joinedAt    DateTime @default(now())
+  cardsCount  Int      @default(0)
+  totalSpent  Decimal  @default(0.00) @db.Decimal(10, 2)
+  hasWon      Boolean  @default(false)
+  prizeWon    Decimal  @default(0.00) @db.Decimal(10, 2)
+  
+  // Relaciones
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  game Game @relation(fields: [gameId], references: [id], onDelete: Cascade)
+  
+  @@unique([userId, gameId])
+  @@map("game_participants")
+}
+
+// Modelo para cartones de bingo
+model BingoCard {
+  id       String @id @default(cuid())
+  userId   String
+  gameId   String
+  
+  // Identificación del cartón
+  cardNumber Int    // Número secuencial del cartón en la partida
+  isActive   Boolean @default(true)
+  
+  // Estado del cartón
+  markedNumbers Int[]   @default([])
+  isWinner      Boolean @default(false)
+  winningPattern String? // Tipo de patrón ganador (LINE_HORIZONTAL, FULL_CARD, etc.)
+  
+  // Timestamps
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  
+  // Relaciones
+  user    User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+  game    Game         @relation(fields: [gameId], references: [id], onDelete: Cascade)
+  numbers CardNumber[]
+  
+  @@unique([gameId, cardNumber])
+  @@map("bingo_cards")
+}
+
+// Modelo para los números de cada cartón
+model CardNumber {
+  id       String @id @default(cuid())
+  cardId   String
+  
+  // Posición en el cartón (0-24, donde 12 es el centro LIBRE)
+  position Int
+  column   String // B, I, N, G, O
+  number   Int?   // null para la casilla libre del centro
+  
+  // Estado
+  isMarked Boolean @default(false)
+  isFree   Boolean @default(false) // true solo para la casilla central
+  
+  // Relación
+  card BingoCard @relation(fields: [cardId], references: [id], onDelete: Cascade)
+  
+  @@unique([cardId, position])
+  @@map("card_numbers")
+}
+
+// Modelo para transacciones (compra de cartones)
+model Transaction {
+  id     String            @id @default(cuid())
+  userId String
+  gameId String?
+  
+  // Información de la transacción
+  type        TransactionType
+  amount      Decimal         @db.Decimal(10, 2)
+  description String
+  status      TransactionStatus @default(PENDING)
+  
+  // Información de pago
+  paymentMethod String?
+  paymentId     String? // ID del pago en la pasarela
+  
+  // Timestamps
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  
+  // Relación
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  @@map("transactions")
+}
+
+enum TransactionType {
+  CARD_PURCHASE  // Compra de cartones
+  PRIZE_PAYOUT   // Pago de premio
+  REFUND         // Reembolso
+}
+
+enum TransactionStatus {
+  PENDING    // Pendiente
+  COMPLETED  // Completada
+  FAILED     // Fallida
+  CANCELLED  // Cancelada
+}

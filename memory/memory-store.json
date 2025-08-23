@@ -1,0 +1,10 @@
+{
+  "default": [
+    {
+      "key": "architect_requirements",
+      "value": "Openpay.pe integration with Perlas system for automated Bingo La Perla deposits. Core components: Payment Gateway API, Deposit Processor, Account Manager, Notification Service. External deps: Openpay.pe REST API, Perlas database system. Security: OAuth2/JWT, encrypted API keys, PCI DSS compliance.",
+      "namespace": "default",
+      "timestamp": 1754837837317
+    }
+  ]
+}

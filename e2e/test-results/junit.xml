@@ -1,0 +1,45 @@
+<testsuites id="" name="" tests="1" failures="0" skipped="0" errors="0" time="19.000610999999996">
+<testsuite name="debug-confirm-purchase.spec.ts" timestamp="2025-08-12T17:28:12.485Z" hostname="chromium" tests="1" failures="0" skipped="0" time="14.381" errors="0">
+<testcase name="Debug Confirm Purchase › Debuggear botón &quot;Confirmar Compra&quot; que no responde" classname="debug-confirm-purchase.spec.ts" time="14.381">
+<system-out>
+<![CDATA[🔍 DEBUG BOTÓN CONFIRMAR COMPRA
+==============================
+1. 🔐 Navegando al modal de confirmación...
+📡 API: 200 GET http://localhost:5173/api/games
+📡 API: 200 POST http://localhost:5173/api/auth/login
+📡 API: 200 GET http://localhost:5173/api/games
+📡 API: 200 GET http://localhost:5173/api/wallet/balance
+📡 API: 200 GET http://localhost:5173/api/wallet/balance
+📡 API: 200 GET http://localhost:5173/api/wallet/balance
+📡 API: 200 GET http://localhost:5173/api/wallet/balance
+📡 API: 200 GET http://localhost:5173/api/wallet/balance
+📡 API: 200 GET http://localhost:5173/api/game-purchase/validate/cme7qx0t2000011qsgrp17a6t/1
+✅ Llegamos a la pantalla de confirmación
+2. 🔍 Estado antes del click en "Confirmar Compra"...
+   Botón visible: true
+   Botón habilitado: true
+   Texto del botón: "Confirmar Compra"
+3. 🖱️  Preparando para click en "Confirmar Compra"...
+4. 🎯 HACIENDO CLICK EN "CONFIRMAR COMPRA"...
+✅ Click ejecutado exitosamente
+📡 API: 200 POST http://localhost:5173/api/game-purchase/cards
+   1s: Estado del modal = unknown
+   🔄 ¡Cambio detectado! Modal cambió a: unknown
+5. 📊 Análisis de resultados...
+   Estado final del modal: unknown
+📜 Errores de JavaScript:
+   ✅ No hay errores de JavaScript
+📡 Llamadas de red durante el click:
+   1. 200 POST http://localhost:5173/api/game-purchase/cards
+
+🎯 CONCLUSIÓN:
+
+📋 Para debugging adicional:
+   - Ver screenshots: before-confirm-click.png y after-confirm-click.png
+   - Revisar logs de red arriba
+   - Verificar errores de JavaScript arriba
+]]>
+</system-out>
+</testcase>
+</testsuite>
+</testsuites>

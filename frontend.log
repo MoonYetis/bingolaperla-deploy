@@ -1,0 +1,35 @@
+
+> bingo-la-perla-frontend@1.0.0 dev
+> vite
+
+
+  VITE v5.4.19  ready in 424 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: http://192.168.10.137:5173/
+2:08:12 PM [vite] http proxy error: /api/games
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1139:18)
+    at afterConnectMultiple (node:net:1714:7)
+2:08:14 PM [vite] http proxy error: /api/auth/login
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1139:18)
+    at afterConnectMultiple (node:net:1714:7)
+2:08:17 PM [vite] http proxy error: /api/games
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1139:18)
+    at afterConnectMultiple (node:net:1714:7)
+2:08:17 PM [vite] http proxy error: /api/wallet/balance
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1139:18)
+    at afterConnectMultiple (node:net:1714:7)
+2:08:17 PM [vite] http proxy error: /api/wallet/balance
+AggregateError [ECONNREFUSED]: 
+    at internalConnectMultiple (node:net:1139:18)
+    at afterConnectMultiple (node:net:1714:7)
+2:39:10 PM [vite] page reload src/services/bingoCardApi.ts
+2:39:29 PM [vite] page reload src/services/bingoCardApi.ts
+2:39:59 PM [vite] hmr update /src/components/game/MyGameCards.tsx, /src/index.css
+2:40:19 PM [vite] hmr update /src/components/game/MyGameCards.tsx, /src/index.css
+2:40:34 PM [vite] hmr update /src/components/game/MyGameCards.tsx, /src/index.css
+2:40:51 PM [vite] hmr update /src/components/game/MyGameCards.tsx, /src/index.css

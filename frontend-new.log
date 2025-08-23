@@ -1,0 +1,36 @@
+
+> bingo-la-perla-frontend@1.0.0 dev
+> vite
+
+
+  VITE v5.4.19  ready in 468 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: http://192.168.10.137:5173/
+2:52:14 PM [vite] hmr update /src/pages/AdminPage.tsx, /src/index.css
+2:52:43 PM [vite] hmr update /src/pages/AdminPage.tsx, /src/index.css
+2:53:22 PM [vite] hmr update /src/pages/AdminPage.tsx, /src/index.css
+2:53:43 PM [vite] hmr update /src/pages/AdminPage.tsx, /src/index.css
+2:54:04 PM [vite] hmr update /src/pages/AdminPage.tsx, /src/index.css
+2:54:21 PM [vite] hmr update /src/pages/AdminPage.tsx, /src/index.css
+2:54:36 PM [vite] hmr update /src/pages/AdminPage.tsx, /src/index.css
+2:54:51 PM [vite] hmr update /src/pages/AdminPage.tsx, /src/index.css
+2:55:07 PM [vite] hmr update /src/pages/AdminPage.tsx, /src/index.css
+2:55:25 PM [vite] hmr update /src/pages/AdminPage.tsx, /src/index.css
+2:55:46 PM [vite] hmr update /src/pages/AdminPage.tsx, /src/index.css
+2:56:21 PM [vite] page reload src/pages/GamePage.tsx
+2:56:34 PM [vite] page reload src/pages/GamePage.tsx
+2:56:57 PM [vite] page reload src/pages/GamePage.tsx
+2:57:15 PM [vite] page reload src/pages/GamePage.tsx
+2:57:48 PM [vite] page reload src/pages/GamePage.tsx
+2:58:08 PM [vite] page reload src/pages/GamePage.tsx
+2:58:25 PM [vite] page reload src/pages/GamePage.tsx
+3:11:34 PM [vite] hmr update /src/components/game/CardPurchaseModal.tsx, /src/index.css
+3:12:06 PM [vite] page reload src/components/bingo/BingoCard.tsx
+3:12:25 PM [vite] page reload src/components/bingo/BingoCard.tsx
+3:12:46 PM [vite] page reload src/components/bingo/BingoCard.tsx
+3:13:51 PM [vite] page reload src/components/bingo/BingoCard.tsx
+3:14:34 PM [vite] page reload src/pages/GamePage.tsx
+3:14:50 PM [vite] page reload src/components/bingo/BingoCard.tsx
+3:15:09 PM [vite] page reload src/components/bingo/BingoCard.tsx
+3:16:02 PM [vite] page reload src/pages/GamePage.tsx

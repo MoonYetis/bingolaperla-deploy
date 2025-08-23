@@ -1,0 +1,11 @@
+
+> bingo-la-perla-frontend@1.0.0 dev
+> vite
+
+
+  VITE v5.4.19  ready in 412 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: http://192.168.100.30:5173/
+7:34:56 AM [vite] hmr update /src/pages/LoginPage.tsx, /src/index.css
+7:34:56 AM [vite] hmr update /src/pages/LoginPage.tsx, /src/index.css
