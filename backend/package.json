@@ -46,7 +46,7 @@
     "demo:update-pearls": "ts-node scripts/update-demo-pearls.ts"
   },
   "dependencies": {
-    "@prisma/client": "^5.7.1",
+    "@prisma/client": "^6.14.0",
     "@types/socket.io": "^3.0.1",
     "axios": "^1.11.0",
     "bcryptjs": "^2.4.3",
