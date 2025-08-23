@@ -1,7 +1,7 @@
 # 🎲 Bingo La Perla - Plataforma Completa de Bingo Online
 
-[![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](https://github.com/ruvnet/bingo-la-perla)
-[![Status](https://img.shields.io/badge/status-Production%20Ready-green.svg)](https://github.com/ruvnet/bingo-la-perla)
+[![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](https://github.com/MoonYetis/bingolaperla-deploy)
+[![Status](https://img.shields.io/badge/status-Production%20Ready-green.svg)](https://github.com/MoonYetis/bingolaperla-deploy)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Node](https://img.shields.io/badge/node-%3E%3D18.0.0-brightgreen.svg)](https://nodejs.org/)
 [![React](https://img.shields.io/badge/react-18.2.0-blue.svg)](https://reactjs.org/)
@@ -80,8 +80,8 @@ Git
 
 ```bash
 # 1. Clonar repositorio
-git clone <repository-url>
-cd Bingo-deploy
+git clone https://github.com/MoonYetis/bingolaperla-deploy.git
+cd bingolaperla-deploy
 
 # 2. Instalar dependencias
 npm run install:all
